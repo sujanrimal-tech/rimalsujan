@@ -1,18 +1,12 @@
-/* Font setup */
+/* FONT FAMILY */
 body {
   font-family: 'Outfit', sans-serif;
-  background-color: #0f172a; /* Tailwind bg-gray-950 */
-  color: white;
-  margin: 0;
-  padding: 0;
 }
 
-/* Glow text for general use */
+/* GLOW EFFECT FOR NAME */
 .glow {
-  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
 }
-
-/* Smooth glow transition on hover */
 .transition-glow {
   transition: text-shadow 0.3s ease;
 }
@@ -20,194 +14,41 @@ body {
   text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
 }
 
-/* Floating animation */
+/* FLOATING CTA BUTTON */
 @keyframes float {
   0% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
 }
-
-/* Fade-in animations */
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-.animate-fade-in {
-  animation: fade-in 1s ease forwards;
-  opacity: 0;
-}
-
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.animate-fade-in-up {
-  animation: fade-in-up 1s ease forwards;
-  opacity: 0;
-}
-
-/* Floating button animation */
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
 
-/* Enhanced lightning flicker animation */
-@keyframes lightning-flicker {
-  0%, 100% {
-    text-shadow:
-      0 0 10px #0ff,
-      0 0 25px #0ff,
-      0 0 40px #0ff,
-      0 0 55px #0ff,
-      0 0 70px #0ff,
-      0 0 90px #33ffff,
-      0 0 110px #00ffff;
-    color: #0ff;
-  }
-  10%, 30%, 50%, 70% {
-    text-shadow:
-      0 0 2px #66ffff,
-      0 0 5px #33ffff,
-      0 0 10px #00ffff,
-      0 0 15px #0ff,
-      0 0 20px #66ffff;
-    color: #66ffff;
-  }
-  20%, 40%, 60%, 80% {
-    text-shadow:
-      0 0 12px #00ffff,
-      0 0 30px #33ffff,
-      0 0 45px #0ff,
-      0 0 60px #66ffff,
-      0 0 75px #00ffff;
-    color: #00ffff;
-  }
+/* LIGHTNING BACKGROUND EFFECT */
+#lightning-background {
+  background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.05) 0%, transparent 70%);
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-/* Small electric sparks flickering */
-@keyframes electric-spark {
+.lightning-flash {
+  position: absolute;
+  width: 2px;
+  height: 100vh;
+  background: linear-gradient(to bottom, #00ffff, transparent);
+  opacity: 0.2;
+  animation: flash 2s infinite ease-in-out;
+  z-index: 1;
+}
+
+@keyframes flash {
   0%, 100% {
-    opacity: 0.7;
-    transform: translateX(0) translateY(0) scale(1);
+    opacity: 0;
+    transform: translateY(-100vh);
   }
   50% {
-    opacity: 1;
-    transform: translateX(3px) translateY(-3px) scale(1.2);
+    opacity: 0.8;
+    transform: translateY(0);
   }
-}
-
-/* Apply lightning effect to name */
-.lightning-glow {
-  animation: lightning-flicker 2s infinite alternate ease-in-out;
-  cursor: pointer;
-  position: relative;
-  color: #0ff;
-  font-weight: 800;
-  user-select: none;
-}
-
-/* Sparks around the text using pseudo-elements */
-.lightning-glow::before,
-.lightning-glow::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 15px;
-  height: 15px;
-  background: #0ff;
-  border-radius: 50%;
-  filter: drop-shadow(0 0 5px #0ff);
-  opacity: 0.7;
-  animation: electric-spark 1.5s infinite alternate ease-in-out;
-  pointer-events: none;
-  mix-blend-mode: screen;
-}
-
-.lightning-glow::before {
-  transform-origin: center;
-  animation-delay: 0s;
-  transform: translate(-50%, -50%) translateX(-20px) translateY(-10px);
-}
-
-.lightning-glow::after {
-  animation-delay: 0.7s;
-  transform-origin: center;
-  transform: translate(-50%, -50%) translateX(25px) translateY(5px);
-}
-
-/* Navbar styling */
-nav {
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #1e293b; /* Tailwind gray-800 */
-  backdrop-filter: blur(10px);
-  background-color: rgba(15, 23, 42, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 50;
-}
-
-nav ul {
-  display: flex;
-  gap: 1.5rem;
-  font-size: 0.875rem; /* text-sm */
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #06b6d4; /* cyan-400 */
-}
-
-/* Footer styling */
-footer {
-  padding: 1rem;
-  border-top: 1px solid #1e293b;
-  text-align: center;
-  font-size: 0.875rem;
-  color: #94a3b8; /* gray-400 */
-}
-
-/* Utility */
-.text-center {
-  text-align: center;
-}
-
-/* Responsive max width */
-.max-w-2xl {
-  max-width: 42rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Button style */
-.btn-primary {
-  padding: 0.75rem 2rem;
-  background: linear-gradient(to right, #06b6d4, #3b82f6);
-  color: black;
-  font-weight: 700;
-  border-radius: 9999px;
-  text-decoration: none;
-  box-shadow: 0 4px 6px rgba(6, 182, 212, 0.5);
-  transition: background 0.3s ease;
-  display: inline-block;
-  user-select: none;
-}
-
-.btn-primary:hover {
-  background: linear-gradient(to right, #0ea5e9, #2563eb);
-  box-shadow: 0 6px 8px rgba(14, 165, 233, 0.7);
 }
