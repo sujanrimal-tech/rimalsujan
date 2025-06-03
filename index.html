@@ -1,75 +1,166 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Daniel Sparks | Electrical Engineer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body class="bg-gray-950 text-white relative overflow-hidden">
-    <!-- Lightning background container -->
-    <div class="absolute inset-0 z-0 pointer-events-none" id="lightning-background"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daniel Sparks | Electrical Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .glow {
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
+    }
+    .transition-glow {
+      transition: text-shadow 0.3s ease;
+    }
+    .transition-glow:hover {
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeIn 1.2s ease forwards;
+    }
+    .scroll-section {
+      padding: 4rem 1rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-white">
+  <!-- Navbar -->
+  <nav class="p-4 flex justify-between items-center border-b border-gray-800 backdrop-blur-md bg-opacity-10 sticky top-0 z-50">
+    <h1 class="text-2xl font-extrabold text-cyan-400 transition-glow cursor-pointer" onclick="location.href='#hero'">⚡ Daniel Sparks</h1>
+    <ul class="flex gap-6 text-sm">
+      <li><a href="#hero" class="hover:text-cyan-400 transition">Home</a></li>
+      <li><a href="#about" class="hover:text-cyan-400 transition">About</a></li>
+      <li><a href="#skills" class="hover:text-cyan-400 transition">Skills</a></li>
+      <li><a href="#projects" class="hover:text-cyan-400 transition">Projects</a></li>
+      <li><a href="#survey" class="hover:text-cyan-400 transition">Survey</a></li>
+      <li><a href="#blog" class="hover:text-cyan-400 transition">Blog</a></li>
+      <li><a href="#contact" class="hover:text-cyan-400 transition">Contact</a></li>
+    </ul>
+  </nav>
 
-    <!-- Navbar -->
-    <nav class="p-4 flex justify-between items-center border-b border-gray-800 backdrop-blur-md bg-opacity-10 sticky top-0 z-50">
-      <h1 class="text-2xl font-extrabold text-cyan-400 transition-glow cursor-pointer" onclick="location.href='index.html'">⚡ Daniel Sparks</h1>
-      <ul class="flex gap-6 text-sm">
-        <li><a href="index.html" class="hover:text-cyan-400 transition">Home</a></li>
-        <li><a href="about.html" class="hover:text-cyan-400 transition">About</a></li>
-        <li><a href="skills.html" class="hover:text-cyan-400 transition">Skills</a></li>
-        <li><a href="projects.html" class="hover:text-cyan-400 transition">Projects</a></li>
-        <li><a href="contact.html" class="hover:text-cyan-400 transition">Contact</a></li>
-      </ul>
-    </nav>
+  <!-- Background Animation -->
+  <div class="absolute inset-0 -z-10 bg-black bg-opacity-60">
+    <video autoplay muted loop class="w-full h-full object-cover opacity-20">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-thunderstorm-with-lightning-strikes-1546-large.mp4" type="video/mp4" />
+    </video>
+  </div>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col justify-center items-center text-center px-4 animate-fade-in relative overflow-hidden z-10">
-      <div class="absolute -top-20 -left-20 w-96 h-96 bg-cyan-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-      <div class="absolute bottom-0 right-0 w-64 h-64 bg-indigo-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-      <h2 class="text-4xl sm:text-6xl font-extrabold mb-4 animate-fade-in-up glow">Hi, I'm <span class="text-cyan-400">Daniel Sparks</span></h2>
-      <p class="text-lg text-gray-400 max-w-2xl mb-6 animate-fade-in-up delay-200">A professional electrical engineer with over 8 years of experience in smart grid technology, renewable energy systems, industrial automation, and AI-powered electrical diagnostics. Passionate about building the future of sustainable power and intelligent systems.</p>
-      <a href="projects.html" class="px-8 py-3 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-black font-bold rounded-full text-lg transition shadow-md animate-float">View My Projects</a>
-    </section>
+  <!-- Hero Section -->
+  <section id="hero" class="scroll-section text-center">
+    <h2 class="text-5xl sm:text-7xl font-extrabold mb-6 glow animate-float">Hi, I'm <span class="text-cyan-400">Daniel Sparks</span></h2>
+    <p class="text-lg text-gray-400 max-w-3xl mx-auto mb-8 animate-fade-in-up">Electrical engineer with 8+ years in smart grids, renewable energy, industrial automation, and AI-powered diagnostics. Building sustainable power solutions for tomorrow.</p>
+    <a href="#projects" class="px-10 py-4 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-black font-bold rounded-full text-xl transition shadow-md animate-float">See My Projects</a>
+  </section>
 
-    <!-- Footer -->
-    <footer class="p-4 border-t border-gray-800 text-center text-sm text-gray-500">
-      &copy; 2025 Daniel Sparks | Electrical Engineer | All rights reserved.
-    </footer>
+  <!-- About Section -->
+  <section id="about" class="scroll-section">
+    <h3 class="text-4xl font-bold text-cyan-400 mb-6 text-center">About Me</h3>
+    <p class="max-w-4xl mx-auto text-gray-300 text-lg leading-relaxed text-center">I'm passionate about energy and innovation. My focus is creating cleaner, smarter energy systems through design, automation, and AI. I mentor, lead, and share in the open-source world too.</p>
+  </section>
 
-    <!-- Animation Script -->
-    <script>
-      document.querySelectorAll(".animate-fade-in, .animate-fade-in-up").forEach((el, i) => {
-        el.style.opacity = 0;
-        el.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-          el.style.transition = "opacity 1s ease-out, transform 1s ease-out";
-          el.style.opacity = 1;
-          el.style.transform = 'translateY(0)';
-        }, 200 + (i * 100));
-      });
+  <!-- Skills Section -->
+  <section id="skills" class="scroll-section">
+    <h3 class="text-4xl font-bold text-cyan-400 mb-10 text-center">Skills</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h4 class="text-xl font-semibold mb-2">Smart Grid Systems</h4>
+        <p class="text-gray-400">Advanced smart grid deployment and system diagnostics.</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h4 class="text-xl font-semibold mb-2">Industrial Automation</h4>
+        <p class="text-gray-400">Programming and optimizing factory systems using PLC/SCADA.</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h4 class="text-xl font-semibold mb-2">Renewable Energy</h4>
+        <p class="text-gray-400">Design and install renewable energy systems, mainly solar/wind.</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h4 class="text-xl font-semibold mb-2">AI in Diagnostics</h4>
+        <p class="text-gray-400">Predictive maintenance using machine learning in diagnostics.</p>
+      </div>
+    </div>
+  </section>
 
-      // Lightning effect
-      const lightningContainer = document.getElementById('lightning-background');
+  <!-- Projects Section -->
+  <section id="projects" class="scroll-section">
+    <h3 class="text-4xl font-bold text-cyan-400 mb-10 text-center">Projects</h3>
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h4 class="text-xl font-semibold">Smart Microgrid</h4>
+        <p class="text-gray-400">STM32 + Solar + IoT grid for remote areas.</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h4 class="text-xl font-semibold">Factory Automation</h4>
+        <p class="text-gray-400">Siemens SCADA system revamped. 20% gain.</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h4 class="text-xl font-semibold">AI Battery Optimization</h4>
+        <p class="text-gray-400">Energy storage optimized via MATLAB + AI.</p>
+      </div>
+    </div>
+  </section>
 
-      function createFlash() {
-        const flash = document.createElement('div');
-        flash.classList.add('lightning-flash');
-        flash.style.left = Math.random() * 100 + 'vw';
-        flash.style.animationDelay = Math.random() * 5 + 's';
-        lightningContainer.appendChild(flash);
-        setTimeout(() => lightningContainer.removeChild(flash), 4000);
-      }
+  <!-- Survey Section -->
+  <section id="survey" class="scroll-section">
+    <h3 class="text-4xl font-bold text-cyan-400 mb-8 text-center">Energy Usage Survey</h3>
+    <form class="max-w-xl mx-auto bg-gray-800 p-6 rounded-xl space-y-4">
+      <input type="text" placeholder="Your Name" class="w-full px-4 py-2 bg-gray-700 rounded-md text-white" />
+      <input type="email" placeholder="Email" class="w-full px-4 py-2 bg-gray-700 rounded-md text-white" />
+      <select class="w-full px-4 py-2 bg-gray-700 rounded-md text-white">
+        <option>Type of Energy Use</option>
+        <option>Residential</option>
+        <option>Commercial</option>
+        <option>Industrial</option>
+      </select>
+      <input type="number" placeholder="Monthly Usage (kWh)" class="w-full px-4 py-2 bg-gray-700 rounded-md text-white" />
+      <textarea placeholder="Any Comments" class="w-full px-4 py-2 bg-gray-700 rounded-md text-white"></textarea>
+      <button class="px-6 py-2 bg-cyan-500 text-black font-semibold rounded-md hover:bg-cyan-400">Submit</button>
+    </form>
+  </section>
 
-      for (let i = 0; i < 10; i++) {
-        setTimeout(createFlash, i * 500);
-      }
+  <!-- Blog Section -->
+  <section id="blog" class="scroll-section">
+    <h3 class="text-4xl font-bold text-cyan-400 mb-8 text-center">Latest Blog Posts</h3>
+    <div class="grid gap-8 max-w-5xl mx-auto md:grid-cols-2">
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h4 class="text-xl font-bold mb-2">AI in Power Systems</h4>
+        <p class="text-gray-400">How AI is reshaping power grid diagnostics and fault prediction.</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h4 class="text-xl font-bold mb-2">Smart Grid Trends in 2025</h4>
+        <p class="text-gray-400">Tech and trends transforming modern energy distribution.</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h4 class="text-xl font-bold mb-2">Solar-Powered IoT Devices</h4>
+        <p class="text-gray-400">Using IoT + renewable energy in real-world applications.</p>
+      </div>
+    </div>
+  </section>
 
-      setInterval(createFlash, 2000);
-    </script>
-  </body>
+  <!-- Contact Section -->
+  <section id="contact" class="scroll-section text-center">
+    <h3 class="text-4xl font-bold text-cyan-400 mb-6">Let's Connect</h3>
+    <p class="text-gray-400 mb-8">Interested in collaborating or learning more? Reach out anytime!</p>
+    <a href="mailto:daniel@example.com" class="px-10 py-4 bg-cyan-500 text-black font-bold rounded-full hover:bg-cyan-400">Email Me</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-gray-500 text-sm">&copy; 2025 Daniel Sparks | All rights reserved.</footer>
+</body>
 </html>
