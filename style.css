@@ -52,3 +52,22 @@ body {
     transform: translateY(0);
   }
 }
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+#cardInner {
+  transform: rotateY(0deg);
+}
+
+#cardInner.flipped {
+  transform: rotateY(180deg);
+}
