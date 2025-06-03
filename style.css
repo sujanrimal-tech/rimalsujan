@@ -1,23 +1,31 @@
-/* CSS Variables for easier theme management */
+/* CSS Variables for the Arcane Theme */
 :root {
-    --primary-color: #2c3e50; /* Dark Slate Gray */
-    --accent-color: #3498db; /* Professional Blue */
-    --background-light: #f8f9fa; /* Very Light Gray */
-    --background-alt: #e9ecef; /* Slightly Darker Light Gray */
-    --text-primary: #343a40; /* Dark Charcoal */
-    --border-color: #dee2e6; /* Light Gray */
+    --color-primary-dark: #1a0f33; /* Deep Midnight Purple */
+    --color-secondary-violet: #4a2e91; /* Rich Violet */
+    --color-accent-teal: #64f4ac; /* Glowing Teal/Green */
+    --color-accent-gold: #e6b800; /* Deep Gold */
+    --color-text-light: #ecf0f1; /* Almost White */
+    --color-text-accent: #64f4ac; /* Matching Glow */
+    --color-border: #6a4eaa; /* Violet Border */
+    --color-card-bg: rgba(44, 30, 83, 0.8); /* Slightly transparent dark violet */
 
-    --font-heading: 'Montserrat', sans-serif;
-    --font-body: 'Roboto', sans-serif;
+    --font-heading: 'Cinzel Decorative', cursive;
+    --font-body: 'Roboto Condensed', sans-serif;
 
     --spacing-unit: 1rem; /* 16px */
     --spacing-md: calc(var(--spacing-unit) * 1.5); /* 24px */
     --spacing-lg: calc(var(--spacing-unit) * 2.5); /* 40px */
     --spacing-xl: calc(var(--spacing-unit) * 4); /* 64px */
 
-    --container-max-width: 1100px;
-    --border-radius: 8px;
-    --box-shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --container-max-width: 1200px;
+    --border-radius-soft: 8px;
+    --border-radius-hard: 4px;
+
+    /* Glow Effect Variables */
+    --glow-color: var(--color-accent-teal);
+    --glow-intensity-soft: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color);
+    --glow-intensity-medium: 0 0 8px var(--glow-color), 0 0 15px var(--glow-color), 0 0 25px var(--glow-color);
+    --glow-intensity-strong: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color), 0 0 40px var(--glow-color), 0 0 80px var(--glow-color);
 }
 
 /* Basic Reset and Box-sizing */
@@ -29,137 +37,206 @@
 
 body {
     font-family: var(--font-body);
-    line-height: 1.7; /* Improved readability */
-    color: var(--text-primary);
-    background-color: var(--background-light);
+    line-height: 1.8; /* Increased for readability */
+    color: var(--color-text-light);
+    background: var(--color-primary-dark); /* Base dark color */
+    /* Adding a complex gradient background */
+    background-image: radial-gradient(at 50% 0%, var(--color-secondary-violet) 0%, transparent 60%),
+                      radial-gradient(at 0% 100%, var(--color-secondary-violet) 0%, transparent 60%),
+                      linear-gradient(to bottom right, var(--color-primary-dark), #0b071a); /* Fills remaining */
+
+    background-attachment: fixed; /* Optional: creates a subtle parallax feel */
     scroll-behavior: smooth;
-    overflow-x: hidden; /* Prevent horizontal scroll on small screens */
+    overflow-x: hidden;
 }
 
 .container {
     max-width: var(--container-max-width);
     margin: 0 auto;
-    padding: 0 var(--spacing-unit); /* Responsive padding */
+    padding: 0 var(--spacing-unit);
 }
 
 a {
-    color: var(--accent-color);
+    color: var(--color-accent-teal);
     text-decoration: none;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 a:hover {
-    color: #2980b9; /* Darker accent on hover */
-    text-decoration: underline;
+    color: var(--color-text-accent);
+    text-shadow: var(--glow-intensity-soft);
 }
 
+/* Glowing Text Effect */
+.glowing-text {
+    color: var(--color-text-accent);
+    text-shadow: var(--glow-intensity-soft);
+    /* Optional: Add a subtle animation */
+    /* animation: pulse-glow 2s infinite alternate; */
+}
+
+
+/* Animations */
+@keyframes pulse-glow {
+    0% { text-shadow: var(--glow-intensity-soft); }
+    100% { text-shadow: var(--glow-intensity-medium); }
+}
+
+@keyframes subtle-border-glow {
+    0% { box-shadow: inset 0 0 3px var(--glow-color), 0 0 3px var(--glow-color); }
+    100% { box-shadow: inset 0 0 6px var(--glow-color), 0 0 6px var(--glow-color); }
+}
+
+@keyframes pulse-button {
+    0% { transform: scale(1); box-shadow: var(--glow-intensity-medium); }
+    50% { transform: scale(1.02); box-shadow: var(--glow-intensity-strong); }
+    100% { transform: scale(1); box-shadow: var(--glow-intensity-medium); }
+}
+
+
 /* Header & Navigation */
-.site-header {
-    background-color: var(--primary-color);
-    color: #fff;
+.arcane-header {
+    background: rgba(26, 15, 51, 0.9); /* Slightly transparent dark purple */
     padding: var(--spacing-unit) 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px); /* Optional: blur content behind it */
+    border-bottom: 2px solid var(--color-border);
 }
 
-.site-header .container {
+.arcane-header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    flex-wrap: wrap;
 }
 
-.site-title {
+.arcane-title {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
+    color: var(--color-accent-gold); /* Gold title */
+    text-shadow: 0 0 5px var(--color-accent-gold);
     margin: 0;
 }
 
-.site-nav ul {
+.arcane-nav ul {
     list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
 }
 
-.site-nav ul li {
+.arcane-nav ul li {
     margin-left: var(--spacing-md);
 }
 
-.site-nav ul li:first-child {
+.arcane-nav ul li:first-child {
      margin-left: 0;
 }
 
-.site-nav ul li a {
-    color: #fff;
+.nav-link {
+    color: var(--color-text-light);
     text-decoration: none;
-    font-weight: 500;
-    padding: 5px 0; /* Add padding for hover area */
-    border-bottom: 2px solid transparent; /* For hover effect */
-    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    font-weight: 400;
+    font-size: 1.1rem;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease, text-shadow 0.3s ease;
+    font-family: var(--font-body);
 }
 
-.site-nav ul li a:hover {
-    color: var(--accent-color);
-    border-bottom-color: var(--accent-color);
-    text-decoration: none; /* Remove default underline on hover */
+.nav-link:hover {
+    color: var(--color-accent-teal);
+    border-bottom-color: var(--color-accent-teal);
+    text-shadow: var(--glow-intensity-soft);
 }
 
 /* Hero Section */
-.hero-section {
-    background: linear-gradient(to right, var(--primary-color), #3b5b7c); /* Subtle gradient */
-    color: #fff;
+.hero-sanctum {
     text-align: center;
-    padding: var(--spacing-xl) var(--spacing-unit); /* Generous padding */
+    padding: var(--spacing-xl) var(--spacing-unit);
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 400px; /* Minimum height */
+    min-height: 500px; /* More substantial hero */
+    position: relative; /* For potential pseudo-elements */
+    z-index: 1; /* Ensure text is above background effects */
 }
 
-.hero-content {
-    max-width: 800px;
+.hero-sanctum::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle at center, rgba(100, 244, 172, 0.2) 0%, transparent 70%); /* Subtle glow behind hero */
+    transform: translateX(-50%);
+    z-index: -1;
 }
 
-.profile-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
+
+.sanctum-illustration {
+    max-width: 250px;
+    height: auto;
     margin-bottom: var(--spacing-lg);
-    border: 5px solid rgba(255, 255, 255, 0.5); /* Semi-transparent border */
-    box-shadow: var(--box-shadow-subtle);
+    border-radius: 50%;
+    border: 3px solid var(--color-accent-teal);
+    box-shadow: var(--glow-intensity-medium);
 }
 
 .hero-title {
     font-family: var(--font-heading);
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: var(--spacing-md);
     line-height: 1.2;
+    color: var(--color-accent-gold);
+    text-shadow: 0 0 10px var(--color-accent-gold), 0 0 20px rgba(230, 184, 0, 0.5);
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
-    font-weight: 400;
+    font-size: 1.5rem;
+    font-weight: 300;
     margin-bottom: var(--spacing-lg);
-    opacity: 0.9; /* Slightly less prominent */
+    color: var(--color-text-light);
 }
+
 
 /* Section Styling */
 .section {
-    padding: var(--spacing-xl) 0; /* Consistent vertical padding */
+    padding: var(--spacing-xl) 0;
+    position: relative;
 }
 
-/* Alternating background for sections */
+
+/* Alternating background (can use gradients or images) */
 .section:nth-of-type(odd) {
-     background-color: var(--background-light);
+     background: rgba(34, 24, 62, 0.7); /* Darker section bg */
+     box-shadow: inset 0 5px 10px rgba(0,0,0,0.3), inset 0 -5px 10px rgba(0,0,0,0.3);
 }
 .section:nth-of-type(even) {
-     background-color: var(--background-alt);
+     background: rgba(44, 30, 83, 0.7); /* Lighter section bg */
+      box-shadow: inset 0 5px 10px rgba(0,0,0,0.3), inset 0 -5px 10px rgba(0,0,0,0.3);
+}
+
+/* Use pseudo-elements for section separators */
+.section::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 10px; /* Height of the separator line */
+    background: linear-gradient(to right, transparent, var(--color-border), transparent);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}
+.section:last-child::after {
+    display: none; /* No separator after the last section before footer */
 }
 
 
@@ -167,290 +244,392 @@ a:hover {
     font-family: var(--font-heading);
     text-align: center;
     margin-bottom: var(--spacing-xl);
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    position: relative; /* For potential pseudo-element underline */
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-accent-gold);
+    text-shadow: 0 0 8px var(--color-accent-gold), 0 0 15px rgba(230, 184, 0, 0.5);
+    position: relative;
+    z-index: 2;
 }
 
-/* Optional: Simple underline for titles */
-.section-title::after {
+/* Optional: More elaborate pseudo-element separator for titles */
+.section-title::before {
     content: '';
     display: block;
-    width: 60px;
+    width: 80px;
     height: 4px;
-    background-color: var(--accent-color);
-    margin: var(--spacing-md) auto 0 auto; /* Center the underline */
+    background: linear-gradient(to right, transparent, var(--color-accent-teal), transparent);
+    margin: var(--spacing-md) auto 0 auto;
     border-radius: 2px;
+    box-shadow: var(--glow-intensity-soft);
 }
 
 
-/* Buttons */
-.cta-button, .secondary-button {
+/* Buttons - Arcane Style */
+.arcane-button {
     display: inline-block;
     padding: var(--spacing-md) var(--spacing-lg);
     text-decoration: none;
-    border-radius: var(--border-radius);
-    font-size: 1.1rem;
-    font-weight: 500;
+    border-radius: var(--border-radius-hard);
+    font-size: 1.2rem;
+    font-weight: 700;
     transition: all 0.3s ease;
-    border: none; /* Remove default button border if used on buttons */
+    border: 2px solid var(--glow-color); /* Glowing border */
+    background: rgba(100, 244, 172, 0.1); /* Subtle glowing background */
+    color: var(--color-text-accent);
+    text-shadow: var(--glow-intensity-soft);
+    box-shadow: var(--glow-intensity-medium);
     cursor: pointer;
+    font-family: var(--font-body);
 }
 
-.cta-button {
-    background-color: var(--accent-color);
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+.arcane-button:hover {
+    background: rgba(100, 244, 172, 0.2);
+    box-shadow: var(--glow-intensity-strong);
+    transform: translateY(-3px);
 }
 
-.cta-button:hover {
-    background-color: #2980b9; /* Darker blue */
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px); /* Subtle lift effect */
+.arcane-button.pulse {
+    animation: pulse-button 2s infinite alternate;
 }
 
-.secondary-button {
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-    margin-top: var(--spacing-md);
+.arcane-button.secondary-variant {
+    background: transparent;
+    border-color: var(--color-accent-gold);
+    color: var(--color-accent-gold);
+    text-shadow: 0 0 5px var(--color-accent-gold);
+    box-shadow: 0 0 8px var(--color-accent-gold), 0 0 15px rgba(230, 184, 0, 0.5);
+}
+.arcane-button.secondary-variant:hover {
+     background: rgba(230, 184, 0, 0.1);
+     box-shadow: 0 0 10px var(--color-accent-gold), 0 0 20px rgba(230, 184, 0, 0.8);
+     transform: translateY(-3px);
 }
 
-.secondary-button:hover {
-     background-color: var(--primary-color);
-    color: #fff;
-}
 
 /* About Section */
-.about-content {
+.chronicles-content {
     font-size: 1.1rem;
     max-width: 800px;
     margin: 0 auto;
-    text-align: center; /* Center align text */
+    text-align: center;
+    color: var(--color-text-light);
 }
 
-.about-content p {
+.chronicles-content p {
     margin-bottom: var(--spacing-md);
 }
 
 
-/* Projects Section */
-.project-grid {
+/* Projects Section - Artifacts */
+.artifact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: var(--spacing-lg);
 }
 
-.project-card {
-    background-color: #fff;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow-subtle);
-    overflow: hidden; /* Ensures image corners are rounded */
+.artifact-card {
+    background: var(--color-card-bg);
+    border-radius: var(--border-radius-soft);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
-.project-card:hover {
-    transform: translateY(-5px); /* Subtle lift */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+.artifact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), var--glow-intensity-medium;
 }
 
-.project-image {
+/* Optional: Background glow on hover */
+.artifact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 200px; /* Fixed height for consistency */
-    object-fit: cover; /* Cover the area without distortion */
-    border-bottom: 1px solid var(--border-color);
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(100, 244, 172, 0.1) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+}
+.artifact-card:hover::before {
+    opacity: 1;
 }
 
-.project-info {
+
+.artifact-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.artifact-info {
     padding: var(--spacing-md);
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-.project-title {
+.artifact-title {
     font-family: var(--font-heading);
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--primary-color);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-accent-gold);
+     text-shadow: 0 0 5px var(--color-accent-gold);
     margin-top: 0;
     margin-bottom: var(--spacing-unit);
 }
 
-.project-description {
+.artifact-description {
     font-size: 1rem;
     margin-bottom: var(--spacing-unit);
-    flex-grow: 1; /* Pushes technologies and link down */
+    flex-grow: 1;
+    color: var(--color-text-light);
 }
 
-.project-technologies {
+.artifact-arcana {
     font-size: 0.9rem;
-    color: #555;
+    color: rgba(236, 240, 241, 0.8);
     margin-bottom: var(--spacing-unit);
     font-style: italic;
 }
 
-.tech-tags {
-    font-style: normal; /* Remove italics from the tags themselves */
-    font-weight: 500;
-    color: var(--text-primary);
+.arcana-tags {
+    font-style: normal;
+    font-weight: 400;
+    color: var(--color-text-light);
 }
 
-.project-link {
+.artifact-link {
     display: inline-block;
-    margin-top: auto; /* Align link to the bottom */
-    font-weight: 600;
-     color: var(--primary-color); /* Use primary color for link */
+    margin-top: auto;
+    font-weight: 700;
+    color: var(--color-accent-teal);
+    text-shadow: var(--glow-intensity-soft);
 }
-.project-link:hover {
-     color: var(--accent-color); /* Accent on hover */
+.artifact-link:hover {
+     color: var(--color-text-accent);
+     text-shadow: var(--glow-intensity-medium);
 }
 
-
-/* Skills Section */
-.skills-grid {
+/* Skills Section - Masteries */
+.masteries-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-lg);
 }
 
-.skill-category-card {
-    background-color: #fff;
+.mastery-card {
+    background: var(--color-card-bg);
     padding: var(--spacing-md);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-soft);
+    border: 1px solid var(--color-border);
     box-shadow: var(--box-shadow-subtle);
-    border-top: 4px solid var(--accent-color); /* Accent border top */
+    position: relative;
+    overflow: hidden;
 }
 
-.skill-category-title {
+/* Optional: Rune-like background texture */
+.mastery-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Use a subtle pattern or image */
+    /* background-image: url('rune-pattern.png'); */
+    background-size: cover;
+    opacity: 0.1;
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+.mastery-title {
     font-family: var(--font-heading);
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--primary-color);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-accent-gold);
+    text-shadow: 0 0 5px var(--color-accent-gold);
     margin-top: 0;
     margin-bottom: var(--spacing-unit);
     padding-bottom: var(--spacing-unit) / 2;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 2px solid var(--color-border);
+    position: relative;
+    z-index: 1;
 }
 
-.skill-list {
-    list-style: none; /* Remove default bullets */
+.mastery-list {
+    list-style: none;
     padding: 0;
+    position: relative;
+    z-index: 1; /* Ensure list items are above pseudo-element */
 }
 
-.skill-list li {
-    padding: 8px 0;
-    border-bottom: 1px dashed var(--border-color); /* Dashed separator */
-    font-size: 1rem;
-    color: var(--text-primary);
+.mastery-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(106, 78, 174, 0.5); /* Transparent dashed border */
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+     /* Using glowing-text class for list items */
+    /* Example: <li class="glowing-text">...</li> */
 }
 
-.skill-list li:last-child {
-    border-bottom: none; /* No border on the last item */
+.mastery-list li:last-child {
+    border-bottom: none;
 }
 
-/* Optional: Custom bullet point */
-.skill-list li::before {
-    content: '\2022'; /* Unicode for a simple bullet */
-    color: var(--accent-color);
+/* Custom glowing bullet point */
+.mastery-list li::before {
+    content: '\2022'; /* Unicode bullet */
+    color: var(--color-accent-teal);
     font-weight: bold;
     display: inline-block;
-    width: 1em;
-    margin-left: -1em; /* Counter-indent the bullet */
+    width: 1.2em;
+    margin-left: -1.2em;
+     text-shadow: var(--glow-intensity-soft);
 }
 
 
-/* Contact Section */
-.contact-section {
+/* Contact Section - Commune */
+.commune-section {
     text-align: center;
+    color: var(--color-text-light);
 }
 
-.contact-intro {
-    font-size: 1.1rem;
+.commune-intro {
+    font-size: 1.2rem;
     max-width: 700px;
     margin: 0 auto var(--spacing-lg) auto;
 }
 
-.contact-links p {
-    margin-bottom: var(--spacing-unit);
-    font-size: 1.1rem;
+.commune-links p {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.2rem;
 }
 
-.contact-link {
-    font-weight: 500;
+.commune-link {
+    font-weight: 700;
+    color: var(--color-accent-teal);
+    text-shadow: var(--glow-intensity-soft);
 }
-/* Icon spacing if using Font Awesome */
-.contact-link i, .secondary-button i, .project-link i {
-    margin-left: 5px;
+.commune-link:hover {
+     color: var(--color-text-accent);
+     text-shadow: var(--glow-intensity-medium);
+}
+
+/* Optional: Icon spacing if using Font Awesome */
+.artifact-link i, .commune-link i, .arcane-button i {
+    margin-left: 8px;
     font-size: 0.9em;
 }
 
 
-/* Footer */
-.site-footer {
-    background-color: var(--primary-color);
-    color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+/* Footer - Arcane Decree */
+.arcane-footer {
+    background: var(--color-primary-dark);
+    color: rgba(236, 240, 241, 0.6); /* Semi-transparent light text */
     text-align: center;
     padding: var(--spacing-md) 0;
     font-size: 0.9rem;
+    border-top: 2px solid var(--color-border);
+    position: relative;
+    z-index: 1;
 }
 
-.site-footer .container {
+.arcane-footer .container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.site-footer p {
+.arcane-footer p {
     margin: 0;
-    margin-bottom: 10px; /* Space below copyright if icons are present */
+    margin-bottom: 10px;
 }
 
 /* Optional: Social icons in footer */
 /*
-.social-icons a {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1.5rem;
+.arcane-sigils a {
+    color: rgba(236, 240, 241, 0.6);
+    font-size: 1.8rem;
     margin: 0 10px;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-.social-icons a:hover {
-    color: #fff;
+.arcane-sigils a:hover {
+    color: var(--color-accent-teal);
+    text-shadow: var(--glow-intensity-soft);
 }
 */
 
+
 /* Responsive Design */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+     .section-title {
+        font-size: 2.5rem;
+    }
+    .artifact-title {
+        font-size: 1.4rem;
+    }
+    .mastery-title {
+        font-size: 1.2rem;
+    }
+    .commune-intro {
+        font-size: 1.1rem;
+    }
+     .commune-links p {
+        font-size: 1.1rem;
+    }
+     .arcane-button {
+        font-size: 1.1rem;
+     }
+}
+
+
 @media (max-width: 768px) {
-    .site-header .container {
+    .arcane-header .container {
         flex-direction: column;
         align-items: center;
     }
 
-    .site-title {
+    .arcane-title {
         margin-bottom: var(--spacing-unit);
+        font-size: 1.8rem;
     }
 
-    .site-nav ul {
+    .arcane-nav ul {
         flex-direction: column;
         align-items: center;
     }
 
-    .site-nav ul li {
+    .arcane-nav ul li {
         margin: 5px 0;
     }
-     .site-nav ul li:first-child {
+     .arcane-nav ul li:first-child {
          margin-top: 0;
     }
 
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .section-title {
@@ -462,27 +641,36 @@ a:hover {
         padding: var(--spacing-lg) 0;
     }
 
-    .project-grid, .skills-grid {
+    .artifact-grid, .masteries-grid {
         grid-template-columns: 1fr; /* Stack on small screens */
     }
 
-    .project-card {
+    .artifact-card, .mastery-card {
         margin: 0 var(--spacing-unit); /* Add horizontal margin if grid is 1fr */
     }
 }
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 2rem;
-    }
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-    .section-title {
         font-size: 1.8rem;
     }
-    .cta-button, .secondary-button {
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+    .section-title {
+        font-size: 1.6rem;
+    }
+    .arcane-button {
         padding: var(--spacing-unit) var(--spacing-md);
         font-size: 1rem;
+    }
+     .artifact-title {
+        font-size: 1.3rem;
+    }
+     .mastery-title {
+        font-size: 1.1rem;
+    }
+    .artifact-description, .artifact-arcana, .mastery-list li, .commune-intro, .commune-links p {
+        font-size: 0.9rem;
     }
 }
