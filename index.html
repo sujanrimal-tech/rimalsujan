@@ -1,159 +1,258 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Arcane Name - Arcane Circuit Weaver</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Optional: Font Awesome for mystical icons -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daniel Sparks | Electrical Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .glow {
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
+    }
+    .transition-glow {
+      transition: text-shadow 0.3s ease;
+    }
+    .transition-glow:hover {
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    /* Scroll animation classes */
+    .animate-fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .animate-fade-in-up-visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    /* Skill bar container */
+    .skill-bar {
+      background-color: #334155;
+      border-radius: 9999px;
+      overflow: hidden;
+      height: 20px;
+    }
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(to right, #06b6d4, #3b82f6);
+      width: 0;
+      transition: width 1.5s ease-in-out;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-gray-950 text-white">
+  <!-- Navbar -->
+  <nav
+    class="p-4 flex justify-between items-center border-b border-gray-800 backdrop-blur-md bg-opacity-10 sticky top-0 z-50"
+  >
+    <h1 class="text-2xl font-extrabold text-cyan-400 transition-glow cursor-default">⚡ Daniel Sparks</h1>
+    <ul class="flex gap-6 text-sm">
+      <li><a href="#hero" class="hover:text-cyan-400 transition">Home</a></li>
+      <li><a href="#about" class="hover:text-cyan-400 transition">About</a></li>
+      <li><a href="#skills" class="hover:text-cyan-400 transition">Skills</a></li>
+      <li><a href="#projects" class="hover:text-cyan-400 transition">Projects</a></li>
+      <li><a href="#contact" class="hover:text-cyan-400 transition">Contact</a></li>
+    </ul>
+  </nav>
 
-    <header class="arcane-header">
-        <div class="container">
-            <div class="arcane-title">The Weaver's Grimoire</div>
-            <nav class="arcane-nav">
-                <ul>
-                    <li><a href="#home" class="nav-link">Sanctum</a></li>
-                    <li><a href="#about" class="nav-link">Chronicles</a></li>
-                    <li><a href="#projects" class="nav-link">Artifacts</a></li>
-                    <li><a href="#skills" class="nav-link">Masteries</a></li>
-                    <li><a href="#contact" class="nav-link">Commune</a></li>
-                </ul>
-            </nav>
+  <!-- Hero Section -->
+  <section
+    id="hero"
+    class="min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden"
+  >
+    <div
+      class="absolute -top-20 -left-20 w-96 h-96 bg-cyan-500 rounded-full blur-3xl opacity-20 animate-pulse"
+    ></div>
+    <div
+      class="absolute bottom-0 right-0 w-64 h-64 bg-indigo-500 rounded-full blur-3xl opacity-20 animate-pulse"
+    ></div>
+    <h2 class="text-5xl sm:text-7xl font-extrabold mb-6 glow transition-glow animate-float">
+      Hi, I'm <span class="text-cyan-400">Daniel Sparks</span>
+    </h2>
+    <p class="text-lg text-gray-400 max-w-3xl mb-8 animate-fade-in-up">
+      Electrical engineer with 8+ years in smart grids, renewable energy, industrial automation, and AI-powered diagnostics. Building sustainable power solutions for tomorrow.
+    </p>
+    <a
+      href="#projects"
+      class="px-10 py-4 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-black font-bold rounded-full text-xl transition shadow-md animate-float"
+      >See My Projects</a
+    >
+  </section>
+
+  <!-- About Preview -->
+  <section id="about" class="max-w-5xl mx-auto px-6 py-16 animate-fade-in-up">
+    <h3 class="text-4xl font-bold text-cyan-400 mb-6 text-center">About Me</h3>
+    <div class="md:flex md:items-center md:gap-10">
+      <img
+        src="https://source.unsplash.com/480x480/?engineer,technology"
+        alt="Daniel Sparks"
+        class="rounded-xl shadow-lg mb-6 md:mb-0 md:flex-shrink-0"
+      />
+      <div class="text-gray-300 text-lg leading-relaxed">
+        <p>
+          I'm <strong>Daniel Sparks</strong>, an electrical engineer passionate about intelligent, sustainable energy solutions. With over 8 years
+          of experience, I specialize in smart microgrids, factory automation, and AI-driven diagnostics.
+        </p>
+        <p class="mt-4">
+          I’ve led numerous projects transforming energy efficiency and reliability across industries while mentoring emerging tech talent.
+        </p>
+        <p class="mt-4">
+          When not coding or wiring, I contribute to open-source projects and advocate for clean energy innovation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Preview -->
+  <section
+    id="skills"
+    class="max-w-5xl mx-auto px-6 py-16 animate-fade-in-up"
+  >
+    <h3 class="text-4xl font-bold text-cyan-400 mb-10 text-center">Skills</h3>
+    <div class="space-y-8 max-w-xl mx-auto">
+      <div>
+        <h4 class="text-lg font-semibold text-gray-300 mb-1">Smart Grid Systems</h4>
+        <div class="skill-bar">
+          <div class="skill-progress" data-skill-level="90%"></div>
         </div>
-    </header>
-
-    <section id="home" class="hero-sanctum section">
-        <div class="container">
-            <div class="hero-content">
-                 <!-- Optional: Add a stylized image/illustration -->
-                 <!-- <img src="arcane-engineer-illustration.png" alt="Arcane Weaver" class="sanctum-illustration"> -->
-                <h2 class="hero-title">Arcane Circuit Weaver</h2>
-                <p class="hero-subtitle">Harnessing the flow of <span class="glowing-text">Arcane Electricity</span> to forge enchanted devices.</p>
-                <a href="#projects" class="arcane-button pulse">View Forged Artifacts</a>
-            </div>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold text-gray-300 mb-1">Industrial Automation</h4>
+        <div class="skill-bar">
+          <div class="skill-progress" data-skill-level="85%"></div>
         </div>
-    </section>
-
-    <section id="about" class="chronicles-section section">
-        <div class="container">
-            <h2 class="section-title">Chronicles of the Weaver</h2>
-            <div class="chronicles-content">
-                <p>Step into the history of [Your Arcane Name]. My journey began in the ancient academies, delving into the forbidden arts of bending <span class="glowing-text">electron flows</span> and etching <span class="glowing-text">runic circuits</span> onto base metals. I am a seeker of understanding in the complex tapestries of power distribution, a craftsman of embedded intelligence, and a diviner of the ethereal signals that dance through the aether.</p>
-                <p>My purpose is to imbue inert matter with life, to command voltage and current like seasoned spirits, and to craft tools that resonate with innate power. My expertise spans the casting of stable power sources, the weaving of intricate signal pathways, and the animation of components that whisper secrets in the language of electricity.</p>
-                 <!-- Optional: Link to a "Formal Resume" - styled differently -->
-                 <!-- <a href="your-resume.pdf" class="arcane-button secondary-variant" download>Consult Formal Scrolls <i class="fas fa-scroll"></i></a> -->
-            </div>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold text-gray-300 mb-1">Renewable Energy Design</h4>
+        <div class="skill-bar">
+          <div class="skill-progress" data-skill-level="80%"></div>
         </div>
-    </section>
-
-    <section id="projects" class="artifacts-section section">
-        <div class="container">
-            <h2 class="section-title">Forged Artifacts</h2>
-            <div class="artifact-grid">
-                <!-- Artifact Card 1 -->
-                <div class="artifact-card">
-                     <!-- Optional: Artifact Image/Illustration -->
-                     <!-- <img src="artifact1.jpg" alt="Artifact 1" class="artifact-image"> -->
-                    <div class="artifact-info">
-                        <h3 class="artifact-title">Amulet of Stable Voltage</h3>
-                        <p class="artifact-description">A complex charm designed to regulate erratic power flows, ensuring consistent energy delivery across a network of sensitive components. Crafted with etched <span class="glowing-text">voltage regulators</span> and crystal smoothing filters.</p>
-                        <p class="artifact-arcana">Arcane Schools Used: <span class="arcana-tags">Power Conjuration, Runic Etching, Component Animation</span></p>
-                        <a href="#" class="artifact-link glowing-link">Examine Details <i class="fas fa-magic"></i></a> <!-- Optional icon -->
-                    </div>
-                </div>
-
-                 <!-- Artifact Card 2 -->
-                <div class="artifact-card">
-                     <!-- Optional: Artifact Image/Illustration -->
-                     <!-- <img src="artifact2.jpg" alt="Artifact 2" class="artifact-image"> -->
-                    <div class="artifact-info">
-                        <h3 class="artifact-title">Communication Crystal Network</h3>
-                        <p class="artifact-description">A system of interconnected crystals capable of transmitting intricate data signals across significant distances, bypassing physical conduits. Empowered by precise <span class="glowing-text">signal modulation</span> and <span class="glowing-text">etheric resonance</span> techniques.</p>
-                        <p class="artifact-arcana">Arcane Schools Used: <span class="arcana-tags">Signal Transmutation, Aetheric Communication, Network Weaving</span></p>
-                        <a href="#" class="artifact-link glowing-link">Examine Details <i class="fas fa-magic"></i></a>
-                    </div>
-                </div>
-
-                <!-- Add more artifact cards as needed -->
-
-            </div>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold text-gray-300 mb-1">AI Electrical Diagnostics</h4>
+        <div class="skill-bar">
+          <div class="skill-progress" data-skill-level="75%"></div>
         </div>
-    </section>
-
-    <section id="skills" class="masteries-section section">
-        <div class="container">
-            <h2 class="section-title">Mastery of the Arcane Schools</h2>
-            <div class="masteries-grid">
-                <!-- Mastery Category 1 -->
-                <div class="mastery-card">
-                    <h3 class="mastery-title">School of Component Animation</h3>
-                    <ul class="mastery-list">
-                        <li><span class="glowing-text">Microcontroller Whispering</span></li>
-                        <li><span class="glowing-text">FPGA Spell-Casting</span></li>
-                        <li><span class="glowing-text">Analog Soul-Binding</span></li>
-                        <li><span class="glowing-text">Digital Constructs</span></li>
-                    </ul>
-                </div>
-                 <!-- Mastery Category 2 -->
-                <div class="mastery-card">
-                    <h3 class="mastery-title">Art of Signal Transmutation</h3>
-                    <ul class="mastery-list">
-                        <li><span class="glowing-text">DSP Enchantments</span></li>
-                        <li><span class="glowing-text">RF Arcana</span></li>
-                        <li><span class="glowing-text">Sensor Divination</span></li>
-                        <li><span class="glowing-text">Protocol Linguistics</span></li>
-                    </ul>
-                </div>
-                 <!-- Mastery Category 3 -->
-                <div class="mastery-card">
-                    <h3 class="mastery-title">Craft of Power Conjuration</h3>
-                    <ul class="mastery-list">
-                        <li><span class="glowing-text">Power Electronics Forging</span></li>
-                        <li><span class="glowing-text">Energy Harvesting Rites</span></li>
-                        <li><span class="glowing-text">Battery Alchemy</span></li>
-                        <li><span class="glowing-text">Distribution Sigils</span></li>
-                    </ul>
-                </div>
-                 <!-- Add more mastery categories -->
-            </div>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold text-gray-300 mb-1">Programming (Python, C++)</h4>
+        <div class="skill-bar">
+          <div class="skill-progress" data-skill-level="85%"></div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact" class="commune-section section">
-        <div class="container">
-            <h2 class="section-title">Initiate Communion</h2>
-            <p class="commune-intro">To consult on new artifacts, seek guidance on arcane flows, or share ancient knowledge, dispatch a message through the appropriate conduit.</p>
-            <div class="commune-links">
-                <p>Sending Stone (Email): <a href="mailto:your.email@example.com" class="commune-link glowing-link">your.email@example.com <i class="fas fa-envelope"></i></a></p>
-                <p>Network of Scrolls (LinkedIn): <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="commune-link glowing-link">linkedin.com/in/yourprofile <i class="fas fa-bookmark"></i></a></p>
-                 <!-- Optional: Repository of Blueprints (GitHub) -->
-                 <!-- <p>Repository of Blueprints (GitHub): <a href="https://github.com/yourprofile" target="_blank" class="commune-link glowing-link">github.com/yourprofile <i class="fab fa-github"></i></a></p> -->
-            </div>
-        </div>
-    </section>
+  <!-- Projects Preview -->
+  <section id="projects" class="max-w-6xl mx-auto px-6 py-16 animate-fade-in-up">
+    <h3 class="text-4xl font-bold text-cyan-400 mb-10 text-center">Projects</h3>
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <!-- Project Card 1 -->
+      <div
+        class="bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-cyan-500 transition duration-300 cursor-pointer"
+        tabindex="0"
+      >
+        <h4 class="text-xl font-semibold mb-2">Smart Solar Microgrid</h4>
+        <p class="text-gray-400 mb-3">
+          Designed & deployed a solar microgrid for rural electrification using STM32 and IoT monitoring.
+        </p>
+        <p class="text-sm text-cyan-400 font-semibold">Technologies: STM32, Solar Tech, IoT</p>
+      </div>
+      <!-- Project Card 2 -->
+      <div
+        class="bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-cyan-500 transition duration-300 cursor-pointer"
+        tabindex="0"
+      >
+        <h4 class="text-xl font-semibold mb-2">Factory Automation Overhaul</h4>
+        <p class="text-gray-400 mb-3">
+          Revamped factory control systems using Siemens S7 PLC and SCADA, boosting production by 20%.
+        </p>
+        <p class="text-sm text-cyan-400 font-semibold">Technologies: Siemens S7, SCADA, PLC</p>
+      </div>
+      <!-- Project Card 3 -->
+      <div
+        class="bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-cyan-500 transition duration-300 cursor-pointer"
+        tabindex="0"
+      >
+        <h4 class="text-xl font-semibold mb-2">Smart Energy Monitoring</h4>
+        <p class="text-gray-400 mb-3">
+          Built IoT-based energy dashboards deployed across multiple countries for real-time data insights.
+        </p>
+        <p class="text-sm text-cyan-400 font-semibold">Technologies: IoT, React, Node.js</p>
+      </div>
+      <!-- Project Card 4 -->
+      <div
+        class="bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-cyan-500 transition duration-300 cursor-pointer"
+        tabindex="0"
+      >
+        <h4 class="text-xl font-semibold mb-2">Battery Storage Optimization</h4>
+        <p class="text-gray-400 mb-3">
+          Developed AI algorithms in MATLAB to optimize battery storage for commercial buildings.
+        </p>
+        <p class="text-sm text-cyan-400 font-semibold">Technologies: AI, MATLAB, Energy Storage</p>
+      </div>
+    </div>
+  </section>
 
-    <footer class="arcane-footer">
-        <div class="container">
-            <p>© <span id="current-year"></span> The Weaver's Guild. All Rights Reserved by Arcane Decree.</p>
-             <!-- Optional: Add social/professional icons here -->
-             <!-- <div class="arcane-sigils"> -->
-                <!-- <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a> -->
-                <!-- <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a> -->
-             <!-- </div> -->
-        </div>
-    </footer>
+  <!-- Contact Call-to-Action -->
+  <section
+    id="contact"
+    class="max-w-3xl mx-auto px-6 py-20 text-center animate-fade-in-up"
+  >
+    <h3 class="text-4xl font-bold text-cyan-400 mb-6">Let's Connect</h3>
+    <p class="text-gray-400 mb-8">
+      Interested in collaborating or learning more? Reach out anytime!
+    </p>
+    <a
+      href="contact.html"
+      class="inline-block px-10 py-4 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-black font-bold rounded-full text-xl transition shadow-md"
+      >Contact Me</a
+    >
+  </section>
 
-    <script>
-        // Update current year in footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
+  <!-- Footer -->
+  <footer class="p-4 border-t border-gray-800 text-center text-sm text-gray-500">
+    &copy; 2025 Daniel Sparks | Electrical Engineer | All rights reserved.
+  </footer>
 
+  <!-- Scroll-triggered animations -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-fade-in-up-visible');
+              observer.unobserve(entry.target);
+              // Animate skill bars when visible
+              if (entry.target.id === 'skills') {
+                entry.target.querySelectorAll('.skill-progress').forEach((bar) => {
+                  const level = bar.getAttribute('data-skill-level');
+                  bar.style.width = level;
+                });
+              }
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      document.querySelectorAll('.animate-fade-in-up').forEach((el) => {
+        observer.observe(el);
+      });
+    });
+  </script>
 </body>
 </html>
