@@ -228,3 +228,28 @@ $(document).ready(function(){
     */
 
 });
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  
+  const name = this.name.value.trim();
+  const email = this.email.value.trim();
+  const phone = this.phone.value.trim();
+  const message = this.message.value.trim();
+  const status = document.getElementById('formStatus');
+  
+  if (!name || !email || !message) {
+    status.textContent = 'Please fill in all required fields.';
+    status.style.color = 'tomato';
+    return;
+  }
+  
+  // Here you could send data to backend or email service.
+  // For now, just simulate success:
+  
+  status.textContent = 'Thank you, your message has been received!';
+  status.style.color = 'lightgreen';
+  
+  // Reset form after success
+  this.reset();
+});
+
