@@ -1,143 +1,258 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Daniel Sparks | Electrical Engineer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        font-family: 'Outfit', sans-serif;
-      }
-      .glow {
-        text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
-      }
-      .transition-glow {
-        transition: text-shadow 0.3s ease;
-      }
-      .transition-glow:hover {
-        text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-      }
-      @keyframes float {
-        0% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-        100% {
-          transform: translateY(0);
-        }
-      }
-      @keyframes lightning-flicker {
-        0%,
-        100% {
-          text-shadow:
-            0 0 8px #0ff,
-            0 0 20px #0ff,
-            0 0 30px #0ff,
-            0 0 40px #0ff,
-            0 0 50px #0ff;
-          color: #0ff;
-        }
-        20% {
-          text-shadow: 0 0 3px #0ff, 0 0 10px #0ff;
-          color: #66ffff;
-        }
-        40% {
-          text-shadow: 0 0 12px #0ff, 0 0 25px #0ff, 0 0 35px #0ff;
-          color: #00ffff;
-        }
-        60% {
-          text-shadow: 0 0 5px #0ff, 0 0 15px #0ff, 0 0 20px #0ff;
-          color: #33ffff;
-        }
-        80% {
-          text-shadow:
-            0 0 10px #0ff,
-            0 0 30px #0ff,
-            0 0 45px #0ff,
-            0 0 60px #0ff;
-          color: #00e5ff;
-        }
-      }
-      .lightning-glow {
-        animation: lightning-flicker 2.5s infinite alternate;
-        cursor: pointer;
-      }
-    </style>
-  </head>
-  <body class="bg-gray-950 text-white">
-    <!-- Navbar -->
-    <nav
-      class="p-4 flex justify-between items-center border-b border-gray-800 backdrop-blur-md bg-opacity-10 sticky top-0 z-50"
-    >
-      <h1 class="text-2xl font-extrabold lightning-glow transition-glow">
-        <a href="index.html" aria-label="Go to Home">⚡ Daniel Sparks</a>
-      </h1>
-      <ul class="flex gap-6 text-sm">
-        <li><a href="index.html" class="hover:text-cyan-400 transition">Home</a></li>
-        <li><a href="about.html" class="hover:text-cyan-400 transition">About</a></li>
-        <li><a href="skills.html" class="hover:text-cyan-400 transition">Skills</a></li>
-        <li><a href="projects.html" class="hover:text-cyan-400 transition">Projects</a></li>
-        <li><a href="contact.html" class="hover:text-cyan-400 transition">Contact</a></li>
-      </ul>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daniel Sparks | Electrical Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .glow {
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
+    }
+    .transition-glow {
+      transition: text-shadow 0.3s ease;
+    }
+    .transition-glow:hover {
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    /* Scroll animation classes */
+    .animate-fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .animate-fade-in-up-visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    /* Skill bar container */
+    .skill-bar {
+      background-color: #334155;
+      border-radius: 9999px;
+      overflow: hidden;
+      height: 20px;
+    }
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(to right, #06b6d4, #3b82f6);
+      width: 0;
+      transition: width 1.5s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-white">
+  <!-- Navbar -->
+  <nav
+    class="p-4 flex justify-between items-center border-b border-gray-800 backdrop-blur-md bg-opacity-10 sticky top-0 z-50"
+  >
+    <h1 class="text-2xl font-extrabold text-cyan-400 transition-glow cursor-default">⚡ Daniel Sparks</h1>
+    <ul class="flex gap-6 text-sm">
+      <li><a href="#hero" class="hover:text-cyan-400 transition">Home</a></li>
+      <li><a href="#about" class="hover:text-cyan-400 transition">About</a></li>
+      <li><a href="#skills" class="hover:text-cyan-400 transition">Skills</a></li>
+      <li><a href="#projects" class="hover:text-cyan-400 transition">Projects</a></li>
+      <li><a href="#contact" class="hover:text-cyan-400 transition">Contact</a></li>
+    </ul>
+  </nav>
 
-    <!-- Hero Section -->
-    <section
-      class="min-h-screen flex flex-col justify-center items-center text-center px-4 animate-fade-in relative overflow-hidden"
+  <!-- Hero Section -->
+  <section
+    id="hero"
+    class="min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden"
+  >
+    <div
+      class="absolute -top-20 -left-20 w-96 h-96 bg-cyan-500 rounded-full blur-3xl opacity-20 animate-pulse"
+    ></div>
+    <div
+      class="absolute bottom-0 right-0 w-64 h-64 bg-indigo-500 rounded-full blur-3xl opacity-20 animate-pulse"
+    ></div>
+    <h2 class="text-5xl sm:text-7xl font-extrabold mb-6 glow transition-glow animate-float">
+      Hi, I'm <span class="text-cyan-400">Daniel Sparks</span>
+    </h2>
+    <p class="text-lg text-gray-400 max-w-3xl mb-8 animate-fade-in-up">
+      Electrical engineer with 8+ years in smart grids, renewable energy, industrial automation, and AI-powered diagnostics. Building sustainable power solutions for tomorrow.
+    </p>
+    <a
+      href="#projects"
+      class="px-10 py-4 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-black font-bold rounded-full text-xl transition shadow-md animate-float"
+      >See My Projects</a
     >
+  </section>
+
+  <!-- About Preview -->
+  <section id="about" class="max-w-5xl mx-auto px-6 py-16 animate-fade-in-up">
+    <h3 class="text-4xl font-bold text-cyan-400 mb-6 text-center">About Me</h3>
+    <div class="md:flex md:items-center md:gap-10">
+      <img
+        src="https://source.unsplash.com/480x480/?engineer,technology"
+        alt="Daniel Sparks"
+        class="rounded-xl shadow-lg mb-6 md:mb-0 md:flex-shrink-0"
+      />
+      <div class="text-gray-300 text-lg leading-relaxed">
+        <p>
+          I'm <strong>Daniel Sparks</strong>, an electrical engineer passionate about intelligent, sustainable energy solutions. With over 8 years
+          of experience, I specialize in smart microgrids, factory automation, and AI-driven diagnostics.
+        </p>
+        <p class="mt-4">
+          I’ve led numerous projects transforming energy efficiency and reliability across industries while mentoring emerging tech talent.
+        </p>
+        <p class="mt-4">
+          When not coding or wiring, I contribute to open-source projects and advocate for clean energy innovation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Preview -->
+  <section
+    id="skills"
+    class="max-w-5xl mx-auto px-6 py-16 animate-fade-in-up"
+  >
+    <h3 class="text-4xl font-bold text-cyan-400 mb-10 text-center">Skills</h3>
+    <div class="space-y-8 max-w-xl mx-auto">
+      <div>
+        <h4 class="text-lg font-semibold text-gray-300 mb-1">Smart Grid Systems</h4>
+        <div class="skill-bar">
+          <div class="skill-progress" data-skill-level="90%"></div>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold text-gray-300 mb-1">Industrial Automation</h4>
+        <div class="skill-bar">
+          <div class="skill-progress" data-skill-level="85%"></div>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold text-gray-300 mb-1">Renewable Energy Design</h4>
+        <div class="skill-bar">
+          <div class="skill-progress" data-skill-level="80%"></div>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold text-gray-300 mb-1">AI Electrical Diagnostics</h4>
+        <div class="skill-bar">
+          <div class="skill-progress" data-skill-level="75%"></div>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold text-gray-300 mb-1">Programming (Python, C++)</h4>
+        <div class="skill-bar">
+          <div class="skill-progress" data-skill-level="85%"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Preview -->
+  <section id="projects" class="max-w-6xl mx-auto px-6 py-16 animate-fade-in-up">
+    <h3 class="text-4xl font-bold text-cyan-400 mb-10 text-center">Projects</h3>
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <!-- Project Card 1 -->
       <div
-        class="absolute -top-20 -left-20 w-96 h-96 bg-cyan-500 rounded-full blur-3xl opacity-20 animate-pulse"
-      ></div>
+        class="bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-cyan-500 transition duration-300 cursor-pointer"
+        tabindex="0"
+      >
+        <h4 class="text-xl font-semibold mb-2">Smart Solar Microgrid</h4>
+        <p class="text-gray-400 mb-3">
+          Designed & deployed a solar microgrid for rural electrification using STM32 and IoT monitoring.
+        </p>
+        <p class="text-sm text-cyan-400 font-semibold">Technologies: STM32, Solar Tech, IoT</p>
+      </div>
+      <!-- Project Card 2 -->
       <div
-        class="absolute bottom-0 right-0 w-64 h-64 bg-indigo-500 rounded-full blur-3xl opacity-20 animate-pulse"
-      ></div>
-      <h2 class="text-4xl sm:text-6xl font-extrabold mb-4 animate-fade-in-up">
-        Hi, I'm <span class="text-cyan-400">Daniel Sparks</span>
-      </h2>
-      <p
-        class="text-lg text-gray-400 max-w-2xl mb-6 animate-fade-in-up delay-200"
+        class="bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-cyan-500 transition duration-300 cursor-pointer"
+        tabindex="0"
       >
-        A professional electrical engineer with over 8 years of experience in
-        smart grid technology, renewable energy systems, industrial automation,
-        and AI-powered electrical diagnostics. Passionate about building the
-        future of sustainable power and intelligent systems.
-      </p>
-      <a
-        href="projects.html"
-        class="px-8 py-3 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-black font-bold rounded-full text-lg transition shadow-md animate-float"
-        >View My Projects</a
+        <h4 class="text-xl font-semibold mb-2">Factory Automation Overhaul</h4>
+        <p class="text-gray-400 mb-3">
+          Revamped factory control systems using Siemens S7 PLC and SCADA, boosting production by 20%.
+        </p>
+        <p class="text-sm text-cyan-400 font-semibold">Technologies: Siemens S7, SCADA, PLC</p>
+      </div>
+      <!-- Project Card 3 -->
+      <div
+        class="bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-cyan-500 transition duration-300 cursor-pointer"
+        tabindex="0"
       >
-    </section>
+        <h4 class="text-xl font-semibold mb-2">Smart Energy Monitoring</h4>
+        <p class="text-gray-400 mb-3">
+          Built IoT-based energy dashboards deployed across multiple countries for real-time data insights.
+        </p>
+        <p class="text-sm text-cyan-400 font-semibold">Technologies: IoT, React, Node.js</p>
+      </div>
+      <!-- Project Card 4 -->
+      <div
+        class="bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-cyan-500 transition duration-300 cursor-pointer"
+        tabindex="0"
+      >
+        <h4 class="text-xl font-semibold mb-2">Battery Storage Optimization</h4>
+        <p class="text-gray-400 mb-3">
+          Developed AI algorithms in MATLAB to optimize battery storage for commercial buildings.
+        </p>
+        <p class="text-sm text-cyan-400 font-semibold">Technologies: AI, MATLAB, Energy Storage</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer
-      class="p-4 border-t border-gray-800 text-center text-sm text-gray-500"
+  <!-- Contact Call-to-Action -->
+  <section
+    id="contact"
+    class="max-w-3xl mx-auto px-6 py-20 text-center animate-fade-in-up"
+  >
+    <h3 class="text-4xl font-bold text-cyan-400 mb-6">Let's Connect</h3>
+    <p class="text-gray-400 mb-8">
+      Interested in collaborating or learning more? Reach out anytime!
+    </p>
+    <a
+      href="contact.html"
+      class="inline-block px-10 py-4 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-black font-bold rounded-full text-xl transition shadow-md"
+      >Contact Me</a
     >
-      &copy; 2025 Daniel Sparks | Electrical Engineer | All rights reserved.
-    </footer>
+  </section>
 
-    <!-- Animation Script -->
-    <script>
-      document.querySelectorAll('.animate-fade-in, .animate-fade-in-up').forEach(
-        (el, i) => {
-          el.style.opacity = 0;
-          el.style.transform = 'translateY(20px)';
-          setTimeout(() => {
-            el.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
-            el.style.opacity = 1;
-            el.style.transform = 'translateY(0)';
-          }, 200 + i * 100);
-        }
+  <!-- Footer -->
+  <footer class="p-4 border-t border-gray-800 text-center text-sm text-gray-500">
+    &copy; 2025 Daniel Sparks | Electrical Engineer | All rights reserved.
+  </footer>
+
+  <!-- Scroll-triggered animations -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-fade-in-up-visible');
+              observer.unobserve(entry.target);
+              // Animate skill bars when visible
+              if (entry.target.id === 'skills') {
+                entry.target.querySelectorAll('.skill-progress').forEach((bar) => {
+                  const level = bar.getAttribute('data-skill-level');
+                  bar.style.width = level;
+                });
+              }
+            }
+          });
+        },
+        { threshold: 0.15 }
       );
-    </script>
-  </body>
+
+      document.querySelectorAll('.animate-fade-in-up').forEach((el) => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
 </html>
