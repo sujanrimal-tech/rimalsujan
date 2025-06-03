@@ -1,676 +1,213 @@
-/* CSS Variables for the Arcane Theme */
-:root {
-    --color-primary-dark: #1a0f33; /* Deep Midnight Purple */
-    --color-secondary-violet: #4a2e91; /* Rich Violet */
-    --color-accent-teal: #64f4ac; /* Glowing Teal/Green */
-    --color-accent-gold: #e6b800; /* Deep Gold */
-    --color-text-light: #ecf0f1; /* Almost White */
-    --color-text-accent: #64f4ac; /* Matching Glow */
-    --color-border: #6a4eaa; /* Violet Border */
-    --color-card-bg: rgba(44, 30, 83, 0.8); /* Slightly transparent dark violet */
-
-    --font-heading: 'Cinzel Decorative', cursive;
-    --font-body: 'Roboto Condensed', sans-serif;
-
-    --spacing-unit: 1rem; /* 16px */
-    --spacing-md: calc(var(--spacing-unit) * 1.5); /* 24px */
-    --spacing-lg: calc(var(--spacing-unit) * 2.5); /* 40px */
-    --spacing-xl: calc(var(--spacing-unit) * 4); /* 64px */
-
-    --container-max-width: 1200px;
-    --border-radius-soft: 8px;
-    --border-radius-hard: 4px;
-
-    /* Glow Effect Variables */
-    --glow-color: var(--color-accent-teal);
-    --glow-intensity-soft: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color);
-    --glow-intensity-medium: 0 0 8px var(--glow-color), 0 0 15px var(--glow-color), 0 0 25px var(--glow-color);
-    --glow-intensity-strong: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color), 0 0 40px var(--glow-color), 0 0 80px var(--glow-color);
-}
-
-/* Basic Reset and Box-sizing */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Font setup */
 body {
-    font-family: var(--font-body);
-    line-height: 1.8; /* Increased for readability */
-    color: var(--color-text-light);
-    background: var(--color-primary-dark); /* Base dark color */
-    /* Adding a complex gradient background */
-    background-image: radial-gradient(at 50% 0%, var(--color-secondary-violet) 0%, transparent 60%),
-                      radial-gradient(at 0% 100%, var(--color-secondary-violet) 0%, transparent 60%),
-                      linear-gradient(to bottom right, var(--color-primary-dark), #0b071a); /* Fills remaining */
-
-    background-attachment: fixed; /* Optional: creates a subtle parallax feel */
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+  font-family: 'Outfit', sans-serif;
+  background-color: #0f172a; /* Tailwind bg-gray-950 */
+  color: white;
+  margin: 0;
+  padding: 0;
 }
 
-.container {
-    max-width: var(--container-max-width);
-    margin: 0 auto;
-    padding: 0 var(--spacing-unit);
+/* Glow text for general use */
+.glow {
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
 }
 
-a {
-    color: var(--color-accent-teal);
-    text-decoration: none;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+/* Smooth glow transition on hover */
+.transition-glow {
+  transition: text-shadow 0.3s ease;
+}
+.transition-glow:hover {
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
 }
 
-a:hover {
-    color: var(--color-text-accent);
-    text-shadow: var(--glow-intensity-soft);
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 
-/* Glowing Text Effect */
-.glowing-text {
-    color: var(--color-text-accent);
-    text-shadow: var(--glow-intensity-soft);
-    /* Optional: Add a subtle animation */
-    /* animation: pulse-glow 2s infinite alternate; */
+/* Fade-in animations */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in {
+  animation: fade-in 1s ease forwards;
+  opacity: 0;
 }
 
-
-/* Animations */
-@keyframes pulse-glow {
-    0% { text-shadow: var(--glow-intensity-soft); }
-    100% { text-shadow: var(--glow-intensity-medium); }
-}
-
-@keyframes subtle-border-glow {
-    0% { box-shadow: inset 0 0 3px var(--glow-color), 0 0 3px var(--glow-color); }
-    100% { box-shadow: inset 0 0 6px var(--glow-color), 0 0 6px var(--glow-color); }
-}
-
-@keyframes pulse-button {
-    0% { transform: scale(1); box-shadow: var(--glow-intensity-medium); }
-    50% { transform: scale(1.02); box-shadow: var(--glow-intensity-strong); }
-    100% { transform: scale(1); box-shadow: var(--glow-intensity-medium); }
-}
-
-
-/* Header & Navigation */
-.arcane-header {
-    background: rgba(26, 15, 51, 0.9); /* Slightly transparent dark purple */
-    padding: var(--spacing-unit) 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px); /* Optional: blur content behind it */
-    border-bottom: 2px solid var(--color-border);
-}
-
-.arcane-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.arcane-title {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--color-accent-gold); /* Gold title */
-    text-shadow: 0 0 5px var(--color-accent-gold);
-    margin: 0;
-}
-
-.arcane-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-.arcane-nav ul li {
-    margin-left: var(--spacing-md);
-}
-
-.arcane-nav ul li:first-child {
-     margin-left: 0;
-}
-
-.nav-link {
-    color: var(--color-text-light);
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 1.1rem;
-    padding: 5px 0;
-    border-bottom: 2px solid transparent;
-    transition: color 0.3s ease, border-bottom-color 0.3s ease, text-shadow 0.3s ease;
-    font-family: var(--font-body);
-}
-
-.nav-link:hover {
-    color: var(--color-accent-teal);
-    border-bottom-color: var(--color-accent-teal);
-    text-shadow: var(--glow-intensity-soft);
-}
-
-/* Hero Section */
-.hero-sanctum {
-    text-align: center;
-    padding: var(--spacing-xl) var(--spacing-unit);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 500px; /* More substantial hero */
-    position: relative; /* For potential pseudo-elements */
-    z-index: 1; /* Ensure text is above background effects */
-}
-
-.hero-sanctum::before {
-    content: '';
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    width: 80%;
-    height: 80%;
-    background: radial-gradient(circle at center, rgba(100, 244, 172, 0.2) 0%, transparent 70%); /* Subtle glow behind hero */
-    transform: translateX(-50%);
-    z-index: -1;
-}
-
-
-.sanctum-illustration {
-    max-width: 250px;
-    height: auto;
-    margin-bottom: var(--spacing-lg);
-    border-radius: 50%;
-    border: 3px solid var(--color-accent-teal);
-    box-shadow: var(--glow-intensity-medium);
-}
-
-.hero-title {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: var(--spacing-md);
-    line-height: 1.2;
-    color: var(--color-accent-gold);
-    text-shadow: 0 0 10px var(--color-accent-gold), 0 0 20px rgba(230, 184, 0, 0.5);
-}
-
-.hero-subtitle {
-    font-size: 1.5rem;
-    font-weight: 300;
-    margin-bottom: var(--spacing-lg);
-    color: var(--color-text-light);
-}
-
-
-/* Section Styling */
-.section {
-    padding: var(--spacing-xl) 0;
-    position: relative;
-}
-
-
-/* Alternating background (can use gradients or images) */
-.section:nth-of-type(odd) {
-     background: rgba(34, 24, 62, 0.7); /* Darker section bg */
-     box-shadow: inset 0 5px 10px rgba(0,0,0,0.3), inset 0 -5px 10px rgba(0,0,0,0.3);
-}
-.section:nth-of-type(even) {
-     background: rgba(44, 30, 83, 0.7); /* Lighter section bg */
-      box-shadow: inset 0 5px 10px rgba(0,0,0,0.3), inset 0 -5px 10px rgba(0,0,0,0.3);
-}
-
-/* Use pseudo-elements for section separators */
-.section::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 10px; /* Height of the separator line */
-    background: linear-gradient(to right, transparent, var(--color-border), transparent);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-}
-.section:last-child::after {
-    display: none; /* No separator after the last section before footer */
-}
-
-
-.section-title {
-    font-family: var(--font-heading);
-    text-align: center;
-    margin-bottom: var(--spacing-xl);
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--color-accent-gold);
-    text-shadow: 0 0 8px var(--color-accent-gold), 0 0 15px rgba(230, 184, 0, 0.5);
-    position: relative;
-    z-index: 2;
-}
-
-/* Optional: More elaborate pseudo-element separator for titles */
-.section-title::before {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(to right, transparent, var(--color-accent-teal), transparent);
-    margin: var(--spacing-md) auto 0 auto;
-    border-radius: 2px;
-    box-shadow: var(--glow-intensity-soft);
-}
-
-
-/* Buttons - Arcane Style */
-.arcane-button {
-    display: inline-block;
-    padding: var(--spacing-md) var(--spacing-lg);
-    text-decoration: none;
-    border-radius: var(--border-radius-hard);
-    font-size: 1.2rem;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    border: 2px solid var(--glow-color); /* Glowing border */
-    background: rgba(100, 244, 172, 0.1); /* Subtle glowing background */
-    color: var(--color-text-accent);
-    text-shadow: var(--glow-intensity-soft);
-    box-shadow: var(--glow-intensity-medium);
-    cursor: pointer;
-    font-family: var(--font-body);
-}
-
-.arcane-button:hover {
-    background: rgba(100, 244, 172, 0.2);
-    box-shadow: var(--glow-intensity-strong);
-    transform: translateY(-3px);
-}
-
-.arcane-button.pulse {
-    animation: pulse-button 2s infinite alternate;
-}
-
-.arcane-button.secondary-variant {
-    background: transparent;
-    border-color: var(--color-accent-gold);
-    color: var(--color-accent-gold);
-    text-shadow: 0 0 5px var(--color-accent-gold);
-    box-shadow: 0 0 8px var(--color-accent-gold), 0 0 15px rgba(230, 184, 0, 0.5);
-}
-.arcane-button.secondary-variant:hover {
-     background: rgba(230, 184, 0, 0.1);
-     box-shadow: 0 0 10px var(--color-accent-gold), 0 0 20px rgba(230, 184, 0, 0.8);
-     transform: translateY(-3px);
-}
-
-
-/* About Section */
-.chronicles-content {
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    color: var(--color-text-light);
-}
-
-.chronicles-content p {
-    margin-bottom: var(--spacing-md);
-}
-
-
-/* Projects Section - Artifacts */
-.artifact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--spacing-lg);
-}
-
-.artifact-card {
-    background: var(--color-card-bg);
-    border-radius: var(--border-radius-soft);
-    border: 1px solid var(--color-border);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    z-index: 1;
-}
-
-.artifact-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), var--glow-intensity-medium;
-}
-
-/* Optional: Background glow on hover */
-.artifact-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(100, 244, 172, 0.1) 0%, transparent 60%);
+@keyframes fade-in-up {
+  from {
     opacity: 0;
-    transition: opacity 0.5s ease;
-    z-index: -1;
-}
-.artifact-card:hover::before {
+    transform: translateY(20px);
+  }
+  to {
     opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease forwards;
+  opacity: 0;
 }
 
-
-.artifact-image {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-bottom: 1px solid var(--color-border);
+/* Floating button animation */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
 
-.artifact-info {
-    padding: var(--spacing-md);
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+/* Enhanced lightning flicker animation */
+@keyframes lightning-flicker {
+  0%, 100% {
+    text-shadow:
+      0 0 10px #0ff,
+      0 0 25px #0ff,
+      0 0 40px #0ff,
+      0 0 55px #0ff,
+      0 0 70px #0ff,
+      0 0 90px #33ffff,
+      0 0 110px #00ffff;
+    color: #0ff;
+  }
+  10%, 30%, 50%, 70% {
+    text-shadow:
+      0 0 2px #66ffff,
+      0 0 5px #33ffff,
+      0 0 10px #00ffff,
+      0 0 15px #0ff,
+      0 0 20px #66ffff;
+    color: #66ffff;
+  }
+  20%, 40%, 60%, 80% {
+    text-shadow:
+      0 0 12px #00ffff,
+      0 0 30px #33ffff,
+      0 0 45px #0ff,
+      0 0 60px #66ffff,
+      0 0 75px #00ffff;
+    color: #00ffff;
+  }
 }
 
-.artifact-title {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--color-accent-gold);
-     text-shadow: 0 0 5px var(--color-accent-gold);
-    margin-top: 0;
-    margin-bottom: var(--spacing-unit);
+/* Small electric sparks flickering */
+@keyframes electric-spark {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(3px) translateY(-3px) scale(1.2);
+  }
 }
 
-.artifact-description {
-    font-size: 1rem;
-    margin-bottom: var(--spacing-unit);
-    flex-grow: 1;
-    color: var(--color-text-light);
+/* Apply lightning effect to name */
+.lightning-glow {
+  animation: lightning-flicker 2s infinite alternate ease-in-out;
+  cursor: pointer;
+  position: relative;
+  color: #0ff;
+  font-weight: 800;
+  user-select: none;
 }
 
-.artifact-arcana {
-    font-size: 0.9rem;
-    color: rgba(236, 240, 241, 0.8);
-    margin-bottom: var(--spacing-unit);
-    font-style: italic;
+/* Sparks around the text using pseudo-elements */
+.lightning-glow::before,
+.lightning-glow::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background: #0ff;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 5px #0ff);
+  opacity: 0.7;
+  animation: electric-spark 1.5s infinite alternate ease-in-out;
+  pointer-events: none;
+  mix-blend-mode: screen;
 }
 
-.arcana-tags {
-    font-style: normal;
-    font-weight: 400;
-    color: var(--color-text-light);
+.lightning-glow::before {
+  transform-origin: center;
+  animation-delay: 0s;
+  transform: translate(-50%, -50%) translateX(-20px) translateY(-10px);
 }
 
-.artifact-link {
-    display: inline-block;
-    margin-top: auto;
-    font-weight: 700;
-    color: var(--color-accent-teal);
-    text-shadow: var(--glow-intensity-soft);
-}
-.artifact-link:hover {
-     color: var(--color-text-accent);
-     text-shadow: var(--glow-intensity-medium);
+.lightning-glow::after {
+  animation-delay: 0.7s;
+  transform-origin: center;
+  transform: translate(-50%, -50%) translateX(25px) translateY(5px);
 }
 
-/* Skills Section - Masteries */
-.masteries-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-lg);
+/* Navbar styling */
+nav {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e293b; /* Tailwind gray-800 */
+  backdrop-filter: blur(10px);
+  background-color: rgba(15, 23, 42, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
-.mastery-card {
-    background: var(--color-card-bg);
-    padding: var(--spacing-md);
-    border-radius: var(--border-radius-soft);
-    border: 1px solid var(--color-border);
-    box-shadow: var(--box-shadow-subtle);
-    position: relative;
-    overflow: hidden;
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.875rem; /* text-sm */
 }
 
-/* Optional: Rune-like background texture */
-.mastery-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Use a subtle pattern or image */
-    /* background-image: url('rune-pattern.png'); */
-    background-size: cover;
-    opacity: 0.1;
-    z-index: 0;
-    pointer-events: none;
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-
-.mastery-title {
-    font-family: var(--font-heading);
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--color-accent-gold);
-    text-shadow: 0 0 5px var(--color-accent-gold);
-    margin-top: 0;
-    margin-bottom: var(--spacing-unit);
-    padding-bottom: var(--spacing-unit) / 2;
-    border-bottom: 2px solid var(--color-border);
-    position: relative;
-    z-index: 1;
+nav ul li a:hover {
+  color: #06b6d4; /* cyan-400 */
 }
 
-.mastery-list {
-    list-style: none;
-    padding: 0;
-    position: relative;
-    z-index: 1; /* Ensure list items are above pseudo-element */
+/* Footer styling */
+footer {
+  padding: 1rem;
+  border-top: 1px solid #1e293b;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #94a3b8; /* gray-400 */
 }
 
-.mastery-list li {
-    padding: 10px 0;
-    border-bottom: 1px dashed rgba(106, 78, 174, 0.5); /* Transparent dashed border */
-    font-size: 1.1rem;
-    color: var(--color-text-light);
-     /* Using glowing-text class for list items */
-    /* Example: <li class="glowing-text">...</li> */
+/* Utility */
+.text-center {
+  text-align: center;
 }
 
-.mastery-list li:last-child {
-    border-bottom: none;
+/* Responsive max width */
+.max-w-2xl {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Custom glowing bullet point */
-.mastery-list li::before {
-    content: '\2022'; /* Unicode bullet */
-    color: var(--color-accent-teal);
-    font-weight: bold;
-    display: inline-block;
-    width: 1.2em;
-    margin-left: -1.2em;
-     text-shadow: var(--glow-intensity-soft);
+/* Button style */
+.btn-primary {
+  padding: 0.75rem 2rem;
+  background: linear-gradient(to right, #06b6d4, #3b82f6);
+  color: black;
+  font-weight: 700;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(6, 182, 212, 0.5);
+  transition: background 0.3s ease;
+  display: inline-block;
+  user-select: none;
 }
 
-
-/* Contact Section - Commune */
-.commune-section {
-    text-align: center;
-    color: var(--color-text-light);
-}
-
-.commune-intro {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto var(--spacing-lg) auto;
-}
-
-.commune-links p {
-    margin-bottom: var(--spacing-md);
-    font-size: 1.2rem;
-}
-
-.commune-link {
-    font-weight: 700;
-    color: var(--color-accent-teal);
-    text-shadow: var(--glow-intensity-soft);
-}
-.commune-link:hover {
-     color: var(--color-text-accent);
-     text-shadow: var(--glow-intensity-medium);
-}
-
-/* Optional: Icon spacing if using Font Awesome */
-.artifact-link i, .commune-link i, .arcane-button i {
-    margin-left: 8px;
-    font-size: 0.9em;
-}
-
-
-/* Footer - Arcane Decree */
-.arcane-footer {
-    background: var(--color-primary-dark);
-    color: rgba(236, 240, 241, 0.6); /* Semi-transparent light text */
-    text-align: center;
-    padding: var(--spacing-md) 0;
-    font-size: 0.9rem;
-    border-top: 2px solid var(--color-border);
-    position: relative;
-    z-index: 1;
-}
-
-.arcane-footer .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.arcane-footer p {
-    margin: 0;
-    margin-bottom: 10px;
-}
-
-/* Optional: Social icons in footer */
-/*
-.arcane-sigils a {
-    color: rgba(236, 240, 241, 0.6);
-    font-size: 1.8rem;
-    margin: 0 10px;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-.arcane-sigils a:hover {
-    color: var(--color-accent-teal);
-    text-shadow: var(--glow-intensity-soft);
-}
-*/
-
-
-/* Responsive Design */
-@media (max-width: 992px) {
-    .hero-title {
-        font-size: 2.8rem;
-    }
-    .hero-subtitle {
-        font-size: 1.3rem;
-    }
-     .section-title {
-        font-size: 2.5rem;
-    }
-    .artifact-title {
-        font-size: 1.4rem;
-    }
-    .mastery-title {
-        font-size: 1.2rem;
-    }
-    .commune-intro {
-        font-size: 1.1rem;
-    }
-     .commune-links p {
-        font-size: 1.1rem;
-    }
-     .arcane-button {
-        font-size: 1.1rem;
-     }
-}
-
-
-@media (max-width: 768px) {
-    .arcane-header .container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .arcane-title {
-        margin-bottom: var(--spacing-unit);
-        font-size: 1.8rem;
-    }
-
-    .arcane-nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .arcane-nav ul li {
-        margin: 5px 0;
-    }
-     .arcane-nav ul li:first-child {
-         margin-top: 0;
-    }
-
-    .hero-title {
-        font-size: 2.2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-        margin-bottom: var(--spacing-lg);
-    }
-
-    .section {
-        padding: var(--spacing-lg) 0;
-    }
-
-    .artifact-grid, .masteries-grid {
-        grid-template-columns: 1fr; /* Stack on small screens */
-    }
-
-    .artifact-card, .mastery-card {
-        margin: 0 var(--spacing-unit); /* Add horizontal margin if grid is 1fr */
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 1.8rem;
-    }
-    .hero-subtitle {
-        font-size: 0.9rem;
-    }
-    .section-title {
-        font-size: 1.6rem;
-    }
-    .arcane-button {
-        padding: var(--spacing-unit) var(--spacing-md);
-        font-size: 1rem;
-    }
-     .artifact-title {
-        font-size: 1.3rem;
-    }
-     .mastery-title {
-        font-size: 1.1rem;
-    }
-    .artifact-description, .artifact-arcana, .mastery-list li, .commune-intro, .commune-links p {
-        font-size: 0.9rem;
-    }
+.btn-primary:hover {
+  background: linear-gradient(to right, #0ea5e9, #2563eb);
+  box-shadow: 0 6px 8px rgba(14, 165, 233, 0.7);
 }
