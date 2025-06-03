@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name - Electrical Engineer</title>
     <link rel="stylesheet" href="style.css">
-    <!-- You can add a favicon later -->
-    <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Optional: Font Awesome for icons -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
+
 </head>
 <body>
 
-    <header>
+    <header class="site-header">
         <div class="container">
-            <h1>Your Name</h1>
-            <nav>
+            <div class="site-title">Your Name</div>
+            <nav class="site-nav">
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -25,117 +30,137 @@
         </div>
     </header>
 
-    <section id="home" class="hero">
+    <section id="home" class="hero-section">
         <div class="container">
             <div class="hero-content">
-                 <!-- Replace with your professional photo -->
-                <!-- <img src="your-photo.jpg" alt="Your Name Photo" class="profile-photo"> -->
-                <h2>Electrical Engineer</h2>
-                <p>Passionate about [Your Area of Interest, e.g., renewable energy systems, embedded electronics, power distribution].</p>
-                <a href="#projects" class="cta-button">View My Projects</a>
+                 <!-- Optional: Add your professional photo here -->
+                 <!-- <img src="your-photo.jpg" alt="Your Name Photo" class="profile-photo"> -->
+                <h2 class="hero-title">Electrical Engineer</h2>
+                <p class="hero-subtitle">Specializing in [Your Area of Expertise, e.g., Embedded Systems & IoT | Power Distribution & Renewables].</p>
+                <a href="#projects" class="cta-button">Explore Projects</a>
             </div>
         </div>
     </section>
 
-    <section id="about" class="section">
+    <section id="about" class="section about-section">
         <div class="container">
-            <h2>About Me</h2>
-            <p>Write a paragraph or two about your background, education, experience, and what drives you as an electrical engineer. Mention your key interests and career goals.</p>
-            <p>For example: "I am a results-driven Electrical Engineer with a strong foundation in [mention a key area like circuit design or power systems]. I graduated from [University Name] with a degree in Electrical Engineering. My experience includes working on [mention a type of project or industry]. I am always eager to tackle complex problems and contribute to innovative solutions."</p>
-             <!-- Optionally, link to your resume -->
-             <!-- <a href="your-resume.pdf" class="cta-button" download>Download Resume</a> -->
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>Write a compelling summary here. Focus on your passion, key areas of expertise, and what value you bring. Mention your educational background and relevant experience highlights.</p>
+                <p>Example: "I am a dedicated Electrical Engineer with a passion for building innovative solutions at the intersection of hardware and software. My background includes extensive experience in [mention specific areas like PCB design, microcontroller programming, power systems analysis, etc.]. I thrive on solving complex technical challenges and delivering robust, efficient, and reliable systems."</p>
+                <!-- Optional: Add a link to your resume -->
+                <!-- <a href="your-resume.pdf" class="secondary-button" download>Download Resume <i class="fas fa-download"></i></a> -->
+            </div>
         </div>
     </section>
 
-    <section id="projects" class="section">
+    <section id="projects" class="section projects-section">
         <div class="container">
-            <h2>Projects</h2>
+            <h2 class="section-title">Projects</h2>
             <div class="project-grid">
-                <!-- Project Item 1 -->
-                <div class="project-item">
-                    <!-- Optional: Project Image -->
-                    <!-- <img src="project1-thumbnail.jpg" alt="Project 1 Thumbnail"> -->
-                    <h3>Project Title 1</h3>
-                    <p>Brief description of the project, focusing on your role and the engineering challenges involved. What did you build or design?</p>
-                    <p class="technologies">Technologies: [List technologies, e.g., Altium Designer, Python, Arduino, MATLAB, PLC]</p>
-                    <a href="#" class="project-link">Learn More / View on GitHub (Optional Link)</a>
-                </div>
-
-                <!-- Project Item 2 -->
-                <div class="project-item">
+                <!-- Project Card 1 -->
+                <div class="project-card">
                      <!-- Optional: Project Image -->
-                    <!-- <img src="project2-thumbnail.jpg" alt="Project 2 Thumbnail"> -->
-                    <h3>Project Title 2</h3>
-                    <p>Brief description of the project...</p>
-                     <p class="technologies">Technologies: [List technologies]</p>
-                    <a href="#" class="project-link">Learn More / View Details (Optional Link)</a>
+                     <!-- <img src="project1-thumbnail.jpg" alt="Project 1 Thumbnail" class="project-image"> -->
+                    <div class="project-info">
+                        <h3 class="project-title">Project Name 1</h3>
+                        <p class="project-description">A concise description of the project, highlighting your specific contribution and the engineering principles involved. What was the problem? How did you solve it? What was the outcome?</p>
+                        <p class="project-technologies">Technologies: <span class="tech-tags">[Altium Designer, STM32, C++, RTOS]</span></p>
+                        <a href="#" class="project-link">Details <i class="fas fa-arrow-right"></i></a> <!-- Optional icon -->
+                    </div>
                 </div>
 
-                <!-- Add more project items as needed -->
+                 <!-- Project Card 2 -->
+                <div class="project-card">
+                     <!-- Optional: Project Image -->
+                     <!-- <img src="project2-thumbnail.jpg" alt="Project 2 Thumbnail" class="project-image"> -->
+                    <div class="project-info">
+                        <h3 class="project-title">Project Name 2</h3>
+                        <p class="project-description">Description of project 2...</p>
+                        <p class="project-technologies">Technologies: <span class="tech-tags">[MATLAB, Simulink, PowerWorld, Python]</span></p>
+                        <a href="#" class="project-link">Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Add more project cards as needed -->
 
             </div>
         </div>
     </section>
 
-    <section id="skills" class="section">
+    <section id="skills" class="section skills-section">
         <div class="container">
-            <h2>Skills</h2>
-            <div class="skills-list">
-                <!-- Example Skills (Categorize as needed) -->
-                <div class="skill-category">
-                    <h3>Software & Programming</h3>
-                    <ul>
-                        <li>MATLAB</li>
-                        <li>Python (NumPy, SciPy)</li>
-                        <li>C/C++ (Embedded Systems)</li>
-                        <li>SPICE Simulation</li>
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <!-- Skill Category 1 -->
+                <div class="skill-category-card">
+                    <h3 class="skill-category-title">Software & Development</h3>
+                    <ul class="skill-list">
+                        <li>MATLAB / Simulink</li>
+                        <li>Python (e.g., for data analysis, automation)</li>
+                        <li>C / C++ (especially for embedded systems)</li>
                         <li>LabVIEW</li>
-                         <li>VHDL/Verilog</li>
+                        <li>SPICE Simulation Tools</li>
+                        <li>Version Control (Git)</li>
                     </ul>
                 </div>
-                 <div class="skill-category">
-                    <h3>Hardware & Tools</h3>
-                    <ul>
-                        <li>Circuit Design (Analog & Digital)</li>
+                 <!-- Skill Category 2 -->
+                <div class="skill-category-card">
+                    <h3 class="skill-category-title">Hardware & Design</h3>
+                    <ul class="skill-list">
+                        <li>Circuit Design (Analog/Digital)</li>
                         <li>PCB Layout (Altium, KiCad, Eagle)</li>
                         <li>Microcontrollers (Arduino, STM32, PIC)</li>
-                        <li>Power Electronics</li>
-                         <li>Test Equipment (Oscilloscopes, Multimeters, Spectrum Analyzers)</li>
-                         <li>PLCs & Industrial Automation</li>
+                         <li>FPGA Design (VHDL/Verilog)</li>
+                         <li>Power Electronics Design</li>
+                        <li>Sensor Integration</li>
                     </ul>
                 </div>
-                 <div class="skill-category">
-                    <h3>Concepts & Domains</h3>
-                    <ul>
-                        <li>Power Systems</li>
-                        <li>Control Systems</li>
-                        <li>Signal Processing</li>
-                        <li>Renewable Energy</li>
-                        <li>Embedded Systems</li>
-                        <li>Communications Systems</li>
+                 <!-- Skill Category 3 -->
+                <div class="skill-category-card">
+                    <h3 class="skill-category-title">Concepts & Domain Expertise</h3>
+                    <ul class="skill-list">
+                        <li>Power Systems Analysis</li>
+                        <li>Control Systems Theory</li>
+                        <li>Digital Signal Processing</li>
+                         <li>Renewable Energy Systems</li>
+                        <li>Embedded Systems Architecture</li>
+                         <li>Industrial Automation (PLCs)</li>
                     </ul>
                 </div>
+                 <!-- Add more skill categories if needed -->
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section">
+    <section id="contact" class="section contact-section">
         <div class="container">
-            <h2>Contact</h2>
-            <p>Feel free to get in touch regarding collaborations, opportunities, or just to connect.</p>
-            <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
-             <!-- Optional: GitHub, other professional links -->
-            <!-- <p>GitHub: <a href="https://github.com/yourprofile" target="_blank">github.com/yourprofile</a></p> -->
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="contact-intro">I'm always open to discussing new opportunities, collaborations, or just connecting with fellow engineers. Feel free to reach out!</p>
+            <div class="contact-links">
+                <p>Email: <a href="mailto:your.email@example.com" class="contact-link">your.email@example.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="contact-link">linkedin.com/in/yourprofile <i class="fas fa-external-link-alt"></i></a></p>
+                 <!-- Optional: GitHub, other professional links -->
+                 <!-- <p>GitHub: <a href="https://github.com/yourprofile" target="_blank" class="contact-link">github.com/yourprofile <i class="fas fa-external-link-alt"></i></a></p> -->
+            </div>
         </div>
     </section>
 
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <p>© 2023 Your Name. All rights reserved.</p>
-            <!-- Add social links here if desired -->
+            <p>© <span id="current-year"></span> Your Name. All rights reserved.</p>
+             <!-- Optional: Add social/professional icons here -->
+             <!-- <div class="social-icons"> -->
+                <!-- <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a> -->
+                <!-- <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a> -->
+             <!-- </div> -->
         </div>
     </footer>
+
+    <script>
+        // Update current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 
 </body>
 </html>
