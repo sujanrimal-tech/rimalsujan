@@ -1,676 +1,159 @@
-/* CSS Variables for the Arcane Theme */
-:root {
-    --color-primary-dark: #1a0f33; /* Deep Midnight Purple */
-    --color-secondary-violet: #4a2e91; /* Rich Violet */
-    --color-accent-teal: #64f4ac; /* Glowing Teal/Green */
-    --color-accent-gold: #e6b800; /* Deep Gold */
-    --color-text-light: #ecf0f1; /* Almost White */
-    --color-text-accent: #64f4ac; /* Matching Glow */
-    --color-border: #6a4eaa; /* Violet Border */
-    --color-card-bg: rgba(44, 30, 83, 0.8); /* Slightly transparent dark violet */
-
-    --font-heading: 'Cinzel Decorative', cursive;
-    --font-body: 'Roboto Condensed', sans-serif;
-
-    --spacing-unit: 1rem; /* 16px */
-    --spacing-md: calc(var(--spacing-unit) * 1.5); /* 24px */
-    --spacing-lg: calc(var(--spacing-unit) * 2.5); /* 40px */
-    --spacing-xl: calc(var(--spacing-unit) * 4); /* 64px */
-
-    --container-max-width: 1200px;
-    --border-radius-soft: 8px;
-    --border-radius-hard: 4px;
-
-    /* Glow Effect Variables */
-    --glow-color: var(--color-accent-teal);
-    --glow-intensity-soft: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color);
-    --glow-intensity-medium: 0 0 8px var(--glow-color), 0 0 15px var(--glow-color), 0 0 25px var(--glow-color);
-    --glow-intensity-strong: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color), 0 0 40px var(--glow-color), 0 0 80px var(--glow-color);
-}
-
-/* Basic Reset and Box-sizing */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: var(--font-body);
-    line-height: 1.8; /* Increased for readability */
-    color: var(--color-text-light);
-    background: var(--color-primary-dark); /* Base dark color */
-    /* Adding a complex gradient background */
-    background-image: radial-gradient(at 50% 0%, var(--color-secondary-violet) 0%, transparent 60%),
-                      radial-gradient(at 0% 100%, var(--color-secondary-violet) 0%, transparent 60%),
-                      linear-gradient(to bottom right, var(--color-primary-dark), #0b071a); /* Fills remaining */
-
-    background-attachment: fixed; /* Optional: creates a subtle parallax feel */
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-}
-
-.container {
-    max-width: var(--container-max-width);
-    margin: 0 auto;
-    padding: 0 var(--spacing-unit);
-}
-
-a {
-    color: var(--color-accent-teal);
-    text-decoration: none;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-a:hover {
-    color: var(--color-text-accent);
-    text-shadow: var(--glow-intensity-soft);
-}
-
-/* Glowing Text Effect */
-.glowing-text {
-    color: var(--color-text-accent);
-    text-shadow: var(--glow-intensity-soft);
-    /* Optional: Add a subtle animation */
-    /* animation: pulse-glow 2s infinite alternate; */
-}
-
-
-/* Animations */
-@keyframes pulse-glow {
-    0% { text-shadow: var(--glow-intensity-soft); }
-    100% { text-shadow: var(--glow-intensity-medium); }
-}
-
-@keyframes subtle-border-glow {
-    0% { box-shadow: inset 0 0 3px var(--glow-color), 0 0 3px var(--glow-color); }
-    100% { box-shadow: inset 0 0 6px var(--glow-color), 0 0 6px var(--glow-color); }
-}
-
-@keyframes pulse-button {
-    0% { transform: scale(1); box-shadow: var(--glow-intensity-medium); }
-    50% { transform: scale(1.02); box-shadow: var(--glow-intensity-strong); }
-    100% { transform: scale(1); box-shadow: var(--glow-intensity-medium); }
-}
-
-
-/* Header & Navigation */
-.arcane-header {
-    background: rgba(26, 15, 51, 0.9); /* Slightly transparent dark purple */
-    padding: var(--spacing-unit) 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px); /* Optional: blur content behind it */
-    border-bottom: 2px solid var(--color-border);
-}
-
-.arcane-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.arcane-title {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--color-accent-gold); /* Gold title */
-    text-shadow: 0 0 5px var(--color-accent-gold);
-    margin: 0;
-}
-
-.arcane-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-.arcane-nav ul li {
-    margin-left: var(--spacing-md);
-}
-
-.arcane-nav ul li:first-child {
-     margin-left: 0;
-}
-
-.nav-link {
-    color: var(--color-text-light);
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 1.1rem;
-    padding: 5px 0;
-    border-bottom: 2px solid transparent;
-    transition: color 0.3s ease, border-bottom-color 0.3s ease, text-shadow 0.3s ease;
-    font-family: var(--font-body);
-}
-
-.nav-link:hover {
-    color: var(--color-accent-teal);
-    border-bottom-color: var(--color-accent-teal);
-    text-shadow: var(--glow-intensity-soft);
-}
-
-/* Hero Section */
-.hero-sanctum {
-    text-align: center;
-    padding: var(--spacing-xl) var(--spacing-unit);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 500px; /* More substantial hero */
-    position: relative; /* For potential pseudo-elements */
-    z-index: 1; /* Ensure text is above background effects */
-}
-
-.hero-sanctum::before {
-    content: '';
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    width: 80%;
-    height: 80%;
-    background: radial-gradient(circle at center, rgba(100, 244, 172, 0.2) 0%, transparent 70%); /* Subtle glow behind hero */
-    transform: translateX(-50%);
-    z-index: -1;
-}
-
-
-.sanctum-illustration {
-    max-width: 250px;
-    height: auto;
-    margin-bottom: var(--spacing-lg);
-    border-radius: 50%;
-    border: 3px solid var(--color-accent-teal);
-    box-shadow: var(--glow-intensity-medium);
-}
-
-.hero-title {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: var(--spacing-md);
-    line-height: 1.2;
-    color: var(--color-accent-gold);
-    text-shadow: 0 0 10px var(--color-accent-gold), 0 0 20px rgba(230, 184, 0, 0.5);
-}
-
-.hero-subtitle {
-    font-size: 1.5rem;
-    font-weight: 300;
-    margin-bottom: var(--spacing-lg);
-    color: var(--color-text-light);
-}
-
-
-/* Section Styling */
-.section {
-    padding: var(--spacing-xl) 0;
-    position: relative;
-}
-
-
-/* Alternating background (can use gradients or images) */
-.section:nth-of-type(odd) {
-     background: rgba(34, 24, 62, 0.7); /* Darker section bg */
-     box-shadow: inset 0 5px 10px rgba(0,0,0,0.3), inset 0 -5px 10px rgba(0,0,0,0.3);
-}
-.section:nth-of-type(even) {
-     background: rgba(44, 30, 83, 0.7); /* Lighter section bg */
-      box-shadow: inset 0 5px 10px rgba(0,0,0,0.3), inset 0 -5px 10px rgba(0,0,0,0.3);
-}
-
-/* Use pseudo-elements for section separators */
-.section::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 10px; /* Height of the separator line */
-    background: linear-gradient(to right, transparent, var(--color-border), transparent);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-}
-.section:last-child::after {
-    display: none; /* No separator after the last section before footer */
-}
-
-
-.section-title {
-    font-family: var(--font-heading);
-    text-align: center;
-    margin-bottom: var(--spacing-xl);
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--color-accent-gold);
-    text-shadow: 0 0 8px var(--color-accent-gold), 0 0 15px rgba(230, 184, 0, 0.5);
-    position: relative;
-    z-index: 2;
-}
-
-/* Optional: More elaborate pseudo-element separator for titles */
-.section-title::before {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(to right, transparent, var(--color-accent-teal), transparent);
-    margin: var(--spacing-md) auto 0 auto;
-    border-radius: 2px;
-    box-shadow: var(--glow-intensity-soft);
-}
-
-
-/* Buttons - Arcane Style */
-.arcane-button {
-    display: inline-block;
-    padding: var(--spacing-md) var(--spacing-lg);
-    text-decoration: none;
-    border-radius: var(--border-radius-hard);
-    font-size: 1.2rem;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    border: 2px solid var(--glow-color); /* Glowing border */
-    background: rgba(100, 244, 172, 0.1); /* Subtle glowing background */
-    color: var(--color-text-accent);
-    text-shadow: var(--glow-intensity-soft);
-    box-shadow: var(--glow-intensity-medium);
-    cursor: pointer;
-    font-family: var(--font-body);
-}
-
-.arcane-button:hover {
-    background: rgba(100, 244, 172, 0.2);
-    box-shadow: var(--glow-intensity-strong);
-    transform: translateY(-3px);
-}
-
-.arcane-button.pulse {
-    animation: pulse-button 2s infinite alternate;
-}
-
-.arcane-button.secondary-variant {
-    background: transparent;
-    border-color: var(--color-accent-gold);
-    color: var(--color-accent-gold);
-    text-shadow: 0 0 5px var(--color-accent-gold);
-    box-shadow: 0 0 8px var(--color-accent-gold), 0 0 15px rgba(230, 184, 0, 0.5);
-}
-.arcane-button.secondary-variant:hover {
-     background: rgba(230, 184, 0, 0.1);
-     box-shadow: 0 0 10px var(--color-accent-gold), 0 0 20px rgba(230, 184, 0, 0.8);
-     transform: translateY(-3px);
-}
-
-
-/* About Section */
-.chronicles-content {
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    color: var(--color-text-light);
-}
-
-.chronicles-content p {
-    margin-bottom: var(--spacing-md);
-}
-
-
-/* Projects Section - Artifacts */
-.artifact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--spacing-lg);
-}
-
-.artifact-card {
-    background: var(--color-card-bg);
-    border-radius: var(--border-radius-soft);
-    border: 1px solid var(--color-border);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    z-index: 1;
-}
-
-.artifact-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), var--glow-intensity-medium;
-}
-
-/* Optional: Background glow on hover */
-.artifact-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(100, 244, 172, 0.1) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    z-index: -1;
-}
-.artifact-card:hover::before {
-    opacity: 1;
-}
-
-
-.artifact-image {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-bottom: 1px solid var(--color-border);
-}
-
-.artifact-info {
-    padding: var(--spacing-md);
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.artifact-title {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--color-accent-gold);
-     text-shadow: 0 0 5px var(--color-accent-gold);
-    margin-top: 0;
-    margin-bottom: var(--spacing-unit);
-}
-
-.artifact-description {
-    font-size: 1rem;
-    margin-bottom: var(--spacing-unit);
-    flex-grow: 1;
-    color: var(--color-text-light);
-}
-
-.artifact-arcana {
-    font-size: 0.9rem;
-    color: rgba(236, 240, 241, 0.8);
-    margin-bottom: var(--spacing-unit);
-    font-style: italic;
-}
-
-.arcana-tags {
-    font-style: normal;
-    font-weight: 400;
-    color: var(--color-text-light);
-}
-
-.artifact-link {
-    display: inline-block;
-    margin-top: auto;
-    font-weight: 700;
-    color: var(--color-accent-teal);
-    text-shadow: var(--glow-intensity-soft);
-}
-.artifact-link:hover {
-     color: var(--color-text-accent);
-     text-shadow: var(--glow-intensity-medium);
-}
-
-/* Skills Section - Masteries */
-.masteries-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-lg);
-}
-
-.mastery-card {
-    background: var(--color-card-bg);
-    padding: var(--spacing-md);
-    border-radius: var(--border-radius-soft);
-    border: 1px solid var(--color-border);
-    box-shadow: var(--box-shadow-subtle);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Optional: Rune-like background texture */
-.mastery-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Use a subtle pattern or image */
-    /* background-image: url('rune-pattern.png'); */
-    background-size: cover;
-    opacity: 0.1;
-    z-index: 0;
-    pointer-events: none;
-}
-
-
-.mastery-title {
-    font-family: var(--font-heading);
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--color-accent-gold);
-    text-shadow: 0 0 5px var(--color-accent-gold);
-    margin-top: 0;
-    margin-bottom: var(--spacing-unit);
-    padding-bottom: var(--spacing-unit) / 2;
-    border-bottom: 2px solid var(--color-border);
-    position: relative;
-    z-index: 1;
-}
-
-.mastery-list {
-    list-style: none;
-    padding: 0;
-    position: relative;
-    z-index: 1; /* Ensure list items are above pseudo-element */
-}
-
-.mastery-list li {
-    padding: 10px 0;
-    border-bottom: 1px dashed rgba(106, 78, 174, 0.5); /* Transparent dashed border */
-    font-size: 1.1rem;
-    color: var(--color-text-light);
-     /* Using glowing-text class for list items */
-    /* Example: <li class="glowing-text">...</li> */
-}
-
-.mastery-list li:last-child {
-    border-bottom: none;
-}
-
-/* Custom glowing bullet point */
-.mastery-list li::before {
-    content: '\2022'; /* Unicode bullet */
-    color: var(--color-accent-teal);
-    font-weight: bold;
-    display: inline-block;
-    width: 1.2em;
-    margin-left: -1.2em;
-     text-shadow: var(--glow-intensity-soft);
-}
-
-
-/* Contact Section - Commune */
-.commune-section {
-    text-align: center;
-    color: var(--color-text-light);
-}
-
-.commune-intro {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto var(--spacing-lg) auto;
-}
-
-.commune-links p {
-    margin-bottom: var(--spacing-md);
-    font-size: 1.2rem;
-}
-
-.commune-link {
-    font-weight: 700;
-    color: var(--color-accent-teal);
-    text-shadow: var(--glow-intensity-soft);
-}
-.commune-link:hover {
-     color: var(--color-text-accent);
-     text-shadow: var(--glow-intensity-medium);
-}
-
-/* Optional: Icon spacing if using Font Awesome */
-.artifact-link i, .commune-link i, .arcane-button i {
-    margin-left: 8px;
-    font-size: 0.9em;
-}
-
-
-/* Footer - Arcane Decree */
-.arcane-footer {
-    background: var(--color-primary-dark);
-    color: rgba(236, 240, 241, 0.6); /* Semi-transparent light text */
-    text-align: center;
-    padding: var(--spacing-md) 0;
-    font-size: 0.9rem;
-    border-top: 2px solid var(--color-border);
-    position: relative;
-    z-index: 1;
-}
-
-.arcane-footer .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.arcane-footer p {
-    margin: 0;
-    margin-bottom: 10px;
-}
-
-/* Optional: Social icons in footer */
-/*
-.arcane-sigils a {
-    color: rgba(236, 240, 241, 0.6);
-    font-size: 1.8rem;
-    margin: 0 10px;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-.arcane-sigils a:hover {
-    color: var(--color-accent-teal);
-    text-shadow: var(--glow-intensity-soft);
-}
-*/
-
-
-/* Responsive Design */
-@media (max-width: 992px) {
-    .hero-title {
-        font-size: 2.8rem;
-    }
-    .hero-subtitle {
-        font-size: 1.3rem;
-    }
-     .section-title {
-        font-size: 2.5rem;
-    }
-    .artifact-title {
-        font-size: 1.4rem;
-    }
-    .mastery-title {
-        font-size: 1.2rem;
-    }
-    .commune-intro {
-        font-size: 1.1rem;
-    }
-     .commune-links p {
-        font-size: 1.1rem;
-    }
-     .arcane-button {
-        font-size: 1.1rem;
-     }
-}
-
-
-@media (max-width: 768px) {
-    .arcane-header .container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .arcane-title {
-        margin-bottom: var(--spacing-unit);
-        font-size: 1.8rem;
-    }
-
-    .arcane-nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .arcane-nav ul li {
-        margin: 5px 0;
-    }
-     .arcane-nav ul li:first-child {
-         margin-top: 0;
-    }
-
-    .hero-title {
-        font-size: 2.2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-        margin-bottom: var(--spacing-lg);
-    }
-
-    .section {
-        padding: var(--spacing-lg) 0;
-    }
-
-    .artifact-grid, .masteries-grid {
-        grid-template-columns: 1fr; /* Stack on small screens */
-    }
-
-    .artifact-card, .mastery-card {
-        margin: 0 var(--spacing-unit); /* Add horizontal margin if grid is 1fr */
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 1.8rem;
-    }
-    .hero-subtitle {
-        font-size: 0.9rem;
-    }
-    .section-title {
-        font-size: 1.6rem;
-    }
-    .arcane-button {
-        padding: var(--spacing-unit) var(--spacing-md);
-        font-size: 1rem;
-    }
-     .artifact-title {
-        font-size: 1.3rem;
-    }
-     .mastery-title {
-        font-size: 1.1rem;
-    }
-    .artifact-description, .artifact-arcana, .mastery-list li, .commune-intro, .commune-links p {
-        font-size: 0.9rem;
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Arcane Name - Arcane Circuit Weaver</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Optional: Font Awesome for mystical icons -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
+</head>
+<body>
+
+    <header class="arcane-header">
+        <div class="container">
+            <div class="arcane-title">The Weaver's Grimoire</div>
+            <nav class="arcane-nav">
+                <ul>
+                    <li><a href="#home" class="nav-link">Sanctum</a></li>
+                    <li><a href="#about" class="nav-link">Chronicles</a></li>
+                    <li><a href="#projects" class="nav-link">Artifacts</a></li>
+                    <li><a href="#skills" class="nav-link">Masteries</a></li>
+                    <li><a href="#contact" class="nav-link">Commune</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero-sanctum section">
+        <div class="container">
+            <div class="hero-content">
+                 <!-- Optional: Add a stylized image/illustration -->
+                 <!-- <img src="arcane-engineer-illustration.png" alt="Arcane Weaver" class="sanctum-illustration"> -->
+                <h2 class="hero-title">Arcane Circuit Weaver</h2>
+                <p class="hero-subtitle">Harnessing the flow of <span class="glowing-text">Arcane Electricity</span> to forge enchanted devices.</p>
+                <a href="#projects" class="arcane-button pulse">View Forged Artifacts</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="chronicles-section section">
+        <div class="container">
+            <h2 class="section-title">Chronicles of the Weaver</h2>
+            <div class="chronicles-content">
+                <p>Step into the history of [Your Arcane Name]. My journey began in the ancient academies, delving into the forbidden arts of bending <span class="glowing-text">electron flows</span> and etching <span class="glowing-text">runic circuits</span> onto base metals. I am a seeker of understanding in the complex tapestries of power distribution, a craftsman of embedded intelligence, and a diviner of the ethereal signals that dance through the aether.</p>
+                <p>My purpose is to imbue inert matter with life, to command voltage and current like seasoned spirits, and to craft tools that resonate with innate power. My expertise spans the casting of stable power sources, the weaving of intricate signal pathways, and the animation of components that whisper secrets in the language of electricity.</p>
+                 <!-- Optional: Link to a "Formal Resume" - styled differently -->
+                 <!-- <a href="your-resume.pdf" class="arcane-button secondary-variant" download>Consult Formal Scrolls <i class="fas fa-scroll"></i></a> -->
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="artifacts-section section">
+        <div class="container">
+            <h2 class="section-title">Forged Artifacts</h2>
+            <div class="artifact-grid">
+                <!-- Artifact Card 1 -->
+                <div class="artifact-card">
+                     <!-- Optional: Artifact Image/Illustration -->
+                     <!-- <img src="artifact1.jpg" alt="Artifact 1" class="artifact-image"> -->
+                    <div class="artifact-info">
+                        <h3 class="artifact-title">Amulet of Stable Voltage</h3>
+                        <p class="artifact-description">A complex charm designed to regulate erratic power flows, ensuring consistent energy delivery across a network of sensitive components. Crafted with etched <span class="glowing-text">voltage regulators</span> and crystal smoothing filters.</p>
+                        <p class="artifact-arcana">Arcane Schools Used: <span class="arcana-tags">Power Conjuration, Runic Etching, Component Animation</span></p>
+                        <a href="#" class="artifact-link glowing-link">Examine Details <i class="fas fa-magic"></i></a> <!-- Optional icon -->
+                    </div>
+                </div>
+
+                 <!-- Artifact Card 2 -->
+                <div class="artifact-card">
+                     <!-- Optional: Artifact Image/Illustration -->
+                     <!-- <img src="artifact2.jpg" alt="Artifact 2" class="artifact-image"> -->
+                    <div class="artifact-info">
+                        <h3 class="artifact-title">Communication Crystal Network</h3>
+                        <p class="artifact-description">A system of interconnected crystals capable of transmitting intricate data signals across significant distances, bypassing physical conduits. Empowered by precise <span class="glowing-text">signal modulation</span> and <span class="glowing-text">etheric resonance</span> techniques.</p>
+                        <p class="artifact-arcana">Arcane Schools Used: <span class="arcana-tags">Signal Transmutation, Aetheric Communication, Network Weaving</span></p>
+                        <a href="#" class="artifact-link glowing-link">Examine Details <i class="fas fa-magic"></i></a>
+                    </div>
+                </div>
+
+                <!-- Add more artifact cards as needed -->
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="masteries-section section">
+        <div class="container">
+            <h2 class="section-title">Mastery of the Arcane Schools</h2>
+            <div class="masteries-grid">
+                <!-- Mastery Category 1 -->
+                <div class="mastery-card">
+                    <h3 class="mastery-title">School of Component Animation</h3>
+                    <ul class="mastery-list">
+                        <li><span class="glowing-text">Microcontroller Whispering</span></li>
+                        <li><span class="glowing-text">FPGA Spell-Casting</span></li>
+                        <li><span class="glowing-text">Analog Soul-Binding</span></li>
+                        <li><span class="glowing-text">Digital Constructs</span></li>
+                    </ul>
+                </div>
+                 <!-- Mastery Category 2 -->
+                <div class="mastery-card">
+                    <h3 class="mastery-title">Art of Signal Transmutation</h3>
+                    <ul class="mastery-list">
+                        <li><span class="glowing-text">DSP Enchantments</span></li>
+                        <li><span class="glowing-text">RF Arcana</span></li>
+                        <li><span class="glowing-text">Sensor Divination</span></li>
+                        <li><span class="glowing-text">Protocol Linguistics</span></li>
+                    </ul>
+                </div>
+                 <!-- Mastery Category 3 -->
+                <div class="mastery-card">
+                    <h3 class="mastery-title">Craft of Power Conjuration</h3>
+                    <ul class="mastery-list">
+                        <li><span class="glowing-text">Power Electronics Forging</span></li>
+                        <li><span class="glowing-text">Energy Harvesting Rites</span></li>
+                        <li><span class="glowing-text">Battery Alchemy</span></li>
+                        <li><span class="glowing-text">Distribution Sigils</span></li>
+                    </ul>
+                </div>
+                 <!-- Add more mastery categories -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="commune-section section">
+        <div class="container">
+            <h2 class="section-title">Initiate Communion</h2>
+            <p class="commune-intro">To consult on new artifacts, seek guidance on arcane flows, or share ancient knowledge, dispatch a message through the appropriate conduit.</p>
+            <div class="commune-links">
+                <p>Sending Stone (Email): <a href="mailto:your.email@example.com" class="commune-link glowing-link">your.email@example.com <i class="fas fa-envelope"></i></a></p>
+                <p>Network of Scrolls (LinkedIn): <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="commune-link glowing-link">linkedin.com/in/yourprofile <i class="fas fa-bookmark"></i></a></p>
+                 <!-- Optional: Repository of Blueprints (GitHub) -->
+                 <!-- <p>Repository of Blueprints (GitHub): <a href="https://github.com/yourprofile" target="_blank" class="commune-link glowing-link">github.com/yourprofile <i class="fab fa-github"></i></a></p> -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="arcane-footer">
+        <div class="container">
+            <p>© <span id="current-year"></span> The Weaver's Guild. All Rights Reserved by Arcane Decree.</p>
+             <!-- Optional: Add social/professional icons here -->
+             <!-- <div class="arcane-sigils"> -->
+                <!-- <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a> -->
+                <!-- <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a> -->
+             <!-- </div> -->
+        </div>
+    </footer>
+
+    <script>
+        // Update current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
