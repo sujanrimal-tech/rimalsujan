@@ -1,6 +1,49 @@
 
 <html lang="en" class="dark">
 <head>
+  <!-- Firebase SDK (modular) -->
+<script type="module">
+  // 1. Import Firebase modules
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+  // 2. Your Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyDMQ4ke96sypMT-nCze8zVS8Ps_Zrqrv20",
+    authDomain: "my-dashboard-cms.firebaseapp.com",
+    projectId: "my-dashboard-cms"
+  };
+
+  // 3. Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // 4. Fetch theme settings from Firestore
+  async function applyThemeFromFirestore() {
+    const themeDoc = doc(db, "settings", "theme");
+    const themeSnap = await getDoc(themeDoc);
+
+    if (themeSnap.exists()) {
+      const theme = themeSnap.data();
+      console.log("Theme Loaded:", theme);
+
+      // 5. Apply styles to the website
+      document.body.style.backgroundColor = theme.backgroundColor;
+      document.body.style.color = theme.textColor;
+
+      // Optional: Apply accent color to headings or buttons
+      document.querySelectorAll("h2").forEach(el => {
+        el.style.color = theme.accentColor;
+      });
+    } else {
+      console.log("No theme found in Firestore.");
+    }
+  }
+
+  // 6. Call the function when page loads
+  applyThemeFromFirestore();
+</script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   
