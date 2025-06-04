@@ -1,141 +1,104 @@
-<html lang="en" class="dark">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sujan Rimal (Sujan) | Electrical Engineer</title>
-  <meta name="description" content="Portfolio of Sujan Rimal, also known as Sujan, expert in smart grids and renewable energy." />
-  <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Smart Grid, Renewable Energy, syko , syko dada, SYKO, Syko, Sujan , Rimal , सुजन , सुजन रिमाल , रिमाल" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Website</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
+</head>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet" />
+<body class="bg-gray-900 text-white">
+  <!-- Header -->
+  <header class="p-6 bg-gray-800">
+    <h1 class="text-3xl font-bold text-cyan-400 text-center">My Static Website</h1>
+  </header>
 
-  <style>
-    body {
-      font-family: 'Outfit', sans-serif;
-      scroll-behavior: smooth;
-    }
-    .glow {
-      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
-    }
-    .transition-glow {
-      transition: text-shadow 0.3s ease;
-    }
-    .transition-glow:hover {
-      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    .animate-float {
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-in-up {
-      animation: fadeIn 1.2s ease forwards;
-    }
-    .scroll-section {
-      padding: 4rem 1rem;
-    }
-    .perspective {
-      perspective: 1000px;
-    }
-    .transform-style-preserve-3d {
-      transform-style: preserve-3d;
-      transition: transform 0.5s;
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-    .backface-hidden {
-      backface-visibility: hidden;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 0.75rem;
-    }
-    #cardInner {
-      transform: rotateY(0deg);
-    }
-    #cardInner.flipped {
-      transform: rotateY(180deg);
-    }
-  </style>
+  <!-- Main Content -->
+  <main class="space-y-24 py-12 px-4">
 
-  <!-- Firebase Script (Single Init) -->
+    <!-- Hero Section -->
+    <section id="hero" class="text-center">
+      <h2 class="text-5xl font-bold mb-4">Welcome to My Site</h2>
+      <p class="text-lg text-gray-300">Explore projects, blogs, and more!</p>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="scroll-section">
+      <h3 class="text-4xl font-bold text-cyan-400 mb-10 text-center">Blog</h3>
+      <div id="blogContent" class="max-w-4xl mx-auto space-y-8 text-gray-300">
+        <p>Loading blog posts...</p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="text-center">
+      <h3 class="text-3xl font-bold text-cyan-400 mb-4">Contact</h3>
+      <p class="text-gray-300">Email: example@example.com</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="p-6 text-center bg-gray-800 text-gray-400">
+    &copy; 2025 My Static Site
+  </footer>
+
+  <!-- Firebase Blog Script -->
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-    import { getFirestore, collection, getDocs, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+    // Firebase SDK
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
+    // 🔧 Replace with your actual Firebase config
     const firebaseConfig = {
-      apiKey: "AIzaSyDMQ4ke96sypMT-nCze8zVS8Ps_Zrqrv20",
-      authDomain: "my-dashboard-cms.firebaseapp.com",
-      projectId: "my-dashboard-cms"
+       apiKey: "AIzaSyDMQ4ke96sypMT-nCze8zVS8Ps_Zrqrv20",
+  authDomain: "my-dashboard-cms.firebaseapp.com",
+  projectId: "my-dashboard-cms",
+  storageBucket: "my-dashboard-cms.firebasestorage.app",
+  messagingSenderId: "29278844298",
+  appId: "1:29278844298:web:3a9a85063b3504ced88473",
     };
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    // Load Theme
-    async function applyThemeFromFirestore() {
-      const themeDoc = doc(db, "settings", "theme");
-      const themeSnap = await getDoc(themeDoc);
-      if (themeSnap.exists()) {
-        const theme = themeSnap.data();
-        document.body.style.backgroundColor = theme.backgroundColor;
-        document.body.style.color = theme.textColor;
-        document.querySelectorAll("h2, h3, h4").forEach(el => {
-          el.style.color = theme.accentColor;
+    const blogContainer = document.getElementById("blogContent");
+
+    async function loadBlogPosts() {
+      try {
+        const blogRef = collection(db, "blogPosts");
+        const blogQuery = query(blogRef, orderBy("createdAt", "desc"));
+        const blogSnapshot = await getDocs(blogQuery);
+
+        if (blogSnapshot.empty) {
+          blogContainer.innerHTML = "<p>No blog posts found.</p>";
+          return;
+        }
+
+        let html = "";
+        blogSnapshot.forEach((doc) => {
+          const post = doc.data();
+          const date = post.createdAt?.seconds
+            ? new Date(post.createdAt.seconds * 1000).toLocaleDateString()
+            : "Unknown date";
+          html += `
+            <div class="p-6 bg-gray-800 rounded-xl shadow-md">
+              <h4 class="text-2xl font-semibold text-white mb-2">${post.title}</h4>
+              <p class="text-sm text-gray-400 mb-4">${date}</p>
+              <div class="text-gray-300 whitespace-pre-wrap">${post.content}</div>
+            </div>
+          `;
         });
+
+        blogContainer.innerHTML = html;
+      } catch (error) {
+        blogContainer.innerHTML = "<p class='text-red-500'>Failed to load blog posts.</p>";
+        console.error("Error fetching blog posts:", error);
       }
     }
 
-    // Load Blog Posts
-    async function loadPosts() {
-      const postsCol = collection(db, "posts");
-      const postSnap = await getDocs(postsCol);
-      const posts = postSnap.docs.map(doc => doc.data());
-
-      const blogContainer = document.getElementById("blog");
-      blogContainer.innerHTML = "";
-      posts.forEach(post => {
-        const div = document.createElement("div");
-        div.innerHTML = `<article>
-          <h2 class="text-2xl font-bold mb-2">${post.title}</h2>
-          <p class="text-gray-300 mb-4">${post.content}</p>
-          <hr class="border-gray-700 mb-6"/>
-        </article>`;
-        blogContainer.appendChild(div);
-      });
-    }
-
-    // Init all
-    applyThemeFromFirestore();
-    loadPosts();
-  </script>
-</head>
-
-<body class="bg-gray-950 text-white">
-  <!-- Your full body content continues unchanged... -->
-  <!-- Navbar, Hero, About, Skills, Projects, Survey, Blog, Contact, etc. -->
-  <!-- Replace blog content placeholder if needed -->
-  <section id="blog" class="scroll-section">
-    <h3 class="text-4xl font-bold text-cyan-400 mb-10 text-center">Blog</h3>
-    <div id="blog" class="max-w-4xl mx-auto space-y-8 text-gray-300">
-      <p>Loading blog posts...</p>
-    </div>
-  </section>
-
-  <script>
-    function flipContactCard() {
-      document.getElementById("cardInner").classList.toggle("flipped");
-    }
+    loadBlogPosts();
   </script>
 </body>
+
 </html>
