@@ -1,13 +1,124 @@
 <html lang="en" class="dark">
 <head>
   
+</script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- SEO Meta Tags -->
   <title>Sujan Rimal (Sujan) | Electrical Engineer</title>
   <meta name="description" content="Portfolio of Sujan Rimal, also known as Sujan, expert in smart grids and renewable energy." />
-  <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Smart Grid, Renewable Energy, syko , syko dada, SYKO, Sujan , Rimal , सुजन , सुजन रिमाल , रिमाल" />
+  <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Smart Grid, Renewable Energy, syko , syko dada, SYKO, Syko, Sujan , Rimal , सुजन , सुजन रिमाल , रिमाल" />
+<!-- Add Firebase -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-  
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  async function loadPosts() {
+    const postsCol = collection(db, "posts");
+    const postSnapshot = await getDocs(postsCol);
+    const postList = postSnapshot.docs.map(doc => doc.data());
+
+    let html = "";
+    postList.forEach(post => {
+      html += `<article>
+        <h2>${post.title}</h2>
+        <p>${post.content}</p>
+        <hr/>
+      </article>`;
+    });
+
+    document.getElementById("blog").innerHTML = html;
+  }
+
+  loadPosts();
+</script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet" />
+  <style>
+    <body>
+  <h1>My Blog</h1>
+  <div id="blog"></div>
+</body>
+    <div id="blog">Loading blog...</div>
+
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .glow {
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
+    }
+    .transition-glow {
+      transition: text-shadow 0.3s ease;
+    }
+    .transition-glow:hover {
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeIn 1.2s ease forwards;
+    }
+    .scroll-section {
+      padding: 4rem 1rem;
+    }
+
+    /* Flip card styles */
+    .perspective {
+      perspective: 1000px;
+    }
+    .transform-style-preserve-3d {
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0.75rem; /* rounded-xl */
+    }
+    #cardInner {
+      transform: rotateY(0deg);
+    }
+    #cardInner.flipped {
+      transform: rotateY(180deg);
+    }
+  </style>
+
+  <script>
+    function flipContactCard() {
+      document.getElementById("cardInner").classList.toggle("flipped");
+    }
+  </script>
 </head>
 <body class="bg-gray-950 text-white">
   <!-- Navbar -->
@@ -231,4 +342,10 @@
   </script>
 </body>
 </html>
+
+
+
+
+
+
 
