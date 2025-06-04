@@ -1,6 +1,34 @@
 
 <html lang="en" class="dark">
 <head>
+  <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    // your config
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  async function loadPosts() {
+    const postsCol = collection(db, 'posts');
+    const postSnap = await getDocs(postsCol);
+    const postList = postSnap.docs.map(doc => doc.data());
+
+    const container = document.getElementById('blog');
+    container.innerHTML = '';
+    postList.forEach(post => {
+      const div = document.createElement('div');
+      div.innerHTML = `<h2>${post.title}</h2><p>${post.content}</p><hr/>`;
+      container.appendChild(div);
+    });
+  }
+
+  loadPosts();
+</script>
+
   <!-- Firebase SDK (modular) -->
 <script type="module">
   // 1. Import Firebase modules
@@ -92,6 +120,8 @@
   <h1>My Blog</h1>
   <div id="blog"></div>
 </body>
+    <div id="blog">Loading blog...</div>
+
 
     body {
       font-family: 'Outfit', sans-serif;
