@@ -1,57 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog - Sujan Rimal</title>
-  <!-- Minimal head for a clean structure -->
-  <!-- REMOVED: Firebase script -->
-</head>
-<body>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Navbar -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="about.html#skills">Skills</a></li> <!-- Link to Skills section on About page -->
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="survey.html">Survey</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="contact.html">Contact</a></li>
+  <!-- SEO Meta Tags -->
+  <title>Blog - Sujan Rimal | Electrical Engineer</title>
+  <meta name="description" content="Read the latest blog posts from Sujan Rimal on smart grids, renewable energy, and technology." />
+  <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Smart Grid, Renewable Energy, syko , syko dada, SYKO, Syko, Sujan , Rimal , सुजन , सुजन रिमाल , रिमाल, Blog, Articles, Posts" />
+
+  <!-- REMOVED: Firebase script -->
+  <!-- REMOVED: Tailwind CSS script -->
+
+  <!-- Outfit Font (KEPT as requested) -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet" />
+
+  <!-- Custom Styles (KEPT as requested) -->
+  <style>
+    /* Combined styles from original index.html and the about.html you provided */
+    body {
+      font-family: 'Outfit', sans-serif;
+      scroll-behavior: smooth;
+      /* Styles from about.html body */
+      background-color: #0f172a;
+      color: #e0e7ff;
+    }
+    .glow {
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
+    }
+    .transition-glow {
+      transition: text-shadow 0.3s ease;
+    }
+    .transition-glow:hover {
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Styles for the JS animation */
+    .animate-fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .animate-fade-in-up-visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    .scroll-section {
+      padding: 4rem 1rem;
+    }
+
+    /* Flip card styles (KEPT as requested) */
+    .perspective {
+      perspective: 1000px;
+    }
+    .transform-style-preserve-3d {
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0.75rem; /* rounded-xl */
+    }
+    #cardInner {
+      transform: rotateY(0deg);
+    }
+    #cardInner.flipped {
+      transform: rotateY(180deg);
+    }
+
+    /* Timeline specific styles (KEPT as requested) */
+    .timeline {
+      position: relative;
+      margin-left: 20px;
+      padding-left: 20px;
+      border-left: 3px solid #0ff;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -11px;
+      top: 5px;
+      width: 18px;
+      height: 18px;
+      background-color: #06b6d4;
+      border-radius: 50%;
+      border: 3px solid #0ff;
+      box-shadow: 0 0 8px #0ff;
+    }
+
+  </style>
+
+
+</head>
+<body class="bg-gray-950 text-white">
+
+  <!-- Background Animation (KEPT as requested) -->
+  <div class="absolute inset-0 -z-10 bg-black bg-opacity-60">
+    <video autoplay muted loop class="w-full h-full object-cover opacity-20">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-thunderstorm-with-lightning-strikes-1546-large.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- Navbar (KEPT classes) -->
+  <nav class="p-4 flex justify-between items-center border-b border-gray-800 backdrop-blur-md bg-opacity-10 sticky top-0 z-50">
+    <h1 class="text-2xl font-extrabold text-cyan-400 transition-glow cursor-pointer"><a href="index.html" style="text-decoration: none; color: inherit;">⚡ Sujan Rimal</a></h1>
+    <ul class="flex gap-6 text-sm">
+      <li><a href="index.html" class="hover:text-cyan-400 transition">Home</a></li>
+      <li><a href="about.html" class="hover:text-cyan-400 transition">About</a></li>
+      <li><a href="skills.html" class="hover:text-cyan-400 transition">Skills</a></li>
+      <li><a href="projects.html" class="hover:text-cyan-400 transition">Projects</a></li>
+      <li><a href="survey.html" class="hover:text-cyan-400 transition">Survey</a></li>
+      <li><a href="blog.html" class="hover:text-cyan-400 transition">Blog</a></li>
+      <li><a href="contact.html" class="hover:text-cyan-400 transition">Contact</a></li>
     </ul>
   </nav>
 
   <!-- Blog Section -->
-  <section id="blog">
-    <h3>Blog</h3>
-    <!-- Add your blog post content directly here as static HTML -->
-    <div id="blog-posts">
+  <section id="blog" class="scroll-section">
+    <h3 class="text-4xl font-bold text-cyan-400 mb-10 text-center">Blog</h3>
+    <!-- Static content is added here -->
+    <div id="blog-posts" class="max-w-4xl mx-auto space-y-8 text-gray-300">
       <article>
-        <h4>Future of Smart Grids</h4>
+        <h4 class="text-2xl font-semibold">Future of Smart Grids</h4>
         <p>Exploring AI integration in energy distribution and efficiency.</p>
-        <hr/>
+        <hr class="mt-4 mb-4 border-gray-700"/>
       </article>
       <article>
-        <h4>Renewable Energy Trends 2025</h4>
+        <h4 class="text-2xl font-semibold">Renewable Energy Trends 2025</h4>
         <p>Latest innovations in solar and wind power for homes.</p>
-        <hr/>
+        <hr class="mt-4 mb-4 border-gray-700"/>
       </article>
       <!-- Add more blog posts here using the same <article> structure -->
       <article>
-          <h4>Your New Blog Post Title</h4>
+          <h4 class="text-2xl font-semibold">Your New Blog Post Title</h4>
           <p>The content of your new blog post goes here...</p>
-          <hr/>
+          <hr class="mt-4 mb-4 border-gray-700"/>
       </article>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    © 2025 Sujan Rimal | All rights reserved.
-  </footer>
+  <footer class="text-center py-6 text-gray-500 text-sm">© 2025 Sujan Rimal | All rights reserved.</footer>
 
-  <!-- REMOVED: Page specific JavaScript (Firebase script was in head) -->
+  <!-- Animation Observer script (KEPT as requested) -->
+  <script>
+     document.addEventListener('DOMContentLoaded', () => {
+       const observer = new IntersectionObserver(
+         (entries) => {
+           entries.forEach((entry) => {
+             if (entry.isIntersecting) {
+               entry.target.classList.add('animate-fade-in-up-visible');
+               observer.unobserve(entry.target);
+             }
+           });
+         },
+         { threshold: 0.15 }
+       );
+
+       document.querySelectorAll('.animate-fade-in-up').forEach((el) => {
+         observer.observe(el);
+       });
+     });
+   </script>
 
 </body>
 </html>
