@@ -1,141 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- SEO Meta Tags -->
-  <title>Blog - Sujan Rimal | Electrical Engineer</title>
-  <meta name="description" content="Read the latest blog posts from Sujan Rimal on smart grids, renewable energy, and technology." />
-  <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Smart Grid, Renewable Energy, syko , syko dada, SYKO, Syko, Sujan , Rimal , सुजन , सुजन रिमाल , रिमाल, Blog, Articles, Posts" />
-
-  <!-- REMOVED: Firebase script that loaded posts -->
-
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Outfit Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet" />
-
-  <!-- Custom Styles -->
-  <style>
-    body {
-      font-family: 'Outfit', sans-serif;
-      scroll-behavior: smooth;
-    }
-    .glow {
-      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
-    }
-    .transition-glow {
-      transition: text-shadow 0.3s ease;
-    }
-    .transition-glow:hover {
-      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    .animate-float {
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-in-up {
-      animation: fadeIn 1.2s ease forwards;
-    }
-    .scroll-section {
-      padding: 4rem 1rem;
-    }
-
-    /* Flip card styles (Keep for consistency, only functional on contact page) */
-    .perspective {
-      perspective: 1000px;
-    }
-    .transform-style-preserve-3d {
-      transform-style: preserve-3d;
-      transition: transform 0.5s;
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-    .backface-hidden {
-      backface-visibility: hidden;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 0.75rem; /* rounded-xl */
-    }
-    #cardInner {
-      transform: rotateY(0deg);
-    }
-    #cardInner.flipped {
-      transform: rotateY(180deg);
-    }
-  </style>
-
-  <!-- PAGE SPECIFIC SCRIPTS -->
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Sujan Rimal</title>
+  <!-- Minimal head for a clean structure -->
+  <!-- REMOVED: Firebase script -->
 </head>
-<body class="bg-gray-950 text-white">
-
-  <!-- Background Animation -->
-  <div class="absolute inset-0 -z-10 bg-black bg-opacity-60">
-    <video autoplay muted loop class="w-full h-full object-cover opacity-20">
-      <source src="https://assets.mixkit.co/videos/preview/mixkit-thunderstorm-with-lightning-strikes-1546-large.mp4" type="video/mp4" />
-    </video>
-  </div>
+<body>
 
   <!-- Navbar -->
-  <nav class="p-4 flex justify-between items-center border-b border-gray-800 backdrop-blur-md bg-opacity-10 sticky top-0 z-50">
-    <h1 class="text-2xl font-extrabold text-cyan-400 transition-glow cursor-pointer" onclick="location.href='index.html'">⚡ Sujan Rimal</h1>
-    <ul class="flex gap-6 text-sm">
-      <li><a href="index.html" class="hover:text-cyan-400 transition">Home</a></li>
-      <li><a href="about.html" class="hover:text-cyan-400 transition">About</a></li>
-      <li><a href="about.html#skills" class="hover:text-cyan-400 transition">Skills</a></li> <!-- Link to Skills section on About page -->
-      <li><a href="projects.html" class="hover:text-cyan-400 transition">Projects</a></li>
-      <li><a href="survey.html" class="hover:text-cyan-400 transition">Survey</a></li>
-      <li><a href="blog.html" class="hover:text-cyan-400 transition">Blog</a></li>
-      <li><a href="contact.html" class="hover:text-cyan-400 transition">Contact</a></li>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="about.html#skills">Skills</a></li> <!-- Link to Skills section on About page -->
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="survey.html">Survey</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- PAGE SPECIFIC CONTENT SECTIONS GO HERE -->
-
   <!-- Blog Section -->
-  <section id="blog" class="scroll-section">
-    <h3 class="text-4xl font-bold text-cyan-400 mb-10 text-center">Blog</h3>
-    <!-- Add your blog post content directly here -->
-    <div id="blog-posts" class="max-w-4xl mx-auto space-y-8 text-gray-300">
+  <section id="blog">
+    <h3>Blog</h3>
+    <!-- Add your blog post content directly here as static HTML -->
+    <div id="blog-posts">
       <article>
-        <h4 class="text-2xl font-semibold">Future of Smart Grids</h4>
+        <h4>Future of Smart Grids</h4>
         <p>Exploring AI integration in energy distribution and efficiency.</p>
-        <hr class="mt-4 mb-4 border-gray-700"/>
+        <hr/>
       </article>
       <article>
-        <h4 class="text-2xl font-semibold">Renewable Energy Trends 2025</h4>
+        <h4>Renewable Energy Trends 2025</h4>
         <p>Latest innovations in solar and wind power for homes.</p>
-        <hr class="mt-4 mb-4 border-gray-700"/>
+        <hr/>
       </article>
-      <!-- Add more blog posts here using the same structure -->
+      <!-- Add more blog posts here using the same <article> structure -->
       <article>
-          <h4 class="text-2xl font-semibold">Your New Blog Post Title</h4>
+          <h4>Your New Blog Post Title</h4>
           <p>The content of your new blog post goes here...</p>
-          <hr class="mt-4 mb-4 border-gray-700"/>
+          <hr/>
       </article>
     </div>
   </section>
 
-
   <!-- Footer -->
-  <footer class="text-center py-6 text-gray-500 text-sm">© 2025 Sujan Rimal | All rights reserved.</footer>
+  <footer>
+    © 2025 Sujan Rimal | All rights reserved.
+  </footer>
 
-  <!-- PAGE SPECIFIC JAVASCRIPT -->
+  <!-- REMOVED: Page specific JavaScript (Firebase script was in head) -->
 
 </body>
 </html>
