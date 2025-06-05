@@ -1,136 +1,39 @@
+<!-- ✅ Fixed about.html -->
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- SEO Meta Tags -->
-  <title>About - Sujan Rimal | Electrical Engineer</title>
-  <meta name="description" content="Learn more about Sujan Rimal, his background in electrical engineering, and experience timeline." />
-  <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Smart Grid, Renewable Energy, syko , syko dada, SYKO, Syko, Sujan , Rimal , सुजन , सुजन रिमाल , रिमाल, About Me, Experience, Timeline" />
-
-  <!-- REMOVED: Tailwind CSS script -->
-
-  <!-- Outfit Font (KEPT as requested) -->
+  <title>About | Sujan Rimal - Electrical Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet" />
-
-  <!-- Custom Styles (KEPT as requested) -->
   <style>
-    /* Combined styles from original index.html and the about.html you provided */
     body {
       font-family: 'Outfit', sans-serif;
-      scroll-behavior: smooth;
-      /* Styles from about.html body */
       background-color: #0f172a;
       color: #e0e7ff;
+      scroll-behavior: smooth;
     }
-    .glow {
-      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
-    }
-    .transition-glow {
-      transition: text-shadow 0.3s ease;
-    }
-    .transition-glow:hover {
-      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    .animate-float {
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    /* Styles for the JS animation */
-    .animate-fade-in-up {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-    }
-    .animate-fade-in-up-visible {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-    }
-
-    .scroll-section {
-      padding: 4rem 1rem;
-    }
-
-    /* Flip card styles (KEPT as requested) */
-    .perspective {
-      perspective: 1000px;
-    }
-    .transform-style-preserve-3d {
-      transform-style: preserve-3d;
-      transition: transform 0.5s;
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-    .backface-hidden {
-      backface-visibility: hidden;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 0.75rem; /* rounded-xl */
-    }
-    #cardInner {
-      transform: rotateY(0deg);
-    }
-    #cardInner.flipped {
-      transform: rotateY(180deg);
-    }
-
-    /* Timeline specific styles (KEPT as requested) */
-    .timeline {
-      position: relative;
-      margin-left: 20px;
-      padding-left: 20px;
-      border-left: 3px solid #0ff;
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 30px;
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -11px;
-      top: 5px;
-      width: 18px;
-      height: 18px;
-      background-color: #06b6d4;
-      border-radius: 50%;
-      border: 3px solid #0ff;
-      box-shadow: 0 0 8px #0ff;
-    }
-
+    .glow { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff; }
+    .transition-glow { transition: text-shadow 0.3s ease; }
+    .transition-glow:hover { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+    .scroll-section { padding: 4rem 1rem; }
   </style>
-
-
-  <!-- REMOVED: Firebase script -->
-
 </head>
 <body class="bg-gray-950 text-white">
-  <!-- Background Animation (KEPT as requested) -->
   <div class="absolute inset-0 -z-10 bg-black bg-opacity-60">
     <video autoplay muted loop class="w-full h-full object-cover opacity-20">
       <source src="https://assets.mixkit.co/videos/preview/mixkit-thunderstorm-with-lightning-strikes-1546-large.mp4" type="video/mp4" />
     </video>
   </div>
 
-  <!-- Navbar (KEPT classes) -->
   <nav class="p-4 flex justify-between items-center border-b border-gray-800 backdrop-blur-md bg-opacity-10 sticky top-0 z-50">
-    <h1 class="text-2xl font-extrabold text-cyan-400 transition-glow cursor-pointer"><a href="index.html" style="text-decoration: none; color: inherit;">⚡ Sujan Rimal</a></h1>
+    <h1 class="text-2xl font-extrabold text-cyan-400 transition-glow cursor-pointer">
+      <a href="index.html" style="text-decoration: none; color: inherit;">⚡ Sujan Rimal</a>
+    </h1>
     <ul class="flex gap-6 text-sm">
       <li><a href="index.html" class="hover:text-cyan-400 transition">Home</a></li>
-      <li><a href="about.html" class="hover:text-cyan-400 transition">About</a></li>
+      <li><a href="about.html" class="text-cyan-400 font-bold">About</a></li>
       <li><a href="skills.html" class="hover:text-cyan-400 transition">Skills</a></li>
       <li><a href="projects.html" class="hover:text-cyan-400 transition">Projects</a></li>
       <li><a href="survey.html" class="hover:text-cyan-400 transition">Survey</a></li>
@@ -139,81 +42,42 @@
     </ul>
   </nav>
 
-  <!-- About Content -->
-  <!-- Keeping classes like max-w-5xl, mx-auto, etc. -->
   <main class="max-w-5xl mx-auto px-6 py-16">
-    <h2 class="text-5xl font-extrabold text-cyan-400 mb-8 text-center animate-fade-in-up">About Me</h2>
-    <section class="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto mb-16 animate-fade-in-up">
-      <p>
-        Hello! I'm <strong>Sujan Rimal</strong>, a passionate electrical engineer focused on designing and implementing advanced energy systems.
-        Over the past years, I have worked on cutting-edge projects in smart grids, renewable energy, and automation.
-      </p>
-      <p class="mt-4">
-        My approach blends deep technical knowledge with innovation to create sustainable and efficient electrical solutions that power modern industries.
-        I love solving complex problems and mentoring young engineers to reach their potential.
-      </p>
+    <h2 class="text-5xl font-extrabold text-cyan-400 mb-8 text-center">About Me</h2>
+    <section class="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto mb-16">
+      <p>Hello! I'm <strong>Sujan Rimal</strong>, a passionate electrical engineer focused on designing and implementing advanced energy systems.</p>
+      <p class="mt-4">My approach blends deep technical knowledge with innovation to create sustainable and efficient electrical solutions that power modern industries.</p>
     </section>
 
-    <section class="animate-fade-in-up">
+    <section>
       <h3 class="text-3xl font-semibold text-cyan-400 mb-8 text-center">Experience Timeline</h3>
-      <!-- Keeping classes like timeline, timeline-item etc. -->
       <div class="timeline max-w-xl mx-auto">
-        <div class="timeline-item">
+        <div class="timeline-item mb-10">
           <h4 class="text-xl font-bold text-white">Senior Electrical Engineer</h4>
           <p class="text-gray-400 text-sm mb-1">GreenTech Innovations — 2021 to Present</p>
-          <p>
-            Leading a team to develop AI-driven battery storage optimization systems for large commercial clients.
-          </p>
+          <p>Leading a team to develop AI-driven battery storage optimization systems for large commercial clients.</p>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-item mb-10">
           <h4 class="text-xl font-bold text-white">Electrical Engineer</h4>
           <p class="text-gray-400 text-sm mb-1">SmartGrid Solutions — 2017 to 2021</p>
-          <p>
-            Designed and implemented smart microgrid infrastructure in rural areas to provide clean and reliable energy.
-          </p>
+          <p>Designed and implemented smart microgrid infrastructure in rural areas to provide clean and reliable energy.</p>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-item mb-10">
           <h4 class="text-xl font-bold text-white">Junior Electrical Engineer</h4>
           <p class="text-gray-400 text-sm mb-1">Industrial Automation Corp — 2014 to 2017</p>
-          <p>
-            Developed factory automation systems and maintained PLC controls increasing production efficiency by 15%.
-          </p>
+          <p>Developed factory automation systems and maintained PLC controls increasing production efficiency by 15%.</p>
         </div>
         <div class="timeline-item">
           <h4 class="text-xl font-bold text-white">Electrical Engineering Intern</h4>
           <p class="text-gray-400 text-sm mb-1">Energy Future Labs — Summer 2013</p>
-          <p>
-            Assisted in renewable energy research projects and performed electrical testing on solar panels.
-          </p>
+          <p>Assisted in renewable energy research projects and performed electrical testing on solar panels.</p>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="p-4 border-t border-gray-800 text-center text-sm text-gray-500">
-    © 2025 Sujan Rimal | Electrical Engineer | All rights reserved.
+    &copy; 2025 Sujan Rimal | Electrical Engineer | All rights reserved.
   </footer>
-
-  <!-- Animation Observer script (KEPT as requested) -->
-  <script>
-     document.addEventListener('DOMContentLoaded', () => {
-       const observer = new IntersectionObserver(
-         (entries) => {
-           entries.forEach((entry) => {
-             if (entry.isIntersecting) {
-               entry.target.classList.add('animate-fade-in-up-visible');
-               observer.unobserve(entry.target);
-             }
-           });
-         },
-         { threshold: 0.15 }
-       );
-
-       document.querySelectorAll('.animate-fade-in-up').forEach((el) => {
-         observer.observe(el);
-       });
-     });
-   </script>
 </body>
 </html>
