@@ -3,147 +3,176 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact | Daniel Sparks - Electrical Engineer</title>
+
+  <!-- SEO Meta Tags -->
+  <title>Contact - Sujan Rimal | Electrical Engineer</title>
+  <meta name="description" content="Get in touch with Sujan Rimal for collaborations or inquiries." />
+  <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Smart Grid, Renewable Energy, syko , syko dada, SYKO, Syko, Sujan , Rimal , सुजन , सुजन रिमाल , रिमाल, Contact, Email, Phone" />
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Outfit Font -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet" />
+
+  <!-- Custom Styles -->
   <style>
     body {
       font-family: 'Outfit', sans-serif;
-      background-color: #0f172a;
-      color: #e0e7ff;
       scroll-behavior: smooth;
     }
     .glow {
-      text-shadow: 0 0 8px #06b6d4, 0 0 15px #3b82f6;
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
+    }
+    .transition-glow {
       transition: text-shadow 0.3s ease;
     }
-    input, textarea {
-      background: #1e293b;
-      border: none;
-      border-radius: 8px;
-      padding: 12px 16px;
-      color: #e0e7ff;
-      font-size: 1rem;
-      transition: box-shadow 0.3s ease;
-      width: 100%;
-      resize: none;
+    .transition-glow:hover {
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
     }
-    input:focus, textarea:focus {
-      outline: none;
-      box-shadow: 0 0 10px #06b6d4;
-      background: #334155;
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
-    button {
-      background: linear-gradient(90deg, #06b6d4, #3b82f6);
-      color: #000;
-      font-weight: 700;
-      padding: 14px 24px;
-      border-radius: 9999px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      width: 100%;
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
     }
-    button:hover {
-      background: linear-gradient(90deg, #0ea5e9, #2563eb);
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .animate-fade-in-up {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+      animation: fadeIn 1.2s ease forwards;
     }
-    .animate-fade-in-up-visible {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
+    .scroll-section {
+      padding: 4rem 1rem;
+    }
+
+    /* Flip card styles */
+    .perspective {
+      perspective: 1000px;
+    }
+    .transform-style-preserve-3d {
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0.75rem; /* rounded-xl */
+    }
+    #cardInner {
+      transform: rotateY(0deg);
+    }
+    #cardInner.flipped {
+      transform: rotateY(180deg);
     }
   </style>
+
+  <!-- PAGE SPECIFIC SCRIPTS (None in head for Contact page) -->
+
 </head>
 <body class="bg-gray-950 text-white">
+
+  <!-- Background Animation -->
+  <div class="absolute inset-0 -z-10 bg-black bg-opacity-60">
+    <video autoplay muted loop class="w-full h-full object-cover opacity-20">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-thunderstorm-with-lightning-strikes-1546-large.mp4" type="video/mp4" />
+    </video>
+  </div>
+
   <!-- Navbar -->
-  <nav
-    class="p-4 flex justify-between items-center border-b border-gray-800 backdrop-blur-md bg-opacity-10 sticky top-0 z-50"
-  >
-    <h1 class="text-2xl font-extrabold text-cyan-400 transition-glow cursor-default">⚡ Daniel Sparks</h1>
+  <nav class="p-4 flex justify-between items-center border-b border-gray-800 backdrop-blur-md bg-opacity-10 sticky top-0 z-50">
+    <h1 class="text-2xl font-extrabold text-cyan-400 transition-glow cursor-pointer" onclick="location.href='index.html'">⚡ Sujan Rimal</h1>
     <ul class="flex gap-6 text-sm">
       <li><a href="index.html" class="hover:text-cyan-400 transition">Home</a></li>
       <li><a href="about.html" class="hover:text-cyan-400 transition">About</a></li>
-      <li><a href="skills.html" class="hover:text-cyan-400 transition">Skills</a></li>
+      <li><a href="about.html#skills" class="hover:text-cyan-400 transition">Skills</a></li> <!-- Link to Skills section on About page -->
       <li><a href="projects.html" class="hover:text-cyan-400 transition">Projects</a></li>
-      <li><a href="contact.html" class="hover:text-cyan-400 transition font-bold text-cyan-400">Contact</a></li>
+      <li><a href="survey.html" class="hover:text-cyan-400 transition">Survey</a></li>
+      <li><a href="blog.html" class="hover:text-cyan-400 transition">Blog</a></li>
+      <li><a href="contact.html" class="hover:text-cyan-400 transition">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Contact Section -->
-  <main class="max-w-3xl mx-auto px-6 py-16">
-    <h2 class="text-5xl font-extrabold text-cyan-400 mb-12 text-center animate-fade-in-up">
-      Get In Touch
-    </h2>
+  <!-- PAGE SPECIFIC CONTENT SECTIONS GO HERE -->
 
-    <form action="#" method="POST" class="space-y-8 animate-fade-in-up" id="contactForm" novalidate>
-      <div>
-        <label for="name" class="block mb-2 font-semibold text-gray-300">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your full name" required />
-      </div>
-      <div>
-        <label for="email" class="block mb-2 font-semibold text-gray-300">Email</label>
-        <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
-      </div>
-      <div>
-        <label for="message" class="block mb-2 font-semibold text-gray-300">Message</label>
-        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
-      </div>
-      <button type="submit" aria-label="Send message">Send Message</button>
+  <!-- Contact Section -->
+  <section id="contact" class="scroll-section text-center py-16">
+    <h3 class="text-4xl font-bold text-cyan-400 mb-6">Let's Connect</h3>
+    <p class="text-gray-400 mb-8">Interested in collaborating or learning more? Reach out anytime!</p>
+
+    <!-- Contact Form -->
+    <form id="contactForm" class="max-w-xl mx-auto bg-gray-800 p-6 rounded-xl space-y-4 text-left mb-12"> <!-- Added mb-12 for spacing below form -->
+      <h4 class="text-2xl font-semibold text-cyan-400 mb-4">Send me a message</h4>
+
+      <input type="text" id="name" name="name" placeholder="Your Name" required
+        class="w-full px-4 py-2 rounded-md bg-gray-700 text-white" />
+
+      <input type="email" id="email" name="email" placeholder="Your Email" required
+        class="w-full px-4 py-2 rounded-md bg-gray-700 text-white" />
+
+      <input type="tel" id="phone" name="phone" placeholder="Your Phone (optional)"
+        class="w-full px-4 py-2 rounded-md bg-gray-700 text-white" />
+
+      <textarea id="message" name="message" rows="4" placeholder="Your Suggestion or Problem" required
+        class="w-full px-4 py-2 rounded-md bg-gray-700 text-white"></textarea>
+
+      <button type="submit" class="w-full bg-cyan-500 py-3 font-bold rounded-md hover:bg-cyan-600 transition">
+        Send Message
+      </button>
+
+      <p id="formStatus" class="mt-2 text-sm"></p>
     </form>
 
-    <section class="mt-16 text-center animate-fade-in-up">
-      <h3 class="text-2xl font-semibold mb-6 text-cyan-400">Or reach me on</h3>
-      <div class="flex justify-center gap-10 text-cyan-400 text-3xl">
-        <a href="https://linkedin.com/in/danielsparks" target="_blank" aria-label="LinkedIn" class="hover:text-blue-500 transition">
-          <svg xmlns="http://www.w3.org/2000/svg" class="inline-block" fill="currentColor" viewBox="0 0 24 24" width="36" height="36">
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.761 0 5-2.238 5-5v-14c0-2.761-2.239-5-5-5zm-11.94 19h-3v-9h3v9zm-1.5-10.21c-.967 0-1.75-.784-1.75-1.75s.783-1.75 1.75-1.75c.966 0 1.75.784 1.75 1.75s-.784 1.75-1.75 1.75zm13.44 10.21h-3v-4.5c0-1.07-.02-2.44-1.5-2.44-1.5 0-1.73 1.17-1.73 2.37v4.57h-3v-9h2.88v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.03 0 3.59 2 3.59 4.6v4.7z"/>
-          </svg>
-        </a>
-        <a href="https://github.com/danielsparks" target="_blank" aria-label="GitHub" class="hover:text-gray-400 transition">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block" viewBox="0 0 24 24" width="36" height="36">
-            <path d="M12 0c-6.627 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.112.793-.26.793-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.334-1.757-1.334-1.757-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.238 1.84 1.238 1.07 1.834 2.807 1.304 3.492.997.108-.774.418-1.304.762-1.604-2.665-.3-5.466-1.335-5.466-5.93 0-1.31.467-2.38 1.235-3.22-.124-.303-.535-1.522.117-3.176 0 0 1.008-.323 3.3 1.23a11.486 11.486 0 013.003-.404c1.02.005 2.045.137 3.003.404 2.29-1.554 3.297-1.23 3.297-1.23.653 1.654.242 2.873.118 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.103.823 2.222 0 1.606-.015 2.9-.015 3.293 0 .32.192.694.8.576 4.765-1.588 8.2-6.086 8.2-11.386 0-6.627-5.373-12-12-12z"/>
-          </svg>
-        </a>
-        <a href="mailto:daniel.sparks@email.com" aria-label="Email" class="hover:text-red-500 transition text-4xl leading-none">
-          &#9993;
-        </a>
+    <!-- Google Form Embed -->
+    <div class="max-w-xl mx-auto mb-12"> <!-- Added mb-12 for spacing below embed -->
+      <h4 class="text-2xl font-semibold text-cyan-400 mb-4">Or fill out the form directly</h4>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfUGcJ2CjIvppK2bI-zIq1rzSsWt2hg2sMQdTOY_sUXrfisUg/viewform?embedded=true"
+        width="100%" height="821" frameborder="0" marginheight="0" marginwidth="0">
+        Loading…
+      </iframe>
+    </div>
+
+
+    <!-- Flip Card -->
+    <div class="w-72 mx-auto mt-8">
+      <div id="flipCard" class="relative w-full h-32 cursor-pointer perspective" onclick="flipContactCard()">
+        <div id="cardInner" class="absolute w-full h-full transform-style-preserve-3d">
+          <!-- Front (Email) -->
+          <div class="absolute w-full h-full bg-cyan-500 text-black rounded-xl flex items-center justify-center text-lg font-semibold backface-hidden">
+            📧 rimalsujan5@gmail.com
+          </div>
+          <!-- Back (Phone) -->
+          <div class="absolute w-full h-full bg-gray-800 text-white rounded-xl flex items-center justify-center backface-hidden" style="transform: rotateY(180deg);">
+            📞 +977-9845645446
+          </div>
+        </div>
       </div>
-    </section>
-  </main>
+      <p class="text-sm text-gray-400 mt-2">Click the card to reveal phone number</p>
+    </div>
+  </section>
+
 
   <!-- Footer -->
-  <footer class="p-4 border-t border-gray-800 text-center text-sm text-gray-500 mt-20">
-    &copy; 2025 Daniel Sparks | Electrical Engineer | All rights reserved.
-  </footer>
+  <footer class="text-center py-6 text-gray-500 text-sm">© 2025 Sujan Rimal | All rights reserved.</footer>
 
-  <!-- Animation Script -->
+  <!-- PAGE SPECIFIC JAVASCRIPT GOES HERE -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('animate-fade-in-up-visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.3 }
-      );
-      document.querySelectorAll('.animate-fade-in-up').forEach(el => observer.observe(el));
+    function flipContactCard() {
+      document.getElementById("cardInner").classList.toggle("flipped");
+    }
 
-      // Simple form validation example (optional)
-      const form = document.getElementById('contactForm');
-      form.addEventListener('submit', (e) => {
-        if (!form.checkValidity()) {
-          e.preventDefault();
-          alert('Please fill out all fields correctly.');
-        }
-      });
-    });
+    // Note: Your HTML form submission logic needs to be implemented separately (e.g., using a backend script, a service like Formspree, or linking to the Google Form).
+    // The current form tag doesn't have an 'action' attribute. Submitting it as is might just refresh the page.
   </script>
+
 </body>
 </html>
