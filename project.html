@@ -1,101 +1,43 @@
+
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- SEO Meta Tags -->
   <title>Projects - Sujan Rimal | Electrical Engineer</title>
   <meta name="description" content="Explore the projects portfolio of Sujan Rimal, highlighting work in smart grids, automation, and renewable energy." />
-  <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Smart Grid, Renewable Energy, syko , syko dada, SYKO, Syko, Sujan , Rimal , सुजन , सुजन रिमाल , रिमाल, Projects, Portfolio" />
+  <meta name="keywords" content="Sujan Rimal, Electrical Engineer, Smart Grid, Renewable Energy, Projects, Portfolio" />
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Outfit Font -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet" />
 
-  <!-- Custom Styles -->
   <style>
-    body {
-      font-family: 'Outfit', sans-serif;
-      scroll-behavior: smooth;
-    }
-    .glow {
-      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
-    }
-    .transition-glow {
-      transition: text-shadow 0.3s ease;
-    }
-    .transition-glow:hover {
-      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    .animate-float {
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-in-up {
-      animation: fadeIn 1.2s ease forwards;
-    }
-    .scroll-section {
-      padding: 4rem 1rem;
-    }
-
-    /* Flip card styles (Keep for consistency, only functional on contact page) */
-    .perspective {
-      perspective: 1000px;
-    }
-    .transform-style-preserve-3d {
-      transform-style: preserve-3d;
-      transition: transform 0.5s;
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-    .backface-hidden {
-      backface-visibility: hidden;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 0.75rem; /* rounded-xl */
-    }
-    #cardInner {
-      transform: rotateY(0deg);
-    }
-    #cardInner.flipped {
-      transform: rotateY(180deg);
-    }
+    body { font-family: 'Outfit', sans-serif; scroll-behavior: smooth; }
+    .glow { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff; }
+    .transition-glow { transition: text-shadow 0.3s ease; }
+    .transition-glow:hover { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .animate-float { animation: float 3s ease-in-out infinite; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fade-in-up { animation: fadeIn 1.2s ease forwards; }
+    .scroll-section { padding: 4rem 1rem; }
   </style>
-
-  <!-- PAGE SPECIFIC SCRIPTS (None needed for Projects page) -->
-
 </head>
-<body>
 <body class="bg-gray-950 text-white">
 
-  <!-- Background Animation -->
   <div class="absolute inset-0 -z-10 bg-black bg-opacity-60">
     <video autoplay muted loop class="w-full h-full object-cover opacity-20">
       <source src="https://assets.mixkit.co/videos/preview/mixkit-thunderstorm-with-lightning-strikes-1546-large.mp4" type="video/mp4" />
     </video>
   </div>
 
-  <!-- Navbar -->
   <nav class="p-4 flex justify-between items-center border-b border-gray-800 backdrop-blur-md bg-opacity-10 sticky top-0 z-50">
     <h1 class="text-2xl font-extrabold text-cyan-400 transition-glow cursor-pointer" onclick="location.href='index.html'">⚡ Sujan Rimal</h1>
     <ul class="flex gap-6 text-sm">
       <li><a href="index.html" class="hover:text-cyan-400 transition">Home</a></li>
       <li><a href="about.html" class="hover:text-cyan-400 transition">About</a></li>
-      <li><a href="about.html#skills" class="hover:text-cyan-400 transition">Skills</a></li> <!-- Link to Skills section on About page -->
+      <li><a href="about.html#skills" class="hover:text-cyan-400 transition">Skills</a></li>
       <li><a href="projects.html" class="hover:text-cyan-400 transition">Projects</a></li>
       <li><a href="survey.html" class="hover:text-cyan-400 transition">Survey</a></li>
       <li><a href="blog.html" class="hover:text-cyan-400 transition">Blog</a></li>
@@ -103,64 +45,37 @@
     </ul>
   </nav>
 
-  <!-- PAGE SPECIFIC CONTENT SECTIONS GO HERE -->
-
-  <!-- Projects Section -->
   <section id="projects" class="scroll-section">
     <h3 class="text-4xl font-bold text-cyan-400 mb-10 text-center">Projects</h3>
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
       <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
-        <h4 class="text-xl font-semibold">Smart street lightining </h4>
-        <p class="text-gray-400">
-<h1>🌟 Smart Street Lighting System Using Arduino and LDR</h1>
+        <h4 class="text-xl font-semibold">Smart Street Lighting</h4>
+        <div class="text-gray-400 space-y-4">
+          <h4 class="text-lg font-bold text-white">🌟 Smart Street Lighting System Using Arduino and LDR</h4>
 
-<h2>🔍 Overview</h2>
-<p>This project is a simple and efficient <strong>Smart Street Lighting System</strong> using <strong>Arduino</strong> and an <strong>LDR (Light Dependent Resistor)</strong>. The primary goal is to <strong>automatically control street lights</strong> based on the intensity of natural light, reducing energy consumption and manual effort.</p>
+          <h5 class="font-semibold text-cyan-300">🔍 Overview</h5>
+          <p>This project is a simple and efficient <strong>Smart Street Lighting System</strong> using <strong>Arduino</strong> and an <strong>LDR</strong>. It automatically controls street lights based on ambient light.</p>
 
-<hr>
+          <h5 class="font-semibold text-cyan-300">🎯 Objective</h5>
+          <p>Build a system that turns lights ON at night and OFF during the day using Arduino and LDR.</p>
 
-<h2>🎯 Objective</h2>
-<p>To build an <strong>automatic street light system</strong> that turns <strong>ON</strong> when it gets dark and turns <strong>OFF</strong> during the day using an LDR and Arduino.</p>
+          <h5 class="font-semibold text-cyan-300">🧠 How It Works</h5>
+          <p>The LDR senses light levels. When it gets dark, the Arduino turns the light ON. In daylight, the light is OFF.</p>
 
-<hr>
+          <h5 class="font-semibold text-cyan-300">🧰 Components Used</h5>
+          <ul class="list-disc ml-5">
+            <li>Arduino UNO</li>
+            <li>LDR Sensor</li>
+            <li>10kΩ Resistor</li>
+            <li>LED / Relay module</li>
+            <li>Jumper wires, Breadboard</li>
+          </ul>
 
-<h2>🧠 How It Works</h2>
-<p>The <strong>LDR</strong> is a sensor that detects the presence of light. When the environment becomes dark (low light), the <strong>resistance of the LDR increases</strong>, signaling the <strong>Arduino</strong> to <strong>turn ON</strong> the street light. When daylight is present, the resistance decreases, and the Arduino turns the light <strong>OFF</strong>.</p>
-
-<hr>
-
-<h2>🧰 Components Used</h2>
-<table>
-  <tr><th>Component</th><th>Quantity</th></tr>
-  <tr><td>Arduino UNO</td><td>1</td></tr>
-  <tr><td>LDR Sensor</td><td>1</td></tr>
-  <tr><td>10kΩ Resistor</td><td>1</td></tr>
-  <tr><td>LED or Street Light (Demo)</td><td>1</td></tr>
-  <tr><td>Relay Module (for high voltage control)</td><td>1</td></tr>
-  <tr><td>Jumper Wires</td><td>As needed</td></tr>
-  <tr><td>Breadboard</td><td>1</td></tr>
-  <tr><td>USB Cable + Power Supply</td><td>1</td></tr>
-</table>
-
-<hr>
-
-<h2>🔌 Circuit Diagram</h2>
-<p><strong>Connections:</strong></p>
-<ul>
-  <li>LDR → Analog pin A0 (with 10kΩ resistor to GND)</li>
-  <li>LED/Street Light → Digital pin 13 (through relay or transistor)</li>
-  <li>Relay IN → Digital pin (e.g., D8)</li>
-  <li>VCC and GND connected accordingly</li>
-</ul>
-<p><em>You can replace the LED with an actual AC bulb by using a relay module for high voltage control.</em></p>
-
-<hr>
-
-<h2>💻 Arduino Code</h2>
-<pre><code>
-int ldrPin = A0;       // LDR connected to analog pin A0
-int lightPin = 13;     // LED or Relay connected to digital pin 13
-int threshold = 500;   // Adjust based on environment
+          <h5 class="font-semibold text-cyan-300">💻 Arduino Code</h5>
+          <pre class="bg-black text-green-400 p-3 rounded overflow-x-auto"><code>
+int ldrPin = A0;
+int lightPin = 13;
+int threshold = 500;
 
 void setup() {
   pinMode(lightPin, OUTPUT);
@@ -171,68 +86,45 @@ void loop() {
   int ldrValue = analogRead(ldrPin);
   Serial.println(ldrValue);
 
-  if (ldrValue &lt; threshold) {
-    digitalWrite(lightPin, HIGH);  // Turn ON light
+  if (ldrValue < threshold) {
+    digitalWrite(lightPin, HIGH);
   } else {
-    digitalWrite(lightPin, LOW);   // Turn OFF light
+    digitalWrite(lightPin, LOW);
   }
 
-  delay(500);  // Adjust delay as needed
+  delay(500);
 }
-</code></pre>
+          </code></pre>
 
-<hr>
+          <h5 class="font-semibold text-cyan-300">✅ Features</h5>
+          <ul class="list-disc ml-5">
+            <li>Automatic lighting</li>
+            <li>Low power consumption</li>
+            <li>Simple, cost-effective</li>
+          </ul>
 
-<h2>✅ Features</h2>
-<ul>
-  <li>Automatic light detection and control</li>
-  <li>Energy-saving system</li>
-  <li>Low-cost and scalable</li>
-  <li>Can be upgraded with motion sensors or IoT features</li>
-</ul>
-
-<hr>
-
-<h2>🚀 Future Enhancements</h2>
-<ul>
-  <li><strong>Motion Detection</strong>: Turn lights ON only when someone is near</li>
-  <li><strong>IoT Connectivity</strong>: Control and monitor lights remotely</li>
-  <li><strong>Solar Panel Integration</strong>: Make the system energy independent</li>
-  <li><strong>Brightness Control</strong>: Vary LED brightness using PWM</li>
-</ul>
-
-<hr>
-
-<h2>📷 Gallery</h2>
-<p><em>Add photos here of your circuit, breadboard, street light setup, or demo video.</em></p>
-
-<hr>
-
-<h2>📝 Conclusion</h2>
-<p>This Smart Street Lighting system is an excellent example of how <strong>basic sensors and microcontrollers</strong> can create real-world solutions. It's easy to build, cost-effective, and offers a solid foundation for advanced IoT-based lighting systems.</p>
-
-
-</p>
+          <h5 class="font-semibold text-cyan-300">🚀 Future Enhancements</h5>
+          <ul class="list-disc ml-5">
+            <li>Motion detection</li>
+            <li>IoT integration</li>
+            <li>Solar power support</li>
+          </ul>
+        </div>
       </div>
+
       <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
         <h4 class="text-xl font-semibold">Factory Automation</h4>
         <p class="text-gray-400">Siemens SCADA system revamped. 20% gain.</p>
       </div>
+
       <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
         <h4 class="text-xl font-semibold">AI Battery Optimization</h4>
         <p class="text-gray-400">Energy storage optimized via MATLAB + AI.</p>
       </div>
-      <!-- Add more projects here -->
     </div>
   </section>
 
-
-  <!-- Footer -->
   <footer class="text-center py-6 text-gray-500 text-sm">© 2025 Sujan Rimal | All rights reserved.</footer>
-
-  <!-- PAGE SPECIFIC JAVASCRIPT (None needed for Projects page) -->
 
 </body>
 </html>
-
-</body>
