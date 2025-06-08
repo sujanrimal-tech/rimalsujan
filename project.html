@@ -112,59 +112,52 @@
       <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
         <h4 class="text-xl font-semibold">Smart street lightining </h4>
         <p class="text-gray-400">
----
+<h1>🌟 Smart Street Lighting System Using Arduino and LDR</h1>
 
-## 🌟 Smart Street Lighting System Using Arduino and LDR
+<h2>🔍 Overview</h2>
+<p>This project is a simple and efficient <strong>Smart Street Lighting System</strong> using <strong>Arduino</strong> and an <strong>LDR (Light Dependent Resistor)</strong>. The primary goal is to <strong>automatically control street lights</strong> based on the intensity of natural light, reducing energy consumption and manual effort.</p>
 
-### 🔍 Overview
+<hr>
 
-This project is a simple and efficient **Smart Street Lighting System** using **Arduino** and an **LDR (Light Dependent Resistor)**. The primary goal is to **automatically control street lights** based on the intensity of natural light, reducing energy consumption and manual effort.
+<h2>🎯 Objective</h2>
+<p>To build an <strong>automatic street light system</strong> that turns <strong>ON</strong> when it gets dark and turns <strong>OFF</strong> during the day using an LDR and Arduino.</p>
 
----
+<hr>
 
-### 🎯 Objective
+<h2>🧠 How It Works</h2>
+<p>The <strong>LDR</strong> is a sensor that detects the presence of light. When the environment becomes dark (low light), the <strong>resistance of the LDR increases</strong>, signaling the <strong>Arduino</strong> to <strong>turn ON</strong> the street light. When daylight is present, the resistance decreases, and the Arduino turns the light <strong>OFF</strong>.</p>
 
-To build an **automatic street light system** that turns **ON** when it gets dark and turns **OFF** during the day using an LDR and Arduino.
+<hr>
 
----
+<h2>🧰 Components Used</h2>
+<table>
+  <tr><th>Component</th><th>Quantity</th></tr>
+  <tr><td>Arduino UNO</td><td>1</td></tr>
+  <tr><td>LDR Sensor</td><td>1</td></tr>
+  <tr><td>10kΩ Resistor</td><td>1</td></tr>
+  <tr><td>LED or Street Light (Demo)</td><td>1</td></tr>
+  <tr><td>Relay Module (for high voltage control)</td><td>1</td></tr>
+  <tr><td>Jumper Wires</td><td>As needed</td></tr>
+  <tr><td>Breadboard</td><td>1</td></tr>
+  <tr><td>USB Cable + Power Supply</td><td>1</td></tr>
+</table>
 
-### 🧠 How It Works
+<hr>
 
-The **LDR** is a sensor that detects the presence of light. When the environment becomes dark (low light), the **resistance of the LDR increases**, signaling the **Arduino** to **turn ON** the street light. When daylight is present, the resistance decreases, and the Arduino turns the light **OFF**.
+<h2>🔌 Circuit Diagram</h2>
+<p><strong>Connections:</strong></p>
+<ul>
+  <li>LDR → Analog pin A0 (with 10kΩ resistor to GND)</li>
+  <li>LED/Street Light → Digital pin 13 (through relay or transistor)</li>
+  <li>Relay IN → Digital pin (e.g., D8)</li>
+  <li>VCC and GND connected accordingly</li>
+</ul>
+<p><em>You can replace the LED with an actual AC bulb by using a relay module for high voltage control.</em></p>
 
----
+<hr>
 
-### 🧰 Components Used
-
-| Component                               | Quantity  |
-| --------------------------------------- | --------- |
-| Arduino UNO                             | 1         |
-| LDR Sensor                              | 1         |
-| 10kΩ Resistor                           | 1         |
-| LED or Street Light (Demo)              | 1         |
-| Relay Module (for high voltage control) | 1         |
-| Jumper Wires                            | As needed |
-| Breadboard                              | 1         |
-| USB Cable + Power Supply                | 1         |
-
----
-
-### 🔌 Circuit Diagram
-
-**Connections:**
-
-* LDR → Analog pin A0 (with 10kΩ resistor to GND)
-* LED/Street Light → Digital pin 13 (through relay or transistor)
-* Relay IN → Digital pin (e.g., D8)
-* VCC and GND connected accordingly
-
-> You can replace the LED with an actual AC bulb by using a relay module for high voltage control.
-
----
-
-### 💻 Arduino Code
-
-```cpp
+<h2>💻 Arduino Code</h2>
+<pre><code>
 int ldrPin = A0;       // LDR connected to analog pin A0
 int lightPin = 13;     // LED or Relay connected to digital pin 13
 int threshold = 500;   // Adjust based on environment
@@ -178,7 +171,7 @@ void loop() {
   int ldrValue = analogRead(ldrPin);
   Serial.println(ldrValue);
 
-  if (ldrValue < threshold) {
+  if (ldrValue &lt; threshold) {
     digitalWrite(lightPin, HIGH);  // Turn ON light
   } else {
     digitalWrite(lightPin, LOW);   // Turn OFF light
@@ -186,39 +179,37 @@ void loop() {
 
   delay(500);  // Adjust delay as needed
 }
-```
+</code></pre>
 
----
+<hr>
 
-### ✅ Features
+<h2>✅ Features</h2>
+<ul>
+  <li>Automatic light detection and control</li>
+  <li>Energy-saving system</li>
+  <li>Low-cost and scalable</li>
+  <li>Can be upgraded with motion sensors or IoT features</li>
+</ul>
 
-* Automatic light detection and control
-* Energy-saving system
-* Low-cost and scalable
-* Can be upgraded with motion sensors or IoT features
+<hr>
 
----
+<h2>🚀 Future Enhancements</h2>
+<ul>
+  <li><strong>Motion Detection</strong>: Turn lights ON only when someone is near</li>
+  <li><strong>IoT Connectivity</strong>: Control and monitor lights remotely</li>
+  <li><strong>Solar Panel Integration</strong>: Make the system energy independent</li>
+  <li><strong>Brightness Control</strong>: Vary LED brightness using PWM</li>
+</ul>
 
-### 🚀 Future Enhancements
+<hr>
 
-* **Motion Detection**: Turn lights ON only when someone is near
-* **IoT Connectivity**: Control and monitor lights remotely
-* **Solar Panel Integration**: Make the system energy independent
-* **Brightness Control**: Vary LED brightness using PWM
+<h2>📷 Gallery</h2>
+<p><em>Add photos here of your circuit, breadboard, street light setup, or demo video.</em></p>
 
----
+<hr>
 
-### 📷 Gallery (Optional)
-
-Add photos here of your circuit, breadboard, street light setup, or a demo video.
-
----
-
-### 📝 Conclusion
-
-This Smart Street Lighting system is an excellent example of how **basic sensors and microcontrollers** can create real-world solutions. It's easy to build, cost-effective, and offers a solid foundation for advanced IoT-based lighting systems.
-
----
+<h2>📝 Conclusion</h2>
+<p>This Smart Street Lighting system is an excellent example of how <strong>basic sensors and microcontrollers</strong> can create real-world solutions. It's easy to build, cost-effective, and offers a solid foundation for advanced IoT-based lighting systems.</p>
 
 
 </p>
