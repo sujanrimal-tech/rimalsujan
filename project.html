@@ -110,8 +110,119 @@
     <h3 class="text-4xl font-bold text-cyan-400 mb-10 text-center">Projects</h3>
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
       <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
-        <h4 class="text-xl font-semibold">Smart Microgrid</h4>
-        <p class="text-gray-400">STM32 + Solar + IoT grid for remote areas.</p>
+        <h4 class="text-xl font-semibold">Smart street lightining </h4>
+        <p class="text-gray-400">Sure! Here's a **complete, ready-to-publish write-up** for your website about your **Smart Street Lighting using Arduino and LDR** project. You can copy and paste this directly, and feel free to customize the name or add images of your actual setup.
+
+---
+
+## 🌟 Smart Street Lighting System Using Arduino and LDR
+
+### 🔍 Overview
+
+This project is a simple and efficient **Smart Street Lighting System** using **Arduino** and an **LDR (Light Dependent Resistor)**. The primary goal is to **automatically control street lights** based on the intensity of natural light, reducing energy consumption and manual effort.
+
+---
+
+### 🎯 Objective
+
+To build an **automatic street light system** that turns **ON** when it gets dark and turns **OFF** during the day using an LDR and Arduino.
+
+---
+
+### 🧠 How It Works
+
+The **LDR** is a sensor that detects the presence of light. When the environment becomes dark (low light), the **resistance of the LDR increases**, signaling the **Arduino** to **turn ON** the street light. When daylight is present, the resistance decreases, and the Arduino turns the light **OFF**.
+
+---
+
+### 🧰 Components Used
+
+| Component                               | Quantity  |
+| --------------------------------------- | --------- |
+| Arduino UNO                             | 1         |
+| LDR Sensor                              | 1         |
+| 10kΩ Resistor                           | 1         |
+| LED or Street Light (Demo)              | 1         |
+| Relay Module (for high voltage control) | 1         |
+| Jumper Wires                            | As needed |
+| Breadboard                              | 1         |
+| USB Cable + Power Supply                | 1         |
+
+---
+
+### 🔌 Circuit Diagram
+
+**Connections:**
+
+* LDR → Analog pin A0 (with 10kΩ resistor to GND)
+* LED/Street Light → Digital pin 13 (through relay or transistor)
+* Relay IN → Digital pin (e.g., D8)
+* VCC and GND connected accordingly
+
+> You can replace the LED with an actual AC bulb by using a relay module for high voltage control.
+
+---
+
+### 💻 Arduino Code
+
+```cpp
+int ldrPin = A0;       // LDR connected to analog pin A0
+int lightPin = 13;     // LED or Relay connected to digital pin 13
+int threshold = 500;   // Adjust based on environment
+
+void setup() {
+  pinMode(lightPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int ldrValue = analogRead(ldrPin);
+  Serial.println(ldrValue);
+
+  if (ldrValue < threshold) {
+    digitalWrite(lightPin, HIGH);  // Turn ON light
+  } else {
+    digitalWrite(lightPin, LOW);   // Turn OFF light
+  }
+
+  delay(500);  // Adjust delay as needed
+}
+```
+
+---
+
+### ✅ Features
+
+* Automatic light detection and control
+* Energy-saving system
+* Low-cost and scalable
+* Can be upgraded with motion sensors or IoT features
+
+---
+
+### 🚀 Future Enhancements
+
+* **Motion Detection**: Turn lights ON only when someone is near
+* **IoT Connectivity**: Control and monitor lights remotely
+* **Solar Panel Integration**: Make the system energy independent
+* **Brightness Control**: Vary LED brightness using PWM
+
+---
+
+### 📷 Gallery (Optional)
+
+Add photos here of your circuit, breadboard, street light setup, or a demo video.
+
+---
+
+### 📝 Conclusion
+
+This Smart Street Lighting system is an excellent example of how **basic sensors and microcontrollers** can create real-world solutions. It's easy to build, cost-effective, and offers a solid foundation for advanced IoT-based lighting systems.
+
+---
+
+Let me know if you'd like a downloadable PDF, PowerPoint presentation, or to add a blog-style post version!
+</p>
       </div>
       <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
         <h4 class="text-xl font-semibold">Factory Automation</h4>
