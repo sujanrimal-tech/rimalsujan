@@ -105,6 +105,76 @@
 
   <!-- PAGE SPECIFIC CONTENT SECTIONS GO HERE -->
 
+<!-- Survey Section -->
+<section id="survey" class="scroll-section py-12">
+  <h3 class="text-4xl font-bold text-cyan-400 mb-8 text-center">Energy Usage Survey</h3>
+
+  
+
+  <!-- Advanced Load Calculator -->
+  <div class="max-w-xl mx-auto bg-gray-800 p-6 rounded-xl space-y-4">
+    <h4 class="text-2xl font-semibold text-cyan-300 mb-4">⚡ Load Calculator</h4>
+
+    <div id="applianceList"></div>
+
+    <button onclick="addAppliance()" class="w-full px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600">➕ Add Appliance</button>
+    <button onclick="calculateTotal()" class="w-full px-6 py-2 bg-cyan-500 text-black font-semibold rounded-md hover:bg-cyan-400">Calculate Total Load</button>
+
+    <div id="totalResult" class="text-cyan-200 text-lg mt-4"></div>
+  </div>
+</section>
+
+<script>
+  let applianceCount = 0;
+
+  function addAppliance() {
+    applianceCount++;
+    const applianceDiv = document.createElement('div');
+    applianceDiv.className = "appliance-entry space-y-2 mt-4 bg-gray-700 p-4 rounded-lg";
+    applianceDiv.innerHTML = `
+      <label class="block text-white">Appliance ${applianceCount}</label>
+      <input type="text" placeholder="Name (e.g., Fan)" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-name" />
+      <input type="number" placeholder="Quantity" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-qty" />
+      <input type="number" placeholder="Power (Watts)" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-power" />
+      <input type="number" placeholder="Hours/Day" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-hours" />
+    `;
+    document.getElementById('applianceList').appendChild(applianceDiv);
+  }
+
+  function calculateTotal() {
+    const qtyInputs = document.querySelectorAll('.appliance-qty');
+    const powerInputs = document.querySelectorAll('.appliance-power');
+    const hourInputs = document.querySelectorAll('.appliance-hours');
+
+    let totalKWh = 0;
+
+    for (let i = 0; i < qtyInputs.length; i++) {
+      const qty = parseFloat(qtyInputs[i].value);
+      const power = parseFloat(powerInputs[i].value);
+      const hours = parseFloat(hourInputs[i].value);
+
+      if (!isNaN(qty) && !isNaN(power) && !isNaN(hours)) {
+        const daily = (qty * power * hours) / 1000;
+        totalKWh += daily;
+      }
+    }
+
+    const weekly = (totalKWh * 7).toFixed(2);
+    const monthly = (totalKWh * 30).toFixed(2);
+
+    document.getElementById('totalResult').innerHTML = `
+      🔋 Estimated Daily Consumption: <strong>${totalKWh.toFixed(2)} kWh</strong><br>
+      📅 Weekly: <strong>${weekly} kWh</strong><br>
+      🗓️ Monthly: <strong>${monthly} kWh</strong>
+    `;
+  }
+
+  // Add one default appliance on load
+  window.onload = addAppliance;
+</script>
+
+  
+
   <!-- Survey Section -->
   <section id="survey" class="scroll-section py-12">
     <h3 class="text-4xl font-bold text-cyan-400 mb-8 text-center">Energy Usage Survey</h3>
