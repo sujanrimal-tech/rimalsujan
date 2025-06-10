@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
@@ -6,8 +7,8 @@
 
   <!-- SEO Meta Tags -->
   <title>Survey & Calculator - Sujan Rimal | Electrical Engineer</title>
-  <meta name="description" content="Participate in the energy usage survey and use the load calculator provided by Sujan Rimal." />
-  <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Smart Grid, Renewable Energy, syko , syko dada, SYKO, Syko, Sujan , Rimal , सुजन , सुजन रिमाल , रिमाल, Survey, Energy Calculator" />
+  <meta name="description" content=" Participate in the energy usage survey and use the load calculator provided by Sujan Rimal." />
+  <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Smart Grid, Renewable Energy, syko, syko dada, SYKO, Syko, Sujan , Rimal , सुजन , सुजन रिमाल , रिमाल, Survey, Energy Calculator, Load Calculator" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -76,10 +77,7 @@
     }
   </style>
 
-  <!-- PAGE SPECIFIC SCRIPTS (None in head for Survey page) -->
-
 </head>
-<body>
 <body class="bg-gray-950 text-white">
 
   <!-- Background Animation -->
@@ -90,113 +88,37 @@
   </div>
 
   <!-- Fixed Navbar -->
-<nav class="p-4 flex justify-between items-center border-b border-gray-800 backdrop-blur-md bg-opacity-10 sticky top-0 z-50">
-  <h1 class="text-2xl font-extrabold text-cyan-400 transition-glow cursor-pointer" onclick="location.href='/'">⚡ Sujan Rimal</h1>
-  <ul class="flex gap-6 text-sm">
-    <li><a href="/" class="hover:text-cyan-400 transition">Home</a></li>
-    <li><a href="/about/" class="hover:text-cyan-400 transition">About</a></li>
-    <li><a href="/about/#skills" class="hover:text-cyan-400 transition">Skills</a></li>
-    <li><a href="/project/" class="hover:text-cyan-400 transition">Projects</a></li>
-    <li><a href="/survey/" class="hover:text-cyan-400 transition">Survey</a></li>
-    <li><a href="/blog/" class="hover:text-cyan-400 transition">Blog</a></li>
-    <li><a href="/contact/" class="hover:text-cyan-400 transition">Contact</a></li>
-  </ul>
-</nav>
+  <nav class="p-4 flex justify-between items-center border-b border-gray-800 backdrop-blur-md bg-opacity-10 sticky top-0 z-50">
+    <h1 class="text-2xl font-extrabold text-cyan-400 transition-glow cursor-pointer" onclick="location.href='/'">⚡ Sujan Rimal</h1>
+    <ul class="flex gap-6 text-sm">
+      <li><a href="/" class="hover:text-cyan-400 transition">Home</a></li>
+      <li><a href="/about/" class="hover:text-cyan-400 transition">About</a></li>
+      <li><a href="/about/#skills" class="hover:text-cyan-400 transition">Skills</a></li>
+      <li><a href="/project/" class="hover:text-cyan-400 transition">Projects</a></li>
+      <li><a href="/survey/" class="hover:text-cyan-400 transition">Survey</a></li>
+      <li><a href="/blog/" class="hover:text-cyan-400 transition">Blog</a></li>
+      <li><a href="/contact/" class="hover:text-cyan-400 transition">Contact</a></li>
+    </ul>
+  </nav>
 
-  <!-- PAGE SPECIFIC CONTENT SECTIONS GO HERE -->
-
-<!-- Survey Section -->
-<section id="survey" class="scroll-section py-12">
-  <h3 class="text-4xl font-bold text-cyan-400 mb-8 text-center">Energy Usage Survey</h3>
-
-  
-
-  <!-- Advanced Load Calculator -->
-  <div class="max-w-xl mx-auto bg-gray-800 p-6 rounded-xl space-y-4">
-    <h4 class="text-2xl font-semibold text-cyan-300 mb-4">⚡ Load Calculator</h4>
-
-    <div id="applianceList"></div>
-
-    <button onclick="addAppliance()" class="w-full px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600">➕ Add Appliance</button>
-    <button onclick="calculateTotal()" class="w-full px-6 py-2 bg-cyan-500 text-black font-semibold rounded-md hover:bg-cyan-400">Calculate Total Load</button>
-
-    <div id="totalResult" class="text-cyan-200 text-lg mt-4"></div>
-  </div>
-</section>
-
-<script>
-  let applianceCount = 0;
-
-  function addAppliance() {
-    applianceCount++;
-    const applianceDiv = document.createElement('div');
-    applianceDiv.className = "appliance-entry space-y-2 mt-4 bg-gray-700 p-4 rounded-lg";
-    applianceDiv.innerHTML = `
-      <label class="block text-white">Appliance ${applianceCount}</label>
-      <input type="text" placeholder="Name (e.g., Fan)" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-name" />
-      <input type="number" placeholder="Quantity" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-qty" />
-      <input type="number" placeholder="Power (Watts)" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-power" />
-      <input type="number" placeholder="Hours/Day" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-hours" />
-    `;
-    document.getElementById('applianceList').appendChild(applianceDiv);
-  }
-
-  function calculateTotal() {
-    const qtyInputs = document.querySelectorAll('.appliance-qty');
-    const powerInputs = document.querySelectorAll('.appliance-power');
-    const hourInputs = document.querySelectorAll('.appliance-hours');
-
-    let totalKWh = 0;
-
-    for (let i = 0; i < qtyInputs.length; i++) {
-      const qty = parseFloat(qtyInputs[i].value);
-      const power = parseFloat(powerInputs[i].value);
-      const hours = parseFloat(hourInputs[i].value);
-
-      if (!isNaN(qty) && !isNaN(power) && !isNaN(hours)) {
-        const daily = (qty * power * hours) / 1000;
-        totalKWh += daily;
-      }
-    }
-
-    const weekly = (totalKWh * 7).toFixed(2);
-    const monthly = (totalKWh * 30).toFixed(2);
-
-    document.getElementById('totalResult').innerHTML = `
-      🔋 Estimated Daily Consumption: <strong>${totalKWh.toFixed(2)} kWh</strong><br>
-      📅 Weekly: <strong>${weekly} kWh</strong><br>
-      🗓️ Monthly: <strong>${monthly} kWh</strong>
-    `;
-  }
-
-  // Add one default appliance on load
-  window.onload = addAppliance;
-</script>
-
-  
-
-  <!-- Survey Section -->
+  <!-- Survey and Calculators Section -->
   <section id="survey" class="scroll-section py-12">
-    <h3 class="text-4xl font-bold text-cyan-400 mb-8 text-center">Energy Usage Survey</h3>
-
-    <!-- Survey Form -->
-    <form class="max-w-xl mx-auto bg-gray-800 p-6 rounded-xl space-y-4 mb-12">
-      <input type="text" placeholder="Your Name" class="w-full px-4 py-2 bg-gray-700 rounded-md text-white" />
-      <input type="email" placeholder="Email" class="w-full px-4 py-2 bg-gray-700 rounded-md text-white" />
-      <select class="w-full px-4 py-2 bg-gray-700 rounded-md text-white">
-        <option value="" disabled selected>Select your home type</option>
-        <option>Apartment</option>
-        <option>Detached House</option>
-        <option>Townhouse</option>
-      </select>
-      <textarea rows="3" placeholder="Additional comments" class="w-full px-4 py-2 bg-gray-700 rounded-md text-white"></textarea>
-      <button type="submit" class="w-full bg-cyan-500 py-3 font-bold rounded-md hover:bg-cyan-600 transition">Submit Survey</button>
-    </form>
-
-    <!-- Load Calculator -->
-    <div class="max-w-xl mx-auto bg-gray-900 p-6 rounded-xl">
-      <h4 class="text-2xl font-semibold mb-4 text-cyan-400">Load Calculator</h4>
-
+    
+    <!-- YOUR ORIGINAL CALCULATORS ARE PRESERVED HERE -->
+    <h3 class="text-4xl font-bold text-cyan-400 mb-8 text-center">Energy & Load Calculators</h3>
+    
+    <!-- Energy Usage Calculator -->
+    <div class="max-w-xl mx-auto bg-gray-800 p-6 rounded-xl space-y-4 mb-12">
+      <h4 class="text-2xl font-semibold text-cyan-300 mb-4">kWh Energy Consumption Calculator</h4>
+      <div id="applianceList"></div>
+      <button onclick="addAppliance()" class="w-full px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600">➕ Add Appliance</button>
+      <button onclick="calculateTotal()" class="w-full px-6 py-2 bg-cyan-500 text-black font-semibold rounded-md hover:bg-cyan-400">Calculate Energy Consumption</button>
+      <div id="totalResult" class="text-cyan-200 text-lg mt-4"></div>
+    </div>
+    
+    <!-- Simple Load Calculator -->
+    <div class="max-w-xl mx-auto bg-gray-800 p-6 rounded-xl mb-12">
+      <h4 class="text-2xl font-semibold mb-4 text-cyan-400">Simple Consumption Calculator</h4>
       <label for="appliance" class="block mb-2 text-gray-300">Select Appliance:</label>
       <select id="appliance" class="w-full mb-4 px-4 py-2 rounded-md bg-gray-700 text-white">
         <option value="" disabled selected>Select an appliance</option>
@@ -205,29 +127,130 @@
         <option value="tv" data-watt="120">TV (120W)</option>
         <option value="fridge" data-watt="200">Fridge (200W)</option>
       </select>
-
       <label for="hours" class="block mb-2 text-gray-300">Hours Used Per Day:</label>
       <input type="number" id="hours" min="0" max="24" value="1" class="w-full mb-4 px-4 py-2 rounded-md bg-gray-700 text-white" />
-
       <button id="calcBtn" class="w-full bg-cyan-500 py-3 font-bold rounded-md hover:bg-cyan-600 transition mb-4">Calculate Consumption</button>
-
       <div id="result" class="text-gray-300 font-semibold text-lg"></div>
     </div>
+
+
+    <!-- ================================================================== -->
+    <!-- START: NEW INTEGRATED PROFESSIONAL ELECTRICAL LOAD CALCULATOR     -->
+    <!-- ================================================================== -->
+    <div class="max-w-4xl mx-auto bg-gray-800 p-6 md:p-8 rounded-xl border border-gray-700">
+        <h2 class="text-3xl font-bold text-cyan-400 mb-2 text-center">Professional Electrical Load Calculator</h2>
+        <p class="text-gray-400 text-center mb-8">Estimate total circuit load to determine the correct breaker and wire size.</p>
+
+        <!-- Global Settings -->
+        <div class="mb-6 pb-6 border-b border-gray-700">
+            <label for="voltage" class="block font-semibold mb-2 text-gray-300">Circuit Voltage (Volts)</label>
+            <input type="number" id="voltage" value="120" class="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-4 py-2 focus:ring-2 focus:ring-cyan-500 focus:outline-none">
+        </div>
+
+        <!-- Dynamic Appliance List -->
+        <div class="mb-6">
+            <h3 class="text-xl font-semibold text-gray-200 mb-4">Appliances / Loads</h3>
+            <div id="professional-appliance-list" class="space-y-4">
+                <!-- Appliance rows will be added here by the new script -->
+            </div>
+            <button id="add-professional-appliance-btn" class="mt-4 w-full md:w-auto bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition">＋ Add Appliance</button>
+        </div>
+
+        <!-- Results Display -->
+        <div class="bg-gray-900/50 p-6 rounded-lg mt-6 border border-cyan-700/30">
+            <h3 class="text-xl font-semibold text-cyan-300 mb-4">Calculation Results</h3>
+            <div class="space-y-3">
+                <div class="flex justify-between items-center py-2 border-b border-gray-700">
+                    <span class="font-semibold text-gray-300">Total Power (Watts):</span>
+                    <span id="total-watts" class="font-bold text-white text-lg">0 W</span>
+                </div>
+                <div class="flex justify-between items-center py-2">
+                    <span class="font-semibold text-gray-300">Total Current (Amps):</span>
+                    <span id="total-amps" class="font-bold text-white text-lg">0 A</span>
+                </div>
+            </div>
+            
+            <div class="bg-yellow-900/50 border border-yellow-700 text-yellow-200 p-4 rounded-lg mt-6">
+                <strong class="block mb-2">Recommendations (Based on 80% NEC Rule):</strong>
+                 <div class="flex justify-between items-center py-2 border-b border-yellow-800">
+                    <span class="font-semibold">Required Breaker Size:</span>
+                    <span id="breaker-size" class="font-bold text-lg">N/A</span>
+                </div>
+                <div class="flex justify-between items-center py-2">
+                    <span class="font-semibold">Suggested Wire Gauge (Copper):</span>
+                    <span id="wire-gauge" class="font-bold text-lg">N/A</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="mt-8 bg-red-900/50 border border-red-700 text-red-200 p-4 rounded-lg text-sm">
+            <strong class="font-bold block">IMPORTANT DISCLAIMER:</strong>
+            <p>This calculator is for estimation purposes only. Electrical work can be dangerous. Always consult a licensed electrician and adhere to your local electrical codes before starting any project. The recommendations provided do not constitute professional advice.</p>
+        </div>
+    </div>
+    <!-- ================================================================== -->
+    <!-- END: NEW INTEGRATED PROFESSIONAL ELECTRICAL LOAD CALCULATOR       -->
+    <!-- ================================================================== -->
+
   </section>
 
 
   <!-- Footer -->
   <footer class="text-center py-6 text-gray-500 text-sm">© 2025 Sujan Rimal | All rights reserved.</footer>
 
-  <!-- PAGE SPECIFIC JAVASCRIPT GOES HERE -->
+
+  <!-- ================================================================== -->
+  <!-- ALL JAVASCRIPT LOGIC IS BELOW                                      -->
+  <!-- ================================================================== -->
+
+  <!-- YOUR ORIGINAL SCRIPTS (UNTOUCHED) -->
   <script>
-    // Load Calculator logic
+    // Your first calculator: kWh Energy Consumption
+    let applianceCount = 0;
+    function addAppliance() {
+      applianceCount++;
+      const applianceDiv = document.createElement('div');
+      applianceDiv.className = "appliance-entry space-y-2 mt-4 bg-gray-700 p-4 rounded-lg";
+      applianceDiv.innerHTML = `
+        <label class="block text-white">Appliance ${applianceCount}</label>
+        <input type="text" placeholder="Name (e.g., Fan)" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-name" />
+        <input type="number" placeholder="Quantity" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-qty" />
+        <input type="number" placeholder="Power (Watts)" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-power" />
+        <input type="number" placeholder="Hours/Day" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-hours" />
+      `;
+      document.getElementById('applianceList').appendChild(applianceDiv);
+    }
+    function calculateTotal() {
+      const qtyInputs = document.querySelectorAll('.appliance-qty');
+      const powerInputs = document.querySelectorAll('.appliance-power');
+      const hourInputs = document.querySelectorAll('.appliance-hours');
+      let totalKWh = 0;
+      for (let i = 0; i < qtyInputs.length; i++) {
+        const qty = parseFloat(qtyInputs[i].value);
+        const power = parseFloat(powerInputs[i].value);
+        const hours = parseFloat(hourInputs[i].value);
+        if (!isNaN(qty) && !isNaN(power) && !isNaN(hours)) {
+          const daily = (qty * power * hours) / 1000;
+          totalKWh += daily;
+        }
+      }
+      const weekly = (totalKWh * 7).toFixed(2);
+      const monthly = (totalKWh * 30).toFixed(2);
+      document.getElementById('totalResult').innerHTML = `
+        🔋 Estimated Daily Consumption: <strong>${totalKWh.toFixed(2)} kWh</strong><br>
+        📅 Weekly: <strong>${weekly} kWh</strong><br>
+        🗓️ Monthly: <strong>${monthly} kWh</strong>
+      `;
+    }
+    window.onload = addAppliance;
+
+    // Your second calculator: Simple Consumption
     document.getElementById('calcBtn').addEventListener('click', function (e) {
       e.preventDefault();
       const applianceSelect = document.getElementById('appliance');
       const hoursInput = document.getElementById('hours');
       const resultDiv = document.getElementById('result');
-
       const applianceOption = applianceSelect.options[applianceSelect.selectedIndex];
       if (!applianceOption || !applianceOption.value) {
         resultDiv.textContent = 'Please select an appliance.';
@@ -241,8 +264,7 @@
       }
       const dailyWh = wattage * hours;
       const weeklyWh = dailyWh * 7;
-      const monthlyWh = dailyWh * 30; // Simplified calculation
-
+      const monthlyWh = dailyWh * 30;
       resultDiv.innerHTML =
         `<p>Estimated consumption:</p>
          <ul class="list-disc list-inside">
@@ -253,7 +275,118 @@
     });
   </script>
 
-</body>
-</html>
+  <!-- NEW SCRIPT FOR THE PROFESSIONAL LOAD CALCULATOR (SELF-CONTAINED) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Elements for the new calculator
+        const addBtn = document.getElementById('add-professional-appliance-btn');
+        const applianceList = document.getElementById('professional-appliance-list');
+        const voltageInput = document.getElementById('voltage');
+
+        // Check if the elements exist before adding listeners
+        if (!addBtn || !applianceList || !voltageInput) {
+            console.error("Professional calculator elements not found. Script will not run.");
+            return;
+        }
+
+        // Function to create a new appliance row with Tailwind CSS classes
+        const addProfessionalApplianceRow = () => {
+            const rowId = 'prof-row-' + Date.now();
+            const row = document.createElement('div');
+            row.className = 'appliance-row grid grid-cols-1 md:grid-cols-12 gap-4 items-center';
+            row.id = rowId;
+            
+            row.innerHTML = `
+                <div class="md:col-span-5">
+                    <input type="text" class="appliance-name w-full bg-gray-700 border border-gray-600 text-white rounded-md px-4 py-2 focus:ring-2 focus:ring-cyan-500 focus:outline-none" placeholder="Appliance Name (e.g., Microwave)" oninput="calculateProfessionalLoad()">
+                </div>
+                <div class="md:col-span-3">
+                    <input type="number" class="appliance-watts w-full bg-gray-700 border border-gray-600 text-white rounded-md px-4 py-2 focus:ring-2 focus:ring-cyan-500 focus:outline-none" placeholder="Wattage (W)" oninput="calculateProfessionalLoad()">
+                </div>
+                <div class="md:col-span-2">
+                    <input type="number" class="appliance-qty w-full bg-gray-700 border border-gray-600 text-white rounded-md px-4 py-2 focus:ring-2 focus:ring-cyan-500 focus:outline-none" value="1" min="1" placeholder="Qty" oninput="calculateProfessionalLoad()">
+                </div>
+                <div class="md:col-span-2">
+                    <button type="button" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-3 rounded-md transition" onclick="removeProfessionalApplianceRow('${rowId}')">✕ Remove</button>
+                </div>
+            `;
+            
+            applianceList.appendChild(row);
+            calculateProfessionalLoad(); // Recalculate when a new row is added
+        };
+
+        // Function to remove a row, attached to the window object to be accessible from inline onclick
+        window.removeProfessionalApplianceRow = (rowId) => {
+            const rowToRemove = document.getElementById(rowId);
+            if (rowToRemove) {
+                rowToRemove.remove();
+                calculateProfessionalLoad();
+            }
+        };
+
+        // The main calculation function, renamed to avoid conflicts
+        window.calculateProfessionalLoad = () => {
+            const voltage = parseFloat(voltageInput.value) || 120;
+            let totalWatts = 0;
+            
+            const applianceRows = document.querySelectorAll('#professional-appliance-list .appliance-row');
+            
+            applianceRows.forEach(row => {
+                const wattsInput = row.querySelector('.appliance-watts');
+                const quantityInput = row.querySelector('.appliance-qty');
+                if (wattsInput && quantityInput) {
+                    const watts = parseFloat(wattsInput.value) || 0;
+                    const quantity = parseInt(quantityInput.value) || 0;
+                    totalWatts += watts * quantity;
+                }
+            });
+
+            const totalAmps = (voltage > 0) ? (totalWatts / voltage) : 0;
+            const requiredAmpsCapacity = totalAmps / 0.8;
+            
+            const breakerSize = getBreakerSize(requiredAmpsCapacity);
+            const wireGauge = getWireGauge(breakerSize);
+
+            document.getElementById('total-watts').textContent = `${totalWatts.toFixed(0)} W`;
+            document.getElementById('total-amps').textContent = `${totalAmps.toFixed(2)} A`;
+            document.getElementById('breaker-size').textContent = breakerSize ? `${breakerSize} A` : 'N/A';
+            document.getElementById('wire-gauge').textContent = wireGauge || 'N/A';
+        };
+
+        // Helper functions for recommendations
+        const getBreakerSize = (amps) => {
+            if (amps <= 0) return null;
+            if (amps <= 15) return 15;
+            if (amps <= 20) return 20;
+            if (amps <= 30) return 30;
+            if (amps <= 40) return 40;
+            if (amps <= 50) return 50;
+            if (amps <= 60) return 60;
+            if (amps <= 100) return 100;
+            return "Over 100A";
+        };
+
+        const getWireGauge = (breakerSize) => {
+            switch(breakerSize) {
+                case 15: return "14 AWG";
+                case 20: return "12 AWG";
+                case 30: return "10 AWG";
+                case 40: return "8 AWG";
+                case 50: return "6 AWG";
+                case 60: return "6 AWG";
+                case 100: return "2 AWG";
+                default: return "Consult Electrician";
+            }
+        };
+
+        // Event Listeners
+        addBtn.addEventListener('click', addProfessionalApplianceRow);
+        voltageInput.addEventListener('input', calculateProfessionalLoad);
+        
+        // Initial state
+        addProfessionalApplianceRow();
+    });
+  </script>
 
 </body>
+</html>
