@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | Sujan Rimal - Electrical Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      scroll-behavior: smooth;
+      background-color: #0f172a;
+      color: #e0e7ff;
+    }
+    .glow {
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
+    }
+    .transition-glow {
+      transition: text-shadow 0.3s ease;
+    }
+    .transition-glow:hover {
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    }
+    .animate-fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .animate-fade-in-up-visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    .timeline {
+      position: relative;
+      margin-left: 20px;
+      padding-left: 20px;
+      border-left: 3px solid #0ff;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -11px;
+      top: 5px;
+      width: 18px;
+      height: 18px;
+      background-color: #06b6d4;
+      border-radius: 50%;
+      border: 3px solid #0ff;
+      box-shadow: 0 0 8px #0ff;
+    }
+  </style>
+</head>
+<body>
+<body class="bg-gray-950 text-white">
+  <!-- Navbar -->
+  <nav
+    class="p-4 flex justify-between items-center border-b border-gray-800 backdrop-blur-md bg-opacity-10 sticky top-0 z-50"
+  >
+    <h1 class="text-2xl font-extrabold text-cyan-400 transition-glow cursor-default">⚡ Daniel Sparks</h1>
+    <ul class="flex gap-6 text-sm">
+      <li><a href="index.html" class="hover:text-cyan-400 transition">Home</a></li>
+      <li><a href="about.html" class="hover:text-cyan-400 transition font-bold text-cyan-400">About</a></li>
+      <li><a href="skills.html" class="hover:text-cyan-400 transition">Skills</a></li>
+      <li><a href="projects.html" class="hover:text-cyan-400 transition">Projects</a></li>
+      <li><a href="contact.html" class="hover:text-cyan-400 transition">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- About Content -->
+  <main class="max-w-5xl mx-auto px-6 py-16">
+    <h2 class="text-5xl font-extrabold text-cyan-400 mb-8 text-center animate-fade-in-up">About Me</h2>
+    <section class="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto mb-16 animate-fade-in-up">
+      <p>
+        Hello! I'm <strong>Sujan Rimal</strong>,  I am a graduated Electrical Engineer with a strong academic background and a keen interest in modern electrical systems and technologies. Throughout my studies, I’ve developed practical knowledge in areas like circuit design, power systems, electrical machines, and renewable energy.
+I’m passionate about learning, problem-solving, and applying my technical skills to real-world challenges. As a fresher, I bring fresh ideas, adaptability, and a strong willingness to grow in the electrical engineering field. I'm actively exploring opportunities to gain hands-on experience and contribute to meaningful projects.
+
+
+      </p>
+      <p class="mt-4">
+        My approach blends deep technical knowledge with innovation to create sustainable and efficient electrical solutions that power modern industries.
+        I love solving complex problems and mentoring young engineers to reach their potential.
+      </p>
+    </section>
+
+    <section class="animate-fade-in-up">
+      <h3 class="text-3xl font-semibold text-cyan-400 mb-8 text-center">Experience Timeline</h3>
+      <div class="timeline max-w-xl mx-auto">
+        <div class="timeline-item">
+          <h4 class="text-xl font-bold text-white"> Junior Electrical Engineer</h4>
+          <p class="text-gray-400 text-sm mb-1">Satya Meditech Solution</p>
+          <p>
+           I am currently working as a Junior Service Engineer with a focus on troubleshooting, maintenance, and support of electrical systems. In my role, I handle the diagnosis and resolution of technical issues related to control panels, electrical wiring, machinery, and low-voltage systems.
+
+My work involves on-site service, fault analysis, and providing reliable solutions to ensure smooth and safe equipment operation. I’m gaining hands-on experience in tools and systems like PLCs, motors, industrial equipment, and power distribution units.
+
+With a strong foundation in electrical engineering and a proactive approach to learning, I aim to grow as a dependable and skilled engineer committed to solving real-world technical problems.
+
+
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h4 class="text-xl font-bold text-white">Electrical Engineer</h4>
+          <p class="text-gray-400 text-sm mb-1">SmartGrid </p>
+         
+        </div>
+        <div class="timeline-item">
+          <h4 class="text-xl font-bold text-white">Electrical Engineering Intern</h4>
+          <p class="text-gray-400 text-sm mb-1">Energy Future Labs — Summer 2013</p>
+          <p>
+            Assisted in renewable energy research projects and performed electrical testing on solar panels.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="p-4 border-t border-gray-800 text-center text-sm text-gray-500">
+    &copy; 2025 Sujan Rimal | Electrical Engineer | All rights reserved.
+  </footer>
+
+  <!-- Scroll-triggered animations -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-fade-in-up-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      document.querySelectorAll('.animate-fade-in-up').forEach((el) => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
+
+</body>
