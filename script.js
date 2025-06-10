@@ -149,7 +149,7 @@ $(document).ready(function(){
                     // var percentage = $(this).parent().find('span:nth-child(2)').text(); // Get percentage text
                     // $(this).find('::before').animate({ width: percentage }, 1500); // This won't work on ::before, needs JS to set width of the .line itself
                     // So for direct JS animation of skill bars, the approach is different:
-                    // You'd have the ::before element in CSS with width 0 initially
+                    // You'd have the :: before element in CSS with width 0 initially
                     // and then on waypoint, you set the width of the parent .line or an inner div.
                     // For simplicity with your current CSS, we assume CSS handles the final width.
                     // This waypoint can be used to trigger a class that starts a CSS transition/animation.
