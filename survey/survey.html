@@ -3,69 +3,187 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Survey | Sujan Rimal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet" />
+
+  <!-- SEO Meta Tags -->
+  <title>Survey & Calculator - Sujan Rimal | Electrical Engineer</title>
+  <meta name="description" content="Participate in the energy usage survey and use the load calculator provided by Sujan Rimal." />
+  <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Smart Grid, Renewable Energy, syko , syko dada, SYKO, Syko, Sujan , Rimal , सुजन , सुजन रिमाल , रिमाल, Survey, Energy Calculator" />
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css">
+  <!-- Outfit Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .glow {
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
+    }
+    .transition-glow {
+      transition: text-shadow 0.3s ease;
+    }
+    .transition-glow:hover {
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeIn 1.2s ease forwards;
+    }
+    .scroll-section {
+      padding: 4rem 1rem;
+    }
+
+    /* Flip card styles (Keep for consistency, only functional on contact page) */
+    .perspective {
+      perspective: 1000px;
+    }
+    .transform-style-preserve-3d {
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0.75rem; /* rounded-xl */
+    }
+    #cardInner {
+      transform: rotateY(0deg);
+    }
+    #cardInner.flipped {
+      transform: rotateY(180deg);
+    }
+  </style>
+
+  <!-- PAGE SPECIFIC SCRIPTS (None in head for Survey page) -->
+
 </head>
 <body>
+<body class="bg-gray-950 text-white">
+
+  <!-- Background Animation -->
+  <div class="absolute inset-0 -z-10 bg-black bg-opacity-60">
+    <video autoplay muted loop class="w-full h-full object-cover opacity-20">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-thunderstorm-with-lightning-strikes-1546-large.mp4" type="video/mp4" />
+    </video>
+  </div>
 
   <!-- Navbar -->
   <nav class="p-4 flex justify-between items-center border-b border-gray-800 backdrop-blur-md bg-opacity-10 sticky top-0 z-50">
-    <a href="index.html" class="text-2xl font-extrabold text-cyan-400 transition-glow">⚡ Sujan Rimal</a>
-    <div id="desktop-menu" class="hidden md:flex gap-6 text-sm">
-      <a href="index.html" class="hover:text-cyan-400 transition nav-active">Home</a>
-      <a href="about/about.html" class="hover:text-cyan-400 transition">About</a>
-      <a href="skill/skills.html" class="hover:text-cyan-400 transition">Skills</a>
-      <a href="project/projects.html" class="hover:text-cyan-400 transition">Projects</a>
-      <a href="survey/survey.html" class="hover:text-cyan-400 transition">Survey</a>
-      <a href="blog/blog.html" class="hover:text-cyan-400 transition">Blog</a>
-      <a href="contact/contact.html" class="hover:text-cyan-400 transition">Contact</a>
-    </div>
-    <button id="menu-button" class="md:hidden text-2xl">☰</button>
+    <h1 class="text-2xl font-extrabold text-cyan-400 transition-glow cursor-pointer" onclick="location.href='index.html'">⚡ Sujan Rimal</h1>
+    <ul class="flex gap-6 text-sm">
+      <li><a href="index.html" class="hover:text-cyan-400 transition">Home</a></li>
+      <li><a href="about.html" class="hover:text-cyan-400 transition">About</a></li>
+      <li><a href="about.html#skills" class="hover:text-cyan-400 transition">Skills</a></li> <!-- Link to Skills section on About page -->
+      <li><a href="projects.html" class="hover:text-cyan-400 transition">Projects</a></li>
+      <li><a href="survey.html" class="hover:text-cyan-400 transition">Survey</a></li>
+      <li><a href="blog.html" class="hover:text-cyan-400 transition">Blog</a></li>
+      <li><a href="contact.html" class="hover:text-cyan-400 transition">Contact</a></li>
+    </ul>
   </nav>
-  <div id="mobile-menu" class="hidden">
-      <a href="index.html" class="hover:text-cyan-400 transition nav-active">Home</a>
-      <a href="about/about.html" class="hover:text-cyan-400 transition">About</a>
-      <a href="skill/skills.html" class="hover:text-cyan-400 transition">Skills</a>
-      <a href="project/projects.html" class="hover:text-cyan-400 transition">Projects</a>
-      <a href="survey/survey.html" class="hover:text-cyan-400 transition">Survey</a>
-      <a href="blog/blog.html" class="hover:text-cyan-400 transition">Blog</a>
-      <a href="contact/contact.html" class="hover:text-cyan-400 transition">Contact</a>
-  </div>
 
-  <main class="max-w-xl mx-auto px-6 py-16 animate-fade-in-up">
-    <h2 class="text-5xl font-extrabold text-cyan-400 mb-8 text-center">Energy Tools</h2>
-    
+  <!-- PAGE SPECIFIC CONTENT SECTIONS GO HERE -->
+
+  <!-- Survey Section -->
+  <section id="survey" class="scroll-section py-12">
+    <h3 class="text-4xl font-bold text-cyan-400 mb-8 text-center">Energy Usage Survey</h3>
+
+    <!-- Survey Form -->
+    <form class="max-w-xl mx-auto bg-gray-800 p-6 rounded-xl space-y-4 mb-12">
+      <input type="text" placeholder="Your Name" class="w-full px-4 py-2 bg-gray-700 rounded-md text-white" />
+      <input type="email" placeholder="Email" class="w-full px-4 py-2 bg-gray-700 rounded-md text-white" />
+      <select class="w-full px-4 py-2 bg-gray-700 rounded-md text-white">
+        <option value="" disabled selected>Select your home type</option>
+        <option>Apartment</option>
+        <option>Detached House</option>
+        <option>Townhouse</option>
+      </select>
+      <textarea rows="3" placeholder="Additional comments" class="w-full px-4 py-2 bg-gray-700 rounded-md text-white"></textarea>
+      <button type="submit" class="w-full bg-cyan-500 py-3 font-bold rounded-md hover:bg-cyan-600 transition">Submit Survey</button>
+    </form>
+
     <!-- Load Calculator -->
-    <div class="bg-slate-900 p-8 rounded-xl mb-12">
-      <h3 class="text-3xl font-semibold mb-6 text-cyan-400">Appliance Load Calculator</h3>
+    <div class="max-w-xl mx-auto bg-gray-900 p-6 rounded-xl">
+      <h4 class="text-2xl font-semibold mb-4 text-cyan-400">Load Calculator</h4>
+
       <label for="appliance" class="block mb-2 text-gray-300">Select Appliance:</label>
       <select id="appliance" class="w-full mb-4 px-4 py-2 rounded-md bg-gray-700 text-white">
         <option value="" disabled selected>Select an appliance</option>
         <option value="fan" data-watt="50">Fan (50W)</option>
-        <option value="bulb" data-watt="15">LED Bulb (15W)</option>
-        <option value="tv" data-watt="120">Television (120W)</option>
-        <option value="fridge" data-watt="200">Refrigerator (200W)</option>
-        <option value="laptop" data-watt="65">Laptop Charger (65W)</option>
+        <option value="bulb" data-watt="15">Bulb (15W)</option>
+        <option value="tv" data-watt="120">TV (120W)</option>
+        <option value="fridge" data-watt="200">Fridge (200W)</option>
       </select>
+
       <label for="hours" class="block mb-2 text-gray-300">Hours Used Per Day:</label>
       <input type="number" id="hours" min="0" max="24" value="1" class="w-full mb-4 px-4 py-2 rounded-md bg-gray-700 text-white" />
-      <button id="calcBtn" class="w-full bg-cyan-500 py-3 font-bold rounded-md hover:bg-cyan-600 transition mb-4">Calculate Consumption</button>
-      <div id="result" class="text-gray-300 font-semibold text-lg bg-slate-800 p-4 rounded-md min-h-[50px]"></div>
-    </div>
 
-    <!-- Survey Form -->
-    <div class="bg-slate-900 p-8 rounded-xl">
-      <h3 class="text-3xl font-semibold text-cyan-400 mb-6">Energy Usage Survey</h3>
-      <p class="text-gray-400 mb-4">Help us understand energy trends by participating in this anonymous survey.</p>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfUGcJ2CjIvppK2bI-zIq1rzSsWt2hg2sMQdTOY_sUXrfisUg/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      <button id="calcBtn" class="w-full bg-cyan-500 py-3 font-bold rounded-md hover:bg-cyan-600 transition mb-4">Calculate Consumption</button>
+
+      <div id="result" class="text-gray-300 font-semibold text-lg"></div>
     </div>
-  </main>
+  </section>
+
 
   <!-- Footer -->
-  <footer class="text-center py-6 text-gray-500 text-sm border-t border-gray-800">© 2025 Sujan Rimal | All rights reserved.</footer>
+  <footer class="text-center py-6 text-gray-500 text-sm">© 2025 Sujan Rimal | All rights reserved.</footer>
 
-  <script src="script.js"></script>
+  <!-- PAGE SPECIFIC JAVASCRIPT GOES HERE -->
+  <script>
+    // Load Calculator logic
+    document.getElementById('calcBtn').addEventListener('click', function (e) {
+      e.preventDefault();
+      const applianceSelect = document.getElementById('appliance');
+      const hoursInput = document.getElementById('hours');
+      const resultDiv = document.getElementById('result');
+
+      const applianceOption = applianceSelect.options[applianceSelect.selectedIndex];
+      if (!applianceOption || !applianceOption.value) {
+        resultDiv.textContent = 'Please select an appliance.';
+        return;
+      }
+      const wattage = parseFloat(applianceOption.getAttribute('data-watt'));
+      const hours = parseFloat(hoursInput.value);
+      if (isNaN(hours) || hours < 0 || hours > 24) {
+        resultDiv.textContent = 'Please enter valid hours (0-24).';
+        return;
+      }
+      const dailyWh = wattage * hours;
+      const weeklyWh = dailyWh * 7;
+      const monthlyWh = dailyWh * 30; // Simplified calculation
+
+      resultDiv.innerHTML =
+        `<p>Estimated consumption:</p>
+         <ul class="list-disc list-inside">
+           <li><strong>Daily:</strong> ${dailyWh.toFixed(1)} Wh</li>
+           <li><strong>Weekly:</strong> ${weeklyWh.toFixed(1)} Wh</li>
+           <li><strong>Monthly:</strong> ${monthlyWh.toFixed(1)} Wh</li>
+         </ul>`;
+    });
+  </script>
+
 </body>
 </html>
+
+</body>
