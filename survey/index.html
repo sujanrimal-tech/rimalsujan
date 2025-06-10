@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
@@ -7,8 +6,8 @@
 
   <!-- SEO Meta Tags -->
   <title>Survey & Calculator - Sujan Rimal | Electrical Engineer</title>
-  <meta name="description" content=" Participate in the energy usage survey and use the load calculator provided by Sujan Rimal." />
-  <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Smart Grid, Renewable Energy, syko, syko dada, SYKO, Syko, Sujan , Rimal , सुजन , सुजन रिमाल , रिमाल, Survey, Energy Calculator, Load Calculator" />
+  <meta name="description" content="Participate in the energy usage survey and use the international load calculator for electrical works in Nepal and Asia, provided by Sujan Rimal." />
+  <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Load Calculator Nepal, IEC Standard, Electrical Calculator Asia, Smart Grid, Renewable Energy, syko, syko dada, SYKO, Sujan, Rimal, सुजन, सुजन रिमाल, रिमाल, Survey, Energy Calculator, mm2 wire size" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -47,36 +46,7 @@
     .scroll-section {
       padding: 4rem 1rem;
     }
-
-    /* Flip card styles (Keep for consistency, only functional on contact page) */
-    .perspective {
-      perspective: 1000px;
-    }
-    .transform-style-preserve-3d {
-      transform-style: preserve-3d;
-      transition: transform 0.5s;
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-    .backface-hidden {
-      backface-visibility: hidden;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 0.75rem; /* rounded-xl */
-    }
-    #cardInner {
-      transform: rotateY(0deg);
-    }
-    #cardInner.flipped {
-      transform: rotateY(180deg);
-    }
   </style>
-
 </head>
 <body class="bg-gray-950 text-white">
 
@@ -104,10 +74,9 @@
   <!-- Survey and Calculators Section -->
   <section id="survey" class="scroll-section py-12">
     
-    <!-- YOUR ORIGINAL CALCULATORS ARE PRESERVED HERE -->
     <h3 class="text-4xl font-bold text-cyan-400 mb-8 text-center">Energy & Load Calculators</h3>
     
-    <!-- Energy Usage Calculator -->
+    <!-- YOUR ORIGINAL CALCULATORS ARE PRESERVED HERE -->
     <div class="max-w-xl mx-auto bg-gray-800 p-6 rounded-xl space-y-4 mb-12">
       <h4 class="text-2xl font-semibold text-cyan-300 mb-4">kWh Energy Consumption Calculator</h4>
       <div id="applianceList"></div>
@@ -116,7 +85,6 @@
       <div id="totalResult" class="text-cyan-200 text-lg mt-4"></div>
     </div>
     
-    <!-- Simple Load Calculator -->
     <div class="max-w-xl mx-auto bg-gray-800 p-6 rounded-xl mb-12">
       <h4 class="text-2xl font-semibold mb-4 text-cyan-400">Simple Consumption Calculator</h4>
       <label for="appliance" class="block mb-2 text-gray-300">Select Appliance:</label>
@@ -135,16 +103,28 @@
 
 
     <!-- ================================================================== -->
-    <!-- START: NEW INTEGRATED PROFESSIONAL ELECTRICAL LOAD CALCULATOR     -->
+    <!-- START: MODIFIED PROFESSIONAL ELECTRICAL LOAD CALCULATOR           -->
     <!-- ================================================================== -->
     <div class="max-w-4xl mx-auto bg-gray-800 p-6 md:p-8 rounded-xl border border-gray-700">
         <h2 class="text-3xl font-bold text-cyan-400 mb-2 text-center">Professional Electrical Load Calculator</h2>
         <p class="text-gray-400 text-center mb-8">Estimate total circuit load to determine the correct breaker and wire size.</p>
 
-        <!-- Global Settings -->
-        <div class="mb-6 pb-6 border-b border-gray-700">
-            <label for="voltage" class="block font-semibold mb-2 text-gray-300">Circuit Voltage (Volts)</label>
-            <input type="number" id="voltage" value="120" class="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-4 py-2 focus:ring-2 focus:ring-cyan-500 focus:outline-none">
+        <!-- Standard & Voltage Selection -->
+        <div class="mb-6 pb-6 border-b border-gray-700 grid md:grid-cols-2 gap-6">
+            <div>
+                <label class="block font-semibold mb-2 text-gray-300">Electrical Standard</label>
+                <div class="flex bg-gray-700 rounded-md p-1">
+                    <input type="radio" name="standard_selection" id="standard-iec" value="iec" class="hidden peer" onchange="updateStandard()" checked>
+                    <label for="standard-iec" class="w-1/2 text-center py-2 rounded-md cursor-pointer peer-checked:bg-cyan-600 peer-checked:text-white transition">International (IEC)</label>
+
+                    <input type="radio" name="standard_selection" id="standard-nec" value="nec" class="hidden peer" onchange="updateStandard()">
+                    <label for="standard-nec" class="w-1/2 text-center py-2 rounded-md cursor-pointer peer-checked:bg-cyan-600 peer-checked:text-white transition">N. America (NEC)</label>
+                </div>
+            </div>
+            <div>
+                <label for="voltage" class="block font-semibold mb-2 text-gray-300">Circuit Voltage (Volts)</label>
+                <input type="number" id="voltage" value="230" class="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-4 py-2 focus:ring-2 focus:ring-cyan-500 focus:outline-none" oninput="calculateProfessionalLoad()">
+            </div>
         </div>
 
         <!-- Dynamic Appliance List -->
@@ -171,13 +151,13 @@
             </div>
             
             <div class="bg-yellow-900/50 border border-yellow-700 text-yellow-200 p-4 rounded-lg mt-6">
-                <strong class="block mb-2">Recommendations (Based on 80% NEC Rule):</strong>
+                <strong class="block mb-2">Recommendations (with Safety Margin):</strong>
                  <div class="flex justify-between items-center py-2 border-b border-yellow-800">
-                    <span class="font-semibold">Required Breaker Size:</span>
+                    <span id="breaker-label" class="font-semibold">Required MCB Size:</span>
                     <span id="breaker-size" class="font-bold text-lg">N/A</span>
                 </div>
                 <div class="flex justify-between items-center py-2">
-                    <span class="font-semibold">Suggested Wire Gauge (Copper):</span>
+                    <span id="wire-gauge-label" class="font-semibold">Suggested Wire Size (Copper):</span>
                     <span id="wire-gauge" class="font-bold text-lg">N/A</span>
                 </div>
             </div>
@@ -186,15 +166,14 @@
         <!-- Disclaimer -->
         <div class="mt-8 bg-red-900/50 border border-red-700 text-red-200 p-4 rounded-lg text-sm">
             <strong class="font-bold block">IMPORTANT DISCLAIMER:</strong>
-            <p>This calculator is for estimation purposes only. Electrical work can be dangerous. Always consult a licensed electrician and adhere to your local electrical codes before starting any project. The recommendations provided do not constitute professional advice.</p>
+            <p>This calculator is for estimation purposes only. Electrical work is dangerous. The IEC/mm² recommendations are based on common practices but always consult a licensed electrician and adhere strictly to your local electrical codes and regulations (e.g., Nepal National Building Code) before starting any project.</p>
         </div>
     </div>
     <!-- ================================================================== -->
-    <!-- END: NEW INTEGRATED PROFESSIONAL ELECTRICAL LOAD CALCULATOR       -->
+    <!-- END: MODIFIED PROFESSIONAL ELECTRICAL LOAD CALCULATOR             -->
     <!-- ================================================================== -->
 
   </section>
-
 
   <!-- Footer -->
   <footer class="text-center py-6 text-gray-500 text-sm">© 2025 Sujan Rimal | All rights reserved.</footer>
@@ -206,146 +185,72 @@
 
   <!-- YOUR ORIGINAL SCRIPTS (UNTOUCHED) -->
   <script>
-    // Your first calculator: kWh Energy Consumption
-    let applianceCount = 0;
-    function addAppliance() {
-      applianceCount++;
-      const applianceDiv = document.createElement('div');
-      applianceDiv.className = "appliance-entry space-y-2 mt-4 bg-gray-700 p-4 rounded-lg";
-      applianceDiv.innerHTML = `
-        <label class="block text-white">Appliance ${applianceCount}</label>
-        <input type="text" placeholder="Name (e.g., Fan)" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-name" />
-        <input type="number" placeholder="Quantity" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-qty" />
-        <input type="number" placeholder="Power (Watts)" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-power" />
-        <input type="number" placeholder="Hours/Day" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-hours" />
-      `;
-      document.getElementById('applianceList').appendChild(applianceDiv);
-    }
-    function calculateTotal() {
-      const qtyInputs = document.querySelectorAll('.appliance-qty');
-      const powerInputs = document.querySelectorAll('.appliance-power');
-      const hourInputs = document.querySelectorAll('.appliance-hours');
-      let totalKWh = 0;
-      for (let i = 0; i < qtyInputs.length; i++) {
-        const qty = parseFloat(qtyInputs[i].value);
-        const power = parseFloat(powerInputs[i].value);
-        const hours = parseFloat(hourInputs[i].value);
-        if (!isNaN(qty) && !isNaN(power) && !isNaN(hours)) {
-          const daily = (qty * power * hours) / 1000;
-          totalKWh += daily;
-        }
-      }
-      const weekly = (totalKWh * 7).toFixed(2);
-      const monthly = (totalKWh * 30).toFixed(2);
-      document.getElementById('totalResult').innerHTML = `
-        🔋 Estimated Daily Consumption: <strong>${totalKWh.toFixed(2)} kWh</strong><br>
-        📅 Weekly: <strong>${weekly} kWh</strong><br>
-        🗓️ Monthly: <strong>${monthly} kWh</strong>
-      `;
-    }
-    window.onload = addAppliance;
-
-    // Your second calculator: Simple Consumption
-    document.getElementById('calcBtn').addEventListener('click', function (e) {
-      e.preventDefault();
-      const applianceSelect = document.getElementById('appliance');
-      const hoursInput = document.getElementById('hours');
-      const resultDiv = document.getElementById('result');
-      const applianceOption = applianceSelect.options[applianceSelect.selectedIndex];
-      if (!applianceOption || !applianceOption.value) {
-        resultDiv.textContent = 'Please select an appliance.';
-        return;
-      }
-      const wattage = parseFloat(applianceOption.getAttribute('data-watt'));
-      const hours = parseFloat(hoursInput.value);
-      if (isNaN(hours) || hours < 0 || hours > 24) {
-        resultDiv.textContent = 'Please enter valid hours (0-24).';
-        return;
-      }
-      const dailyWh = wattage * hours;
-      const weeklyWh = dailyWh * 7;
-      const monthlyWh = dailyWh * 30;
-      resultDiv.innerHTML =
-        `<p>Estimated consumption:</p>
-         <ul class="list-disc list-inside">
-           <li><strong>Daily:</strong> ${dailyWh.toFixed(1)} Wh</li>
-           <li><strong>Weekly:</strong> ${weeklyWh.toFixed(1)} Wh</li>
-           <li><strong>Monthly:</strong> ${monthlyWh.toFixed(1)} Wh</li>
-         </ul>`;
-    });
+    let applianceCount = 0; function addAppliance(){applianceCount++;const e=document.createElement("div");e.className="appliance-entry space-y-2 mt-4 bg-gray-700 p-4 rounded-lg",e.innerHTML=`\n      <label class="block text-white">Appliance ${applianceCount}</label>\n      <input type="text" placeholder="Name (e.g., Fan)" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-name" />\n      <input type="number" placeholder="Quantity" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-qty" />\n      <input type="number" placeholder="Power (Watts)" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-power" />\n      <input type="number" placeholder="Hours/Day" class="w-full px-3 py-2 bg-gray-600 rounded-md text-white appliance-hours" />\n    `,document.getElementById("applianceList").appendChild(e)}function calculateTotal(){const e=document.querySelectorAll(".appliance-qty"),t=document.querySelectorAll(".appliance-power"),l=document.querySelectorAll(".appliance-hours");let a=0;for(let n=0;n<e.length;n++){const r=parseFloat(e[n].value),c=parseFloat(t[n].value),o=parseFloat(l[n].value);isNaN(r)||isNaN(c)||isNaN(o)||(a+=(r*c*o)/1e3)}const n=(7*a).toFixed(2),r=(30*a).toFixed(2);document.getElementById("totalResult").innerHTML=`\n      🔋 Estimated Daily Consumption: <strong>${a.toFixed(2)} kWh</strong><br>\n      📅 Weekly: <strong>${n} kWh</strong><br>\n      🗓️ Monthly: <strong>${r} kWh</strong>\n    `}window.onload=addAppliance,document.getElementById("calcBtn").addEventListener("click",function(e){e.preventDefault();const t=document.getElementById("appliance"),l=document.getElementById("hours"),a=document.getElementById("result"),n=t.options[t.selectedIndex];if(!n||!n.value)return void(a.textContent="Please select an appliance.");const r=parseFloat(n.getAttribute("data-watt")),c=parseFloat(l.value);if(isNaN(c)||c<0||c>24)return void(a.textContent="Please enter valid hours (0-24).");const o=r*c,d=7*o,i=30*o;a.innerHTML=`<p>Estimated consumption:</p>\n         <ul class="list-disc list-inside">\n           <li><strong>Daily:</strong> ${o.toFixed(1)} Wh</li>\n           <li><strong>Weekly:</strong> ${d.toFixed(1)} Wh</li>\n           <li><strong>Monthly:</strong> ${i.toFixed(1)} Wh</li>\n         </ul>`});
   </script>
 
-  <!-- NEW SCRIPT FOR THE PROFESSIONAL LOAD CALCULATOR (SELF-CONTAINED) -->
+  <!-- SCRIPT FOR THE PROFESSIONAL LOAD CALCULATOR -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Elements for the new calculator
         const addBtn = document.getElementById('add-professional-appliance-btn');
         const applianceList = document.getElementById('professional-appliance-list');
         const voltageInput = document.getElementById('voltage');
 
-        // Check if the elements exist before adding listeners
-        if (!addBtn || !applianceList || !voltageInput) {
-            console.error("Professional calculator elements not found. Script will not run.");
-            return;
-        }
+        let currentStandard = 'iec'; // Default to International
 
-        // Function to create a new appliance row with Tailwind CSS classes
+        // === Standard Handling ===
+        window.updateStandard = () => {
+            const selectedStandard = document.querySelector('input[name="standard_selection"]:checked').value;
+            currentStandard = selectedStandard;
+
+            if (selectedStandard === 'iec') {
+                voltageInput.value = 230;
+                document.getElementById('breaker-label').textContent = 'Required MCB Size:';
+                document.getElementById('wire-gauge-label').textContent = 'Suggested Wire Size (Copper):';
+            } else { // nec
+                voltageInput.value = 120;
+                document.getElementById('breaker-label').textContent = 'Required Breaker Size:';
+                document.getElementById('wire-gauge-label').textContent = 'Suggested Wire Gauge (Copper):';
+            }
+            calculateProfessionalLoad();
+        };
+
+        // === Row Management ===
         const addProfessionalApplianceRow = () => {
             const rowId = 'prof-row-' + Date.now();
             const row = document.createElement('div');
             row.className = 'appliance-row grid grid-cols-1 md:grid-cols-12 gap-4 items-center';
             row.id = rowId;
-            
-            row.innerHTML = `
-                <div class="md:col-span-5">
-                    <input type="text" class="appliance-name w-full bg-gray-700 border border-gray-600 text-white rounded-md px-4 py-2 focus:ring-2 focus:ring-cyan-500 focus:outline-none" placeholder="Appliance Name (e.g., Microwave)" oninput="calculateProfessionalLoad()">
-                </div>
-                <div class="md:col-span-3">
-                    <input type="number" class="appliance-watts w-full bg-gray-700 border border-gray-600 text-white rounded-md px-4 py-2 focus:ring-2 focus:ring-cyan-500 focus:outline-none" placeholder="Wattage (W)" oninput="calculateProfessionalLoad()">
-                </div>
-                <div class="md:col-span-2">
-                    <input type="number" class="appliance-qty w-full bg-gray-700 border border-gray-600 text-white rounded-md px-4 py-2 focus:ring-2 focus:ring-cyan-500 focus:outline-none" value="1" min="1" placeholder="Qty" oninput="calculateProfessionalLoad()">
-                </div>
-                <div class="md:col-span-2">
-                    <button type="button" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-3 rounded-md transition" onclick="removeProfessionalApplianceRow('${rowId}')">✕ Remove</button>
-                </div>
-            `;
-            
+            row.innerHTML = `<div class="md:col-span-5"><input type="text" class="appliance-name w-full bg-gray-700 border border-gray-600 text-white rounded-md px-4 py-2 focus:ring-2 focus:ring-cyan-500 focus:outline-none" placeholder="Appliance (e.g., Heater)" oninput="calculateProfessionalLoad()"></div><div class="md:col-span-3"><input type="number" class="appliance-watts w-full bg-gray-700 border border-gray-600 text-white rounded-md px-4 py-2 focus:ring-2 focus:ring-cyan-500 focus:outline-none" placeholder="Wattage (W)" oninput="calculateProfessionalLoad()"></div><div class="md:col-span-2"><input type="number" class="appliance-qty w-full bg-gray-700 border border-gray-600 text-white rounded-md px-4 py-2 focus:ring-2 focus:ring-cyan-500 focus:outline-none" value="1" min="1" oninput="calculateProfessionalLoad()"></div><div class="md:col-span-2"><button type="button" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-3 rounded-md transition" onclick="removeProfessionalApplianceRow('${rowId}')">✕ Remove</button></div>`;
             applianceList.appendChild(row);
-            calculateProfessionalLoad(); // Recalculate when a new row is added
+            calculateProfessionalLoad();
         };
-
-        // Function to remove a row, attached to the window object to be accessible from inline onclick
         window.removeProfessionalApplianceRow = (rowId) => {
-            const rowToRemove = document.getElementById(rowId);
-            if (rowToRemove) {
-                rowToRemove.remove();
-                calculateProfessionalLoad();
-            }
+            document.getElementById(rowId)?.remove();
+            calculateProfessionalLoad();
         };
 
-        // The main calculation function, renamed to avoid conflicts
+        // === Calculation Logic ===
         window.calculateProfessionalLoad = () => {
-            const voltage = parseFloat(voltageInput.value) || 120;
+            const voltage = parseFloat(voltageInput.value) || (currentStandard === 'iec' ? 230 : 120);
             let totalWatts = 0;
             
-            const applianceRows = document.querySelectorAll('#professional-appliance-list .appliance-row');
-            
-            applianceRows.forEach(row => {
-                const wattsInput = row.querySelector('.appliance-watts');
-                const quantityInput = row.querySelector('.appliance-qty');
-                if (wattsInput && quantityInput) {
-                    const watts = parseFloat(wattsInput.value) || 0;
-                    const quantity = parseInt(quantityInput.value) || 0;
-                    totalWatts += watts * quantity;
-                }
+            document.querySelectorAll('#professional-appliance-list .appliance-row').forEach(row => {
+                const watts = parseFloat(row.querySelector('.appliance-watts').value) || 0;
+                const quantity = parseInt(row.querySelector('.appliance-qty').value) || 0;
+                totalWatts += watts * quantity;
             });
 
             const totalAmps = (voltage > 0) ? (totalWatts / voltage) : 0;
-            const requiredAmpsCapacity = totalAmps / 0.8;
+            const requiredAmpsCapacity = totalAmps / 0.8; // Universal safety margin for continuous load
             
-            const breakerSize = getBreakerSize(requiredAmpsCapacity);
-            const wireGauge = getWireGauge(breakerSize);
+            let breakerSize, wireGauge;
+            if (currentStandard === 'iec') {
+                breakerSize = getMCBSizeIEC(requiredAmpsCapacity);
+                wireGauge = getWireSizeIEC(breakerSize);
+            } else {
+                breakerSize = getBreakerSizeNEC(requiredAmpsCapacity);
+                wireGauge = getWireGaugeNEC(breakerSize);
+            }
 
             document.getElementById('total-watts').textContent = `${totalWatts.toFixed(0)} W`;
             document.getElementById('total-amps').textContent = `${totalAmps.toFixed(2)} A`;
@@ -353,8 +258,35 @@
             document.getElementById('wire-gauge').textContent = wireGauge || 'N/A';
         };
 
-        // Helper functions for recommendations
-        const getBreakerSize = (amps) => {
+        // === Helper Functions for Recommendations ===
+        const getMCBSizeIEC = (amps) => {
+            if (amps <= 0) return null;
+            if (amps <= 6) return 6;
+            if (amps <= 10) return 10;
+            if (amps <= 16) return 16;
+            if (amps <= 20) return 20;
+            if (amps <= 25) return 25;
+            if (amps <= 32) return 32;
+            if (amps <= 40) return 40;
+            if (amps <= 63) return 63;
+            return "Over 63A";
+        };
+
+        const getWireSizeIEC = (mcbSize) => {
+            switch(mcbSize) {
+                case 6: return "1.0 mm²";
+                case 10: return "1.5 mm²";
+                case 16: return "2.5 mm²";
+                case 20: return "2.5 mm²";
+                case 25: return "4.0 mm²";
+                case 32: return "6.0 mm²";
+                case 40: return "10.0 mm²";
+                case 63: return "16.0 mm²";
+                default: return "Consult Electrician";
+            }
+        };
+
+        const getBreakerSizeNEC = (amps) => {
             if (amps <= 0) return null;
             if (amps <= 15) return 15;
             if (amps <= 20) return 20;
@@ -362,11 +294,10 @@
             if (amps <= 40) return 40;
             if (amps <= 50) return 50;
             if (amps <= 60) return 60;
-            if (amps <= 100) return 100;
-            return "Over 100A";
+            return "Over 60A";
         };
 
-        const getWireGauge = (breakerSize) => {
+        const getWireGaugeNEC = (breakerSize) => {
             switch(breakerSize) {
                 case 15: return "14 AWG";
                 case 20: return "12 AWG";
@@ -374,17 +305,15 @@
                 case 40: return "8 AWG";
                 case 50: return "6 AWG";
                 case 60: return "6 AWG";
-                case 100: return "2 AWG";
                 default: return "Consult Electrician";
             }
         };
 
-        // Event Listeners
+        // === Initial Setup ===
         addBtn.addEventListener('click', addProfessionalApplianceRow);
         voltageInput.addEventListener('input', calculateProfessionalLoad);
-        
-        // Initial state
-        addProfessionalApplianceRow();
+        updateStandard(); // Set initial state based on default checked radio
+        addProfessionalApplianceRow(); // Add one row to start
     });
   </script>
 
