@@ -1,73 +1,523 @@
-/* FONT FAMILY */
-body {
-  font-family: 'Outfit', sans-serif;
+/*
+=====================================================
+  MODERN & PROFESSIONAL PORTFOLIO THEME
+  - Author: Your AI Assistant
+  - Theme: Glassmorphism Dark Mode
+  - Features: CSS Variables, Gradients, Animations
+=====================================================
+*/
+
+/* 1. FONT IMPORT & GLOBAL VARIABLES
+-------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap');
+
+:root {
+  /* Color Palette - Change these to instantly re-theme the site! */
+  --primary-color: #00e5ff; /* The main glowing cyan/teal */
+  --secondary-color: #ff00c1; /* A secondary accent for gradients */
+  --bg-color: #0a0a14; /* A very dark, deep blue, not pure black */
+  --text-color: #e0e0e0; /* Light gray for readability */
+  --text-color-darker: #a0a0b0; /* For less important text */
+  --card-bg-color: rgba(20, 20, 40, 0.5); /* Semi-transparent for the glass effect */
+  --card-border-color: rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  
+  /* Font & Spacing */
+  --font-main: 'Outfit', sans-serif;
+  --max-width: 1200px;
+  --border-radius: 12px;
 }
 
-/* GLOW EFFECT FOR NAME */
-.glow {
-  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+/* 2. GLOBAL STYLES & RESETS
+-------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
 }
-.transition-glow {
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-main);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--primary-color), var(--secondary-color));
+  border-radius: 8px;
+}
+
+/* 3. REUSABLE COMPONENTS & UTILITIES
+-------------------------------------------------- */
+section {
+  padding: 100px 0;
+}
+
+.max-width {
+  max-width: var(--max-width);
+  padding: 0 50px;
+  margin: auto;
+}
+
+.title {
+  position: relative;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 60px;
+  padding-bottom: 20px;
+  font-family: var(--font-main);
+}
+.title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: var(--border-radius);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+}
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 0, 193, 0.4);
+}
+
+/* 4. NAVBAR STYLING (Works with your script.js)
+-------------------------------------------------- */
+.navbar {
+  position: fixed;
+  width: 100%;
+  padding: 30px 0;
+  font-family: var(--font-main);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+.navbar .max-width {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar .logo a {
+  color: #fff;
+  font-size: 35px;
+  font-weight: 900;
+}
+.navbar .logo a span { /* The glow effect from your original CSS */
+  color: var(--primary-color);
+  text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
   transition: text-shadow 0.3s ease;
 }
-.transition-glow:hover {
-  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+.navbar .logo a:hover span {
+  text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+}
+.navbar .menu li {
+  list-style: none;
+  display: inline-block;
+}
+.navbar .menu li a {
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 25px;
+  transition: color 0.3s ease;
+}
+.navbar .menu li a:hover,
+.navbar .menu li a.active-menu-link { /* Style for active link from your JS */
+  color: var(--primary-color);
 }
 
-/* FLOATING CTA BUTTON */
+/* Sticky Navbar Style */
+.navbar.sticky {
+  padding: 15px 0;
+  background: var(--card-bg-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--card-border-color);
+}
+.navbar.sticky .menu li a:hover,
+.navbar.sticky .menu li a.active-menu-link {
+  color: var(--primary-color);
+}
+
+/* Mobile Menu Button */
+.menu-btn-toggler {
+  color: #fff;
+  font-size: 23px;
+  cursor: pointer;
+  display: none;
+}
+.scroll-up-btn {
+    position: fixed;
+    height: 45px;
+    width: 42px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    right: 30px;
+    bottom: 10px;
+    text-align: center;
+    line-height: 45px;
+    color: #fff;
+    z-index: 999;
+    font-size: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+.scroll-up-btn.show { /* Style from your JS */
+    bottom: 30px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* 5. HOME SECTION
+-------------------------------------------------- */
+.home {
+  display: flex;
+  background: url('path/to/your/background-image.jpg') no-repeat center; /* Optional: Add a subtle background image */
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  min-height: 500px;
+  color: #fff;
+}
+.home .max-width {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.home .home-content .text-1 {
+  font-size: 27px;
+}
+.home .home-content .text-2 {
+  font-size: 75px;
+  font-weight: 900;
+  margin-left: -3px;
+}
+.home .home-content .text-3 {
+  font-size: 40px;
+  margin: 5px 0;
+}
+.home .home-content .text-3 span {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+.home .home-content .button { /* Your floating CTA button */
+  margin-top: 20px;
+  animation: float 3s ease-in-out infinite;
+}
 @keyframes float {
   0% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
 }
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+
+
+/* 6. SKILLS SECTION (with animation)
+-------------------------------------------------- */
+.skills .skills-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.skills .skills-content .column {
+    width: calc(50% - 30px);
+}
+.skills .skills-content .left .text {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.skills .skills-content .left p {
+    text-align: justify;
+    line-height: 1.6;
+    color: var(--text-color-darker);
+}
+.skills .skills-content .right .bars {
+    margin-bottom: 15px;
+}
+.skills .skills-content .right .info {
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+    justify-content: space-between;
+}
+.skills .skills-content .right .info span {
+    font-weight: 500;
+    font-size: 18px;
+}
+.skills .skills-content .right .line {
+    height: 5px;
+    width: 100%;
+    background: #333;
+    position: relative;
+    border-radius: 5px;
+}
+.skills .skills-content .right .line::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 5px;
+    /* --- ANIMATION TRIGGER --- */
+    width: 0; /* Initially 0 width */
+    transition: width 1.5s ease-out;
+}
+/* This part connects to your Waypoints.js (the `in-view` class) */
+.skills .skills-content .right .line.in-view.html::before { width: 70%; }
+.skills .skills-content .right .line.in-view.css::before { width: 60%; }
+.skills .skills-content .right .line.in-view.digital-marketing::before { width: 95%; }
+/* Add all your other skill classes here... */
+.skills .skills-content .right .line.in-view.js::before { width: 50%; }
+.skills .skills-content .right .line.in-view.electrical-skill-1::before { width: 90%; }
+.skills .skills-content .right .line.in-view.electrical-skill-2::before { width: 85%; }
+
+
+/* 7. PORTFOLIO, TEAMS, TESTIMONIALS (Card-based sections)
+-------------------------------------------------- */
+.portfolio .portfolio-content,
+.teams .carousel,
+.testimonials .carousel {
+  /* Owl Carousel styles will take care of the layout */
+}
+.card {
+  background: var(--card-bg-color);
+  border-radius: var(--border-radius);
+  padding: 25px 35px;
+  text-align: center;
+  border: 1px solid var(--card-border-color);
+  box-shadow: var(--card-shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-10px);
+  border: 1px solid var(--primary-color);
+}
+.card .box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--primary-color);
+  margin-bottom: 20px;
+}
+.card .text {
+  font-size: 25px;
+  font-weight: 600;
+}
+.card p {
+  font-size: 16px;
+  color: var(--text-color-darker);
+  line-height: 1.5;
+  margin-top: 10px;
 }
 
-/* LIGHTNING BACKGROUND EFFECT */
-#lightning-background {
-  background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.05) 0%, transparent 70%);
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
+/* Owl Carousel Dots Styling */
+.owl-dots {
+  text-align: center;
+  margin-top: 20px;
+}
+.owl-dot {
+  height: 13px;
+  width: 13px;
+  margin: 0 5px;
+  outline: none!important;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color)!important;
+  transition: all 0.3s ease;
+}
+.owl-dot.active {
+  width: 35px;
+  border-radius: 14px;
+}
+.owl-dot.active, .owl-dot:hover {
+  background: var(--primary-color)!important;
 }
 
-.lightning-flash {
-  position: absolute;
-  width: 2px;
-  height: 100vh;
-  background: linear-gradient(to bottom, #00ffff, transparent);
-  opacity: 0.2;
-  animation: flash 2s infinite ease-in-out;
-  z-index: 1;
+/* 8. CONTACT FORM
+-------------------------------------------------- */
+.contact .contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.contact .contact-content .column {
+    width: calc(50% - 30px);
+}
+.contact .contact-content .text {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.contact .contact-content .left p {
+    text-align: justify;
+    color: var(--text-color-darker);
+    line-height: 1.6;
+}
+.contact .contact-content .left .icons {
+    margin: 10px 0;
+}
+.contact .contact-content .row {
+    display: flex;
+    height: 65px;
+    align-items: center;
+}
+.contact .contact-content .row .info {
+    margin-left: 30px;
+}
+.contact .contact-content .row i {
+    font-size: 25px;
+    color: var(--primary-color);
+}
+.contact .contact-content .info .head {
+    font-weight: 500;
+}
+.contact .contact-content .info .sub-title {
+    color: var(--text-color-darker);
+}
+.contact .right form .fields {
+    display: flex;
+}
+.contact .right form .field,
+.contact .right form .fields .field {
+    height: 45px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.contact .right form .textarea {
+    height: 80px;
+    width: 100%;
+}
+.contact .right form .name {
+    margin-right: 10px;
+}
+.contact .right form .field input,
+.contact .right form .textarea textarea {
+    height: 100%;
+    width: 100%;
+    border: 1px solid var(--card-border-color);
+    background: var(--card-bg-color);
+    border-radius: var(--border-radius);
+    outline: none;
+    padding: 0 15px;
+    font-size: 17px;
+    font-family: var(--font-main);
+    color: var(--text-color);
+    transition: border-color 0.3s ease;
+}
+.contact .right form .field input:focus,
+.contact .right form .textarea textarea:focus {
+    border-color: var(--primary-color);
+}
+.contact .right form .textarea textarea {
+    padding-top: 10px;
+    resize: none;
+}
+#formStatus {
+    margin-top: 10px;
+    font-weight: 500;
 }
 
-@keyframes flash {
-  0%, 100% {
-    opacity: 0;
-    transform: translateY(-100vh);
-  }
-  50% {
-    opacity: 0.8;
-    transform: translateY(0);
-  }
+
+/* 9. MEDIA QUERIES (for responsiveness)
+-------------------------------------------------- */
+@media (max-width: 1104px) {
+    .about .about-content .left img{
+        height: 350px;
+        width: 350px;
+    }
 }
-.perspective {
-  perspective: 1000px;
+@media (max-width: 991px) {
+    .max-width {
+        padding: 0 25px;
+    }
+}
+@media (max-width: 947px){
+    .menu-btn-toggler{
+        display: block;
+        z-index: 999;
+    }
+    .menu-btn-toggler i.active:before{
+        content: "\f00d"; /* The "X" icon */
+    }
+    .navbar .menu{
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        left: -100%; /* Initially hidden */
+        top: 0;
+        background: var(--bg-color);
+        text-align: center;
+        padding-top: 80px;
+        transition: all 0.3s ease;
+    }
+    .navbar .menu.active{
+        left: 0;
+    }
+    .navbar .menu li{
+        display: block;
+    }
+    .navbar .menu li a{
+        display: inline-block;
+        margin: 20px 0;
+        font-size: 25px;
+    }
+    .home .home-content .text-2 {
+        font-size: 70px;
+    }
+    .home .home-content .text-3 {
+        font-size: 35px;
+    }
+    .skills .skills-content .column,
+    .contact .contact-content .column {
+        width: 100%;
+        margin-bottom: 35px;
+    }
 }
 
-.transform-style-preserve-3d {
-  transform-style: preserve-3d;
-}
-
-.backface-hidden {
-  backface-visibility: hidden;
-}
-
-#cardInner {
-  transform: rotateY(0deg);
-}
-
-#cardInner.flipped {
-  transform: rotateY(180deg);
+@media (max-width: 500px) {
+    .home .home-content .text-2 {
+        font-size: 50px;
+    }
+    .home .home-content .text-3 {
+        font-size: 27px;
+    }
 }
