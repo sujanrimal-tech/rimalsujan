@@ -1,42 +1,111 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
+  
+</script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- SEO Meta Tags -->
   <title>Sujan Rimal (Sujan) | Electrical Engineer</title>
-  <meta name="description" content="Portfolio of Sujan Rimal, expert in smart grids and renewable energy." />
-  <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Smart Grid, Renewable Energy, syko, syko dada, SYKO" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <meta name="description" content="Portfolio of Sujan Rimal, also known as Sujan, expert in smart grids and renewable energy." />
+  <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Smart Grid, Renewable Energy, syko , syko dada, SYKO, Syko, Sujan , Rimal , सुजन , सुजन रिमाल , रिमाल" />
 
+</script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet" />
+  <style>
+    <body>
+  <h1>My Blog</h1>
+  <div id="blog"></div>
+</body>
+    <div id="blog">Loading blog...</div>
+
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .glow {
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
+    }
+    .transition-glow {
+      transition: text-shadow 0.3s ease;
+    }
+    .transition-glow:hover {
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeIn 1.2s ease forwards;
+    }
+    .scroll-section {
+      padding: 4rem 1rem;
+    }
+
+    /* Flip card styles */
+    .perspective {
+      perspective: 1000px;
+    }
+    .transform-style-preserve-3d {
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0.75rem; /* rounded-xl */
+    }
+    #cardInner {
+      transform: rotateY(0deg);
+    }
+    #cardInner.flipped {
+      transform: rotateY(180deg);
+    }
+  </style>
+
+  <script>
+    function flipContactCard() {
+      document.getElementById("cardInner").classList.toggle("flipped");
+    }
+  </script>
+</head>
+<body class="bg-gray-950 text-white">
   <!-- Navbar -->
   <nav class="p-4 flex justify-between items-center border-b border-gray-800 backdrop-blur-md bg-opacity-10 sticky top-0 z-50">
-    <a href="index.html" class="text-2xl font-extrabold text-cyan-400 transition-glow">⚡ Sujan Rimal</a>
-    <div id="desktop-menu" class="hidden md:flex gap-6 text-sm">
-      <a href="index.html" class="hover:text-cyan-400 transition nav-active">Home</a>
-      <a href="about/about.html" class="hover:text-cyan-400 transition">About</a>
-      <a href="skill/skills.html" class="hover:text-cyan-400 transition">Skills</a>
-      <a href="project/projects.html" class="hover:text-cyan-400 transition">Projects</a>
-      <a href="survey/survey.html" class="hover:text-cyan-400 transition">Survey</a>
-      <a href="blog/blog.html" class="hover:text-cyan-400 transition">Blog</a>
-      <a href="contact/contact.html" class="hover:text-cyan-400 transition">Contact</a>
-    </div>
-    <button id="menu-button" class="md:hidden text-2xl">☰</button>
+    <h1 class="text-2xl font-extrabold text-cyan-400 transition-glow cursor-pointer" onclick="location.href='#hero'">⚡ Sujan Rimal</h1>
+    <ul class="flex gap-6 text-sm">
+      <li><a href="#hero" class="hover:text-cyan-400 transition">Home</a></li>
+      <li><a href="#about" class="hover:text-cyan-400 transition">About</a></li>
+      <li><a href="#skills" class="hover:text-cyan-400 transition">Skills</a></li>
+      <li><a href="projects" class="hover:text-cyan-400 transition">projects</a></li>
+      <li><a href="#survey" class="hover:text-cyan-400 transition">Survey</a></li>
+      <li><a href="#blog" class="hover:text-cyan-400 transition">Blog</a></li>
+      <li><a href="#contact" class="hover:text-cyan-400 transition">Contact</a></li>
+    </ul>
   </nav>
-  <div id="mobile-menu" class="hidden">
-      <a href="index.html" class="hover:text-cyan-400 transition nav-active">Home</a>
-      <a href="about/about.html" class="hover:text-cyan-400 transition">About</a>
-      <a href="skill/skills.html" class="hover:text-cyan-400 transition">Skills</a>
-      <a href="project/projects.html" class="hover:text-cyan-400 transition">Projects</a>
-      <a href="survey/survey.html" class="hover:text-cyan-400 transition">Survey</a>
-      <a href="blog/blog.html" class="hover:text-cyan-400 transition">Blog</a>
-      <a href="contact/contact.html" class="hover:text-cyan-400 transition">Contact</a>
-  </div>
 
-  <!-- Background Video -->
+  <!-- Background Animation -->
   <div class="absolute inset-0 -z-10 bg-black bg-opacity-60">
     <video autoplay muted loop class="w-full h-full object-cover opacity-20">
       <source src="https://assets.mixkit.co/videos/preview/mixkit-thunderstorm-with-lightning-strikes-1546-large.mp4" type="video/mp4" />
@@ -44,41 +113,202 @@
   </div>
 
   <!-- Hero Section -->
-  <main>
-    <section id="hero" class="scroll-section min-h-screen flex flex-col justify-center items-center text-center">
-      <h2 class="text-5xl sm:text-7xl font-extrabold mb-6 glow animate-float">Hi, I'm <span class="text-cyan-400">Sujan Rimal</span></h2>
-      <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-8 animate-fade-in-up">
-        A graduated Electrical Engineer with a passion for modern electrical systems, renewable energy, and smart grid technology. I am driven by problem-solving and eager to contribute to innovative projects in the engineering field.
-      </p>
-      <a href="#projects" class="px-10 py-4 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-black font-bold rounded-full text-xl transition shadow-md animate-float">See My Projects</a>
-    </section>
+  <section id="hero" class="scroll-section text-center">
+    <h2 class="text-5xl sm:text-7xl font-extrabold mb-6 glow animate-float">Hi, I'm <span class="text-cyan-400">Sujan Rimal</span></h2>
+    <p class="text-lg text-gray-400 max-w-3xl mx-auto mb-8 animate-fade-in-up">Electrical engineer with years of smart grids, renewable energy, industrial automation, and AI-powered diagnostics. Building sustainable power solutions for tomorrow.</p>
+    <a href="#projects" class="px-10 py-4 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-black font-bold rounded-full text-xl transition shadow-md animate-float">See My Projects</a>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="scroll-section">
-      <h3 class="text-4xl font-bold text-cyan-400 mb-10 text-center">Featured Projects</h3>
-      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
-        <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
-          <h4 class="text-xl font-semibold">Smart Microgrid</h4>
-          <p class="text-gray-400">STM32 + Solar + IoT grid for remote areas.</p>
-        </div>
-        <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
-          <h4 class="text-xl font-semibold">Factory Automation</h4>
-          <p class="text-gray-400">Siemens SCADA system revamped. 20% gain.</p>
-        </div>
-        <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
-          <h4 class="text-xl font-semibold">AI Battery Optimization</h4>
-          <p class="text-gray-400">Energy storage optimized via MATLAB + AI.</p>
+  <!-- About Section -->
+  <section id="about" class="scroll-section">
+    <h3 class="text-4xl font-bold text-cyan-400 mb-6 text-center">About Me</h3>
+    <p class="max-w-4xl mx-auto text-gray-300 text-lg leading-relaxed text-center">I'm passionate about energy and innovation. My focus is creating cleaner, smarter energy systems through design, automation, and AI. I mentor, lead, and share in the open-source world too.</p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="scroll-section">
+    <h3 class="text-4xl font-bold text-cyan-400 mb-10 text-center">Skills</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h4 class="text-xl font-semibold mb-2">Smart Grid Systems</h4>
+        <p class="text-gray-400">Advanced smart grid deployment and system diagnostics.</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h4 class="text-xl font-semibold mb-2">Industrial Automation</h4>
+        <p class="text-gray-400">Programming and optimizing factory systems using PLC/SCADA.</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h4 class="text-xl font-semibold mb-2">Renewable Energy</h4>
+        <p class="text-gray-400">Design and install renewable energy systems, mainly solar/wind.</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h4 class="text-xl font-semibold mb-2">AI in Diagnostics</h4>
+        <p class="text-gray-400">Predictive maintenance using machine learning in diagnostics.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="scroll-section">
+    <h3 class="text-4xl font-bold text-cyan-400 mb-10 text-center">Projects</h3>
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h4 class="text-xl font-semibold">Smart Microgrid</h4>
+        <p class="text-gray-400">STM32 + Solar + IoT grid for remote areas.</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h4 class="text-xl font-semibold">Factory Automation</h4>
+        <p class="text-gray-400">Siemens SCADA system revamped. 20% gain.</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h4 class="text-xl font-semibold">AI Battery Optimization</h4>
+        <p class="text-gray-400">Energy storage optimized via MATLAB + AI.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Survey Section -->
+  <section id="survey" class="scroll-section py-12">
+    <h3 class="text-4xl font-bold text-cyan-400 mb-8 text-center">Energy Usage Survey</h3>
+
+    <!-- Survey Form -->
+    <form class="max-w-xl mx-auto bg-gray-800 p-6 rounded-xl space-y-4 mb-12">
+      <input type="text" placeholder="Your Name" class="w-full px-4 py-2 bg-gray-700 rounded-md text-white" />
+      <input type="email" placeholder="Email" class="w-full px-4 py-2 bg-gray-700 rounded-md text-white" />
+      <select class="w-full px-4 py-2 bg-gray-700 rounded-md text-white">
+        <option value="" disabled selected>Select your home type</option>
+        <option>Apartment</option>
+        <option>Detached House</option>
+        <option>Townhouse</option>
+      </select>
+      <textarea rows="3" placeholder="Additional comments" class="w-full px-4 py-2 bg-gray-700 rounded-md text-white"></textarea>
+      <button type="submit" class="w-full bg-cyan-500 py-3 font-bold rounded-md hover:bg-cyan-600 transition">Submit Survey</button>
+    </form>
+
+    <!-- Load Calculator -->
+    <div class="max-w-xl mx-auto bg-gray-900 p-6 rounded-xl">
+      <h4 class="text-2xl font-semibold mb-4 text-cyan-400">Load Calculator</h4>
+
+      <label for="appliance" class="block mb-2 text-gray-300">Select Appliance:</label>
+      <select id="appliance" class="w-full mb-4 px-4 py-2 rounded-md bg-gray-700 text-white">
+        <option value="" disabled selected>Select an appliance</option>
+        <option value="fan" data-watt="50">Fan (50W)</option>
+        <option value="bulb" data-watt="15">Bulb (15W)</option>
+        <option value="tv" data-watt="120">TV (120W)</option>
+        <option value="fridge" data-watt="200">Fridge (200W)</option>
+      </select>
+
+      <label for="hours" class="block mb-2 text-gray-300">Hours Used Per Day:</label>
+      <input type="number" id="hours" min="0" max="24" value="1" class="w-full mb-4 px-4 py-2 rounded-md bg-gray-700 text-white" />
+
+      <button id="calcBtn" class="w-full bg-cyan-500 py-3 font-bold rounded-md hover:bg-cyan-600 transition mb-4">Calculate Consumption</button>
+
+      <div id="result" class="text-gray-300 font-semibold text-lg"></div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blog" class="scroll-section">
+    <h3 class="text-4xl font-bold text-cyan-400 mb-10 text-center">Blog</h3>
+    <div class="max-w-4xl mx-auto space-y-8 text-gray-300">
+      <article>
+        <h4 class="text-2xl font-semibold">Future of Smart Grids</h4>
+        <p>Exploring AI integration in energy distribution and efficiency.</p>
+      </article>
+      <article>
+        <h4 class="text-2xl font-semibold">Renewable Energy Trends 2025</h4>
+        <p>Latest innovations in solar and wind power for homes.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="scroll-section text-center py-16">
+    <h3 class="text-4xl font-bold text-cyan-400 mb-6">Let's Connect</h3>
+    <p class="text-gray-400 mb-8">Interested in collaborating or learning more? Reach out anytime!</p>
+    <form id="contactForm" class="max-w-xl mx-auto bg-gray-800 p-6 rounded-xl space-y-4 text-left">
+  <h4 class="text-2xl font-semibold text-cyan-400 mb-4">Send me a message</h4>
+  
+  <input type="text" id="name" name="name" placeholder="Your Name" required
+    class="w-full px-4 py-2 rounded-md bg-gray-700 text-white" />
+  
+  <input type="email" id="email" name="email" placeholder="Your Email" required
+    class="w-full px-4 py-2 rounded-md bg-gray-700 text-white" />
+  
+  <input type="tel" id="phone" name="phone" placeholder="Your Phone (optional)"
+    class="w-full px-4 py-2 rounded-md bg-gray-700 text-white" />
+  
+  <textarea id="message" name="message" rows="4" placeholder="Your Suggestion or Problem" required
+    class="w-full px-4 py-2 rounded-md bg-gray-700 text-white"></textarea>
+  
+  <button type="submit" class="w-full bg-cyan-500 py-3 font-bold rounded-md hover:bg-cyan-600 transition">
+    Send Message
+  </button>
+  
+  <p id="formStatus" class="mt-2 text-sm"></p>
+</form>
+
+  <!-- Google Form Embed -->
+  <div class="max-w-xl mx-auto">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfUGcJ2CjIvppK2bI-zIq1rzSsWt2hg2sMQdTOY_sUXrfisUg/viewform?embedded=true"
+      width="640" height="821" frameborder="0" marginheight="0" marginwidth="0">
+      Loading…
+    </iframe>
+  </div>
+
+
+    <!-- Flip Card -->
+    <div class="w-72 mx-auto mt-8">
+      <div id="flipCard" class="relative w-full h-32 cursor-pointer perspective" onclick="flipContactCard()">
+        <div id="cardInner" class="absolute w-full h-full transform-style-preserve-3d">
+          <!-- Front (Email) -->
+          <div class="absolute w-full h-full bg-cyan-500 text-black rounded-xl flex items-center justify-center text-lg font-semibold backface-hidden">
+            📧 rimalsujan5@gmail.com
+          </div>
+          <!-- Back (Phone) -->
+          <div class="absolute w-full h-full bg-gray-800 text-white rounded-xl flex items-center justify-center backface-hidden" style="transform: rotateY(180deg);">
+            📞 +977-9845645446
+          </div>
         </div>
       </div>
-      <div class="text-center mt-12">
-        <a href="projects.html" class="px-8 py-3 bg-cyan-500 text-black font-bold rounded-md hover:bg-cyan-600 transition">View All Projects</a>
-      </div>
-    </section>
-  </main>
+      <p class="text-sm text-gray-400 mt-2">Click the card to reveal phone number</p>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="text-center py-6 text-gray-500 text-sm border-t border-gray-800">© 2025 Sujan Rimal | All rights reserved.</footer>
+  <footer class="text-center py-6 text-gray-500 text-sm">&copy; 2025 Sujan Rimal | All rights reserved.</footer>
 
-  <script src="script.js"></script>
+  <script>
+    // Load Calculator logic
+    document.getElementById('calcBtn').addEventListener('click', function (e) {
+      e.preventDefault();
+      const applianceSelect = document.getElementById('appliance');
+      const hoursInput = document.getElementById('hours');
+      const resultDiv = document.getElementById('result');
+
+      const applianceOption = applianceSelect.options[applianceSelect.selectedIndex];
+      if (!applianceOption || !applianceOption.value) {
+        resultDiv.textContent = 'Please select an appliance.';
+        return;
+      }
+      const wattage = parseFloat(applianceOption.getAttribute('data-watt'));
+      const hours = parseFloat(hoursInput.value);
+      if (isNaN(hours) || hours < 0 || hours > 24) {
+        resultDiv.textContent = 'Please enter valid hours (0-24).';
+        return;
+      }
+      const dailyWh = wattage * hours;
+      const weeklyWh = dailyWh * 7;
+      const monthlyWh = dailyWh * 30;
+
+      resultDiv.innerHTML =
+        `<p>Estimated consumption:</p>
+         <ul class="list-disc list-inside">
+           <li><strong>Daily:</strong> ${dailyWh.toFixed(1)} Wh</li>
+           <li><strong>Weekly:</strong> ${weeklyWh.toFixed(1)} Wh</li>
+           <li><strong>Monthly:</strong> ${monthlyWh.toFixed(1)} Wh</li>
+         </ul>`;
+    });
+  </script>
 </body>
 </html>
