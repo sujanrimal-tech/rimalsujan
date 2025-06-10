@@ -11,38 +11,7 @@
   <title>Sujan Rimal (Sujan) | Electrical Engineer</title>
   <meta name="description" content="Portfolio of Sujan Rimal, also known as Sujan, expert in smart grids and renewable energy." />
   <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Smart Grid, Renewable Energy, syko , syko dada, SYKO, Syko, Sujan , Rimal , सुजन , सुजन रिमाल , रिमाल" />
-<!-- Add Firebase -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-  const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  async function loadPosts() {
-    const postsCol = collection(db, "posts");
-    const postSnapshot = await getDocs(postsCol);
-    const postList = postSnapshot.docs.map(doc => doc.data());
-
-    let html = "";
-    postList.forEach(post => {
-      html += `<article>
-        <h2>${post.title}</h2>
-        <p>${post.content}</p>
-        <hr/>
-      </article>`;
-    });
-
-    document.getElementById("blog").innerHTML = html;
-  }
-
-  loadPosts();
 </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
