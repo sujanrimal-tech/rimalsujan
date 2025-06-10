@@ -1,0 +1,73 @@
+/* FONT FAMILY */
+body {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* GLOW EFFECT FOR NAME */
+.glow {
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+}
+.transition-glow {
+  transition: text-shadow 0.3s ease;
+}
+.transition-glow:hover {
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+/* FLOATING CTA BUTTON */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* LIGHTNING BACKGROUND EFFECT */
+#lightning-background {
+  background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.05) 0%, transparent 70%);
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.lightning-flash {
+  position: absolute;
+  width: 2px;
+  height: 100vh;
+  background: linear-gradient(to bottom, #00ffff, transparent);
+  opacity: 0.2;
+  animation: flash 2s infinite ease-in-out;
+  z-index: 1;
+}
+
+@keyframes flash {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+}
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+#cardInner {
+  transform: rotateY(0deg);
+}
+
+#cardInner.flipped {
+  transform: rotateY(180deg);
+}
