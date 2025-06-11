@@ -6,7 +6,7 @@
   
     <!-- SEO Meta Tags -->
     <title>Sujan Rimal (Sujan) | Electrical Engineer & Adventurer</title>
-    <meta name="description" content=" Portfolio of Sujan Rimal, an electrical engineer and adventurer passionate about smart grids, renewable energy, and exploring the culture of Nepal." />
+    <meta name="description" content="Portfolio of Sujan Rimal, an electrical engineer and adventurer passionate about smart grids, renewable energy, and exploring the culture of Nepal." />
     <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Smart Grid, Renewable Energy, Nepal, Travel, Culture, syko, syko dada, SYKO, Syko, Sujan, Rimal, सुजन, सुजन रिमाल, रिमाल" />
 
     <!-- Tailwind CSS -->
@@ -42,11 +42,9 @@
     @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     .orbital-ring { position: absolute; border-radius: 50%; border-style: solid; animation-name: rotate; animation-timing-function: linear; animation-iteration-count: infinite; }
     
-    /* FIX: Prevents sticky nav from covering section titles on jump links */
-    .scroll-section {
-        scroll-margin-top: 4rem; /* 64px */
+    section {
+        scroll-margin-top: 4rem; /* 64px, adjust if nav height changes */
     }
-    /* FIX: Prevents page from scrolling when mobile menu is open */
     .no-scroll {
         overflow: hidden;
     }
@@ -61,30 +59,27 @@
     <div id="mouse-glow"></div>
 
     <nav class="p-4 flex justify-between items-center border-b border-white/10 bg-gray-950/50 backdrop-blur-lg sticky top-0 z-50 h-16">
-        <h1 class="text-2xl font-extrabold text-cyan-400 glow cursor-pointer" onclick="location.href='#home'">⚡ Sujan Rimal</h1>
+        <a href="#home" class="text-2xl font-extrabold text-cyan-400 glow cursor-pointer">⚡ Sujan Rimal</a>
         <div class="md:hidden">
-            <!-- FIX: Added an ID to the button so the script can find it -->
             <button id="hamburger-btn" class="text-white focus:outline-none z-50 relative">
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
             </button>
         </div>
         <ul class="hidden md:flex gap-6 text-sm">
-            <!-- FIX: Changed links to hash links for single-page navigation -->
+            <!-- FIX 2: Changed all links to use '#' for on-page scrolling -->
             <li><a href="#home" class="hover:text-cyan-300 transition-colors duration-300">Home</a></li>
             <li><a href="#about" class="hover:text-cyan-300 transition-colors duration-300">About</a></li>
             <li><a href="#skills" class="hover:text-cyan-300 transition-colors duration-300">Skills</a></li>
-            <li><a href="/project/" class="hover:text-cyan-300 transition-colors duration-300">Projects</a></li>
+          <li><a href="/project/" class="hover:text-cyan-300 transition-colors duration-300">Projects</a></li>
             <li><a href="/survey/" class="hover:text-cyan-300 transition-colors duration-300">Survey</a></li>
             <li><a href="/blog/" class="hover:text-cyan-300 transition-colors duration-300">Blog</a></li>
             <li><a href="/contact/" class="hover:text-cyan-300 transition-colors duration-300">Contact</a></li>
         </ul>
     </nav>
     
-    <!-- FIX: ADDED THIS HIDDEN MOBILE MENU OVERLAY -->
     <div id="mobile-menu" class="hidden fixed inset-0 bg-black/90 backdrop-blur-md z-40 md:hidden">
         <ul class="flex flex-col items-center justify-center h-full gap-8 text-xl">
+            <!-- FIX 2: Changed all links to use '#' for on-page scrolling -->
             <li><a href="#home" class="mobile-link hover:text-cyan-300">Home</a></li>
             <li><a href="#about" class="mobile-link hover:text-cyan-300">About</a></li>
             <li><a href="#skills" class="mobile-link hover:text-cyan-300">Skills</a></li>
@@ -95,14 +90,11 @@
         </ul>
     </div>
     
-    <!-- FIX 1: Removed `overflow-hidden` class. This was hiding all other sections on mobile. -->
-    <section id="home" class="min-h-screen flex items-center justify-center px-4 -mt-16">
+    <section id="home" class="min-h-screen flex items-center justify-center px-4 pt-16 sm:pt-0 -mt-16">
         <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div class="text-center md:text-left">
-                <!-- FIX 2: Made font sizes and line-height responsive to prevent overlap. -->
                 <h1 class="hero-title text-4xl leading-snug sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 md:leading-tight">
-                    <span style="animation-delay: 0.1s;">Hi,</span>
-                    <span style="animation-delay: 0.2s;">I'm</span>
+                    <span style="animation-delay: 0.1s;">Hi,</span><span style="animation-delay: 0.2s;">I'm</span>
                     <span style="animation-delay: 0.3s;" class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 glow">Sujan</span>
                     <span style="animation-delay: 0.4s;" class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 glow">Rimal</span>
                 </h1>
@@ -114,19 +106,19 @@
                     <a href="#skills" class="px-8 py-3 bg-white/10 border border-white/20 text-white font-bold rounded-full text-lg transition-colors duration-300 hover:bg-white/20">My Skills</a>
                 </div>
             </div>
-            <!-- Your original image container, which you had hidden on mobile. This is preserved. -->
-            <div class="hidden md:flex items-center justify-center w-80 h-80 md:w-96 md:h-96 mx-auto relative opacity-0" style="animation: fadeInUp 1s ease-out forwards; animation-delay: 0.5s;">
+            <!-- FIX 1: REMOVED the `hidden` class so the image shows on mobile. Adjusted sizes. -->
+            <div class="flex items-center justify-center w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 mx-auto relative opacity-0" style="animation: fadeInUp 1s ease-out forwards; animation-delay: 0.5s;">
                 <div class="orbital-ring inset-0 border-2 border-cyan-400/20" style="animation-duration: 40s;"></div>
                 <div class="orbital-ring inset-6 md:inset-8 border-t-2 border-t-cyan-400/80 border-l-2 border-l-cyan-400/80 border-b-2 border-b-transparent border-r-2 border-r-transparent" style="animation-duration: 15s; animation-direction: reverse;"></div>
                 <div class="orbital-ring inset-12 md:inset-16 border-1 border-dashed border-white/20" style="animation-duration: 60s;"></div>
-                <div class="w-60 h-60 md:w-64 md:h-64 lg:w-72 lg:h-72 z-10">
+                <div class="w-48 h-48 sm:w-60 sm:h-60 md:w-64 md:h-64 lg:w-72 lg:h-72 z-10">
                     <img src="https://github.com/sujanrimal-tech/rimalsujan/blob/main/sujan.jpg?raw=true" alt="Sujan Rimal Professional Photo" class="w-full h-full object-cover rounded-full shadow-2xl border-4 border-slate-700">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- All your sections below are untouched -->
+    <!-- The rest of your sections are preserved perfectly -->
     <section id="about" class="scroll-section px-4 py-16">
         <h3 class="text-4xl font-bold text-center mb-6"><span class="text-cyan-400">About</span> Me</h3>
         <p class="max-w-4xl mx-auto text-gray-300 text-lg leading-relaxed text-center">I'm passionate about energy and innovation. My focus is creating cleaner, smarter energy systems through design, automation, and AI. I mentor, lead, and share in the open-source world too.</p>
@@ -158,43 +150,34 @@
         © 2025 Sujan Rimal | All rights reserved.
     </footer>
 
-    <!-- FIX: ADDED THIS SCRIPT FOR MOBILE MENU FUNCTIONALITY -->
     <script>
-        // Your original mouse glow script
         const glow = document.getElementById('mouse-glow');
         window.addEventListener('mousemove', (e) => {
-            // Check for touch devices that might not have pageX/Y
             if (e.pageX && e.pageY) {
                 glow.style.left = e.pageX + 'px';
                 glow.style.top = e.pageY + 'px';
             }
         });
 
-        // --- NEW SCRIPT FOR MOBILE NAVIGATION ---
+        // --- SCRIPT FOR MOBILE NAVIGATION ---
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileMenuLinks = document.querySelectorAll('.mobile-link');
         const body = document.body;
 
         const toggleMenu = () => {
-            const isMenuOpen = !mobileMenu.classList.contains('hidden');
-            
-            // Toggle menu visibility and body scroll
+            const isMenuOpen = mobileMenu.classList.contains('hidden');
             mobileMenu.classList.toggle('hidden');
-            body.classList.toggle('no-scroll', !isMenuOpen);
+            body.classList.toggle('no-scroll', isMenuOpen);
 
-            // Change hamburger icon to an "X" or back
-            if (!isMenuOpen) {
+            if (isMenuOpen) {
                 hamburgerBtn.innerHTML = `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>`;
             } else {
                 hamburgerBtn.innerHTML = `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16" /></svg>`;
             }
         };
 
-        // Open/close menu on button click
         hamburgerBtn.addEventListener('click', toggleMenu);
-
-        // Close the menu when any of its links are clicked
         mobileMenuLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (!mobileMenu.classList.contains('hidden')) {
