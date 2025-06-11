@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <!-- SEO Meta Tags -->
     <title>Sujan Rimal (Sujan) | Electrical Engineer & Adventurer</title>
-    <meta name="description" content="Portfolio of Sujan Rimal, an electrical engineer and adventurer passionate about smart grids, renewable energy, and exploring the culture of Nepal." />
+    <meta name="description" content=" Portfolio of Sujan Rimal, an electrical engineer and adventurer passionate about smart grids, renewable energy, and exploring the culture of Nepal." />
     <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Smart Grid, Renewable Energy, Nepal, Travel, Culture, syko, syko dada, SYKO, Syko, Sujan, Rimal, सुजन, सुजन रिमाल, रिमाल" />
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+    
+    <!-- Custom Styles -->
     <style>
-    /* NOTE: Use a CSS variable for the nav height to make it easy to adjust */
-    :root {
-        --nav-height: 4rem; /* 64px */
-    }
     body {
         font-family: 'Outfit', sans-serif;
         scroll-behavior: smooth;
@@ -23,7 +27,9 @@
         position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -20;
         filter: blur(100px); -webkit-filter: blur(100px);
     }
-    .aurora-blob { position: absolute; border-radius: 50%; mix-blend-mode: screen; }
+    .aurora-blob {
+        position: absolute; border-radius: 50%; mix-blend-mode: screen;
+    }
     .aurora-blob:nth-child(1) { width: 500px; height: 500px; background: rgba(0, 229, 255, 0.4); animation: moveBlob1 20s infinite alternate ease-in-out; }
     .aurora-blob:nth-child(2) { width: 600px; height: 600px; background: rgba(0, 85, 255, 0.3); animation: moveBlob2 25s infinite alternate ease-in-out; }
     .aurora-blob:nth-child(3) { width: 450px; height: 450px; background: rgba(192, 0, 255, 0.35); animation: moveBlob3 18s infinite alternate ease-in-out; }
@@ -35,7 +41,12 @@
     .hero-title span { display: inline-block; opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
     @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     .orbital-ring { position: absolute; border-radius: 50%; border-style: solid; animation-name: rotate; animation-timing-function: linear; animation-iteration-count: infinite; }
-    /* FIX: Add a class to prevent scrolling when the mobile menu is open */
+    
+    /* FIX: Prevents sticky nav from covering section titles on jump links */
+    .scroll-section {
+        scroll-margin-top: 4rem; /* 64px */
+    }
+    /* FIX: Prevents page from scrolling when mobile menu is open */
     .no-scroll {
         overflow: hidden;
     }
@@ -49,146 +60,141 @@
 
     <div id="mouse-glow"></div>
 
-    <!-- FIX: The nav bar height is now h-16 (4rem) -->
-    <nav class="h-16 p-4 flex justify-between items-center border-b border-white/10 bg-gray-950/50 backdrop-blur-lg sticky top-0 z-50">
-        <a href="#home" class="text-2xl font-extrabold text-cyan-400 glow cursor-pointer">⚡ Sujan Rimal</a>
-        
-        <!-- START: DESKTOP MENU -->
-        <ul class="hidden md:flex gap-6 text-sm">
-            <!-- NOTE: Changed links to hash links for single-page navigation -->
-            <li><a href="#home" class="hover:text-cyan-300 transition-colors duration-300">Home</a></li>
-            <li><a href="#about" class="hover:text-cyan-300 transition-colors duration-300">About</a></li>
-            <li><a href="#skills" class="hover:text-cyan-300 transition-colors duration-300">Skills</a></li>
-            <li><a href="#adventures" class="hover:text-cyan-300 transition-colors duration-300">Adventures</a></li>
-            <li><a href="/project/" class="hover:text-cyan-300 transition-colors duration-300">Projects</a></li>
-            <li><a href="/blog/" class="hover:text-cyan-300 transition-colors duration-300">Blog</a></li>
-        </ul>
-        <!-- END: DESKTOP MENU -->
-
-        <!-- START: MOBILE MENU BUTTON -->
+    <nav class="p-4 flex justify-between items-center border-b border-white/10 bg-gray-950/50 backdrop-blur-lg sticky top-0 z-50 h-16">
+        <h1 class="text-2xl font-extrabold text-cyan-400 glow cursor-pointer" onclick="location.href='#home'">⚡ Sujan Rimal</h1>
         <div class="md:hidden">
+            <!-- FIX: Added an ID to the button so the script can find it -->
             <button id="hamburger-btn" class="text-white focus:outline-none z-50 relative">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
         </div>
-        <!-- END: MOBILE MENU BUTTON -->
+        <ul class="hidden md:flex gap-6 text-sm">
+            <!-- FIX: Changed links to hash links for single-page navigation -->
+            <li><a href="#home" class="hover:text-cyan-300 transition-colors duration-300">Home</a></li>
+            <li><a href="#about" class="hover:text-cyan-300 transition-colors duration-300">About</a></li>
+            <li><a href="#skills" class="hover:text-cyan-300 transition-colors duration-300">Skills</a></li>
+            <li><a href="/project/" class="hover:text-cyan-300 transition-colors duration-300">Projects</a></li>
+            <li><a href="/survey/" class="hover:text-cyan-300 transition-colors duration-300">Survey</a></li>
+            <li><a href="/blog/" class="hover:text-cyan-300 transition-colors duration-300">Blog</a></li>
+            <li><a href="/contact/" class="hover:text-cyan-300 transition-colors duration-300">Contact</a></li>
+        </ul>
     </nav>
     
-    <!-- NEW: FULLY FUNCTIONAL MOBILE MENU OVERLAY -->
+    <!-- FIX: ADDED THIS HIDDEN MOBILE MENU OVERLAY -->
     <div id="mobile-menu" class="hidden fixed inset-0 bg-black/90 backdrop-blur-md z-40 md:hidden">
         <ul class="flex flex-col items-center justify-center h-full gap-8 text-xl">
             <li><a href="#home" class="mobile-link hover:text-cyan-300">Home</a></li>
             <li><a href="#about" class="mobile-link hover:text-cyan-300">About</a></li>
             <li><a href="#skills" class="mobile-link hover:text-cyan-300">Skills</a></li>
-            <li><a href="#adventures" class="mobile-link hover:text-cyan-300">Adventures</a></li>
             <li><a href="/project/" class="mobile-link hover:text-cyan-300">Projects</a></li>
+            <li><a href="/survey/" class="mobile-link hover:text-cyan-300">Survey</a></li>
             <li><a href="/blog/" class="mobile-link hover:text-cyan-300">Blog</a></li>
+            <li><a href="/contact/" class="mobile-link hover:text-cyan-300">Contact</a></li>
         </ul>
     </div>
-
-    <!-- Main Content Starts Here -->
-    <main>
-        <!-- FIX 1: Removed `overflow-hidden`. Added `pt-16` for padding and removed `-mt-16` to simplify layout -->
-        <section id="home" class="min-h-screen flex items-center justify-center px-4 pt-16 md:pt-0">
-            <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-                <div class="text-center md:text-left">
-                    <!-- FIX 2: Responsive font size and line-height to prevent overlap on mobile -->
-                    <h1 class="hero-title text-4xl leading-tight sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4">
-                        <span style="animation-delay: 0.1s;">Hi,</span>
-                        <span style="animation-delay: 0.2s;">I'm</span>
-                        <span style="animation-delay: 0.3s;" class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">Sujan</span>
-                        <span style="animation-delay: 0.4s;" class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">Rimal</span>
-                    </h1>
-                    <p class="text-lg md:text-xl text-gray-300 mb-8 opacity-0" style="animation: fadeInUp 0.8s ease-out forwards; animation-delay: 0.6s;">
-                        An Electrical Engineer crafting the future of smart grids, renewable energy, and intuitive web experiences.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start opacity-0" style="animation: fadeInUp 0.8s ease-out forwards; animation-delay: 0.8s;">
-                        <a href="/project/" class="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-full text-lg transition-transform duration-300 hover:scale-105 shadow-lg shadow-cyan-500/20">View My Work</a>
-                        <a href="#skills" class="px-8 py-3 bg-white/10 border border-white/20 text-white font-bold rounded-full text-lg transition-colors duration-300 hover:bg-white/20">My Skills</a>
-                    </div>
-                </div>
-                <!-- FIX 3: Image is now visible on mobile, just smaller -->
-                <div class="flex items-center justify-center w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 mx-auto relative opacity-0" style="animation: fadeInUp 1s ease-out forwards; animation-delay: 0.5s;">
-                    <div class="orbital-ring inset-0 border-2 border-cyan-400/20" style="animation-duration: 40s;"></div>
-                    <div class="orbital-ring inset-6 md:inset-8 border-t-2 border-t-cyan-400/80 border-l-2 border-l-cyan-400/80 border-b-2 border-b-transparent border-r-2 border-r-transparent" style="animation-duration: 15s; animation-direction: reverse;"></div>
-                    <div class="orbital-ring inset-12 md:inset-16 border-1 border-dashed border-white/20" style="animation-duration: 60s;"></div>
-                    <div class="w-48 h-48 sm:w-60 sm:h-60 md:w-64 md:h-64 lg:w-72 lg:h-72 z-10">
-                        <img src="https://github.com/sujanrimal-tech/rimalsujan/blob/main/sujan.jpg?raw=true" alt="Sujan Rimal Professional Photo" class="w-full h-full object-cover rounded-full shadow-2xl border-4 border-slate-700">
-                    </div>
+    
+    <!-- FIX 1: Removed `overflow-hidden` class. This was hiding all other sections on mobile. -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-4 -mt-16">
+        <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div class="text-center md:text-left">
+                <!-- FIX 2: Made font sizes and line-height responsive to prevent overlap. -->
+                <h1 class="hero-title text-4xl leading-snug sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 md:leading-tight">
+                    <span style="animation-delay: 0.1s;">Hi,</span>
+                    <span style="animation-delay: 0.2s;">I'm</span>
+                    <span style="animation-delay: 0.3s;" class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 glow">Sujan</span>
+                    <span style="animation-delay: 0.4s;" class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 glow">Rimal</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-8 opacity-0" style="animation: fadeInUp 0.8s ease-out forwards; animation-delay: 0.6s;">
+                    An Electrical Engineer crafting the future of smart grids, renewable energy, and intuitive web experiences.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start opacity-0" style="animation: fadeInUp 0.8s ease-out forwards; animation-delay: 0.8s;">
+                    <a href="/project/" class="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-full text-lg transition-transform duration-300 hover:scale-105 shadow-lg shadow-cyan-500/20">View My Work</a>
+                    <a href="#skills" class="px-8 py-3 bg-white/10 border border-white/20 text-white font-bold rounded-full text-lg transition-colors duration-300 hover:bg-white/20">My Skills</a>
                 </div>
             </div>
-        </section>
-
-        <!-- NOTE: All sections now have a scroll-mt-[var(--nav-height)] to offset the sticky nav -->
-        <section id="about" class="px-4 py-16 scroll-mt-[var(--nav-height)]">
-            <h3 class="text-4xl font-bold text-center mb-6"><span class="text-cyan-400">About</span> Me</h3>
-            <p class="max-w-4xl mx-auto text-gray-300 text-lg leading-relaxed text-center">I'm passionate about energy and innovation. My focus is creating cleaner, smarter energy systems through design, automation, and AI. I mentor, lead, and share in the open-source world too.</p>
-        </section>
-
-        <section id="skills" class="px-4 py-16 scroll-mt-[var(--nav-height)]">
-            <h3 class="text-4xl font-bold text-center mb-12">My <span class="text-cyan-400">Capabilities</span></h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- Skill cards here -->
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2"><h4 class="text-xl font-semibold mb-2 text-cyan-400">🔌 Electrical Installation</h4><p class="text-gray-400">Experienced in installing and maintaining residential, commercial, and industrial electrical systems, ensuring safety and compliance.</p></div>
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2"><h4 class="text-xl font-semibold mb-2 text-cyan-400">🏭 Industrial Electrician Work</h4><p class="text-gray-400">Hands-on experience with motors, relays, and control panels. Capable of reading and interpreting complex wiring diagrams.</p></div>
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2"><h4 class="text-xl font-semibold mb-2 text-cyan-400">🧰 Service Engineering</h4><p class="text-gray-400">Proficient in diagnosing, troubleshooting, and repairing faults in electrical systems and machinery to ensure peak efficiency.</p></div>
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2"><h4 class="text-xl font-semibold mb-2 text-cyan-400">🖊 AutoCAD & MATLAB</h4><p class="text-gray-400">Skilled in creating schematics with AutoCAD and using MATLAB for simulations, data analysis, and modeling of electrical systems.</p></div>
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2"><h4 class="text-xl font-semibold mb-2 text-cyan-400">💻 Advanced Computer Knowledge</h4><p class="text-gray-400">Proficient in various software tools, including MS Office, email systems, and troubleshooting basic IT issues.</p></div>
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2"><h4 class="text-xl font-semibold mb-2 text-cyan-400">🤝 Teamwork & Communication</h4><p class="text-gray-400">Strong interpersonal skills developed through fieldwork and collaboration with engineers, technicians, and clients.</p></div>
+            <!-- Your original image container, which you had hidden on mobile. This is preserved. -->
+            <div class="hidden md:flex items-center justify-center w-80 h-80 md:w-96 md:h-96 mx-auto relative opacity-0" style="animation: fadeInUp 1s ease-out forwards; animation-delay: 0.5s;">
+                <div class="orbital-ring inset-0 border-2 border-cyan-400/20" style="animation-duration: 40s;"></div>
+                <div class="orbital-ring inset-6 md:inset-8 border-t-2 border-t-cyan-400/80 border-l-2 border-l-cyan-400/80 border-b-2 border-b-transparent border-r-2 border-r-transparent" style="animation-duration: 15s; animation-direction: reverse;"></div>
+                <div class="orbital-ring inset-12 md:inset-16 border-1 border-dashed border-white/20" style="animation-duration: 60s;"></div>
+                <div class="w-60 h-60 md:w-64 md:h-64 lg:w-72 lg:h-72 z-10">
+                    <img src="https://github.com/sujanrimal-tech/rimalsujan/blob/main/sujan.jpg?raw=true" alt="Sujan Rimal Professional Photo" class="w-full h-full object-cover rounded-full shadow-2xl border-4 border-slate-700">
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="adventures" class="px-4 py-16 scroll-mt-[var(--nav-height)]">
-            <h3 class="text-4xl font-bold text-center mb-6">Beyond the <span class="text-cyan-400">Circuits</span></h3>
-            <p class="max-w-4xl mx-auto text-gray-300 text-lg leading-relaxed text-center mb-12">While my professional world revolves around electrical systems, my heart belongs to the trails, temples, and towns of Nepal. Exploring my homeland's raw nature and rich culture doesn't just recharge my spirit—it inspires my work, reminding me of the human and natural worlds we build for.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- Adventure cards here -->
-                 <div class="bg-white/5 border border-white/10 rounded-xl p-0 overflow-hidden backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2 group"><img src="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?q=80&w=2070" alt="Himalayan mountain landscape" class="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"><div class="p-6"><h4 class="text-xl font-semibold mb-2 text-cyan-400">🏔️ Himalayan Treks</h4><p class="text-gray-400">From the Annapurnas to the Langtang valley, trekking teaches resilience and perspective. It's engineering on a personal scale: managing energy, navigating complex terrain, and appreciating the power of a simple, efficient system.</p></div></div>
-                <div class="bg-white/5 border border-white/10 rounded-xl p-0 overflow-hidden backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2 group"><img src="https://images.unsplash.com/photo-1544439329-1c9293335bba?q=80&w=1974" alt="Ancient Nepalese temple architecture" class="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"><div class="p-6"><h4 class="text-xl font-semibold mb-2 text-cyan-400">🏛️ Cultural Immersion</h4><p class="text-gray-400">Exploring ancient cities like Bhaktapur and Patan is like studying a living schematic of history and belief. The intricate designs and enduring structures inspire a deep respect for heritage and craftsmanship.</p></div></div>
-                <div class="bg-white/5 border border-white/10 rounded-xl p-0 overflow-hidden backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2 group"><img src="https://images.unsplash.com/photo-1617464294404-377759178f21?q=80&w=2070" alt="Lush green valley with a river in Nepal" class="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"><div class="p-6"><h4 class="text-xl font-semibold mb-2 text-cyan-400">🌿 Natural Wonders</h4><p class="text-gray-400">From the serene flow of the Trishuli River to the wild ecosystems of Chitwan, I'm fascinated by nature's powerful systems. It's a constant reminder of the sustainable energy solutions we must strive to create.</p></div></div>
-            </div>
-        </section>
-    </main>
+    <!-- All your sections below are untouched -->
+    <section id="about" class="scroll-section px-4 py-16">
+        <h3 class="text-4xl font-bold text-center mb-6"><span class="text-cyan-400">About</span> Me</h3>
+        <p class="max-w-4xl mx-auto text-gray-300 text-lg leading-relaxed text-center">I'm passionate about energy and innovation. My focus is creating cleaner, smarter energy systems through design, automation, and AI. I mentor, lead, and share in the open-source world too.</p>
+    </section>
+
+    <section id="skills" class="scroll-section px-4 py-16">
+        <h3 class="text-4xl font-bold text-center mb-12">My <span class="text-cyan-400">Capabilities</span></h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2"><h4 class="text-xl font-semibold mb-2 text-cyan-400">🔌 Electrical Installation</h4><p class="text-gray-400">Experienced in installing and maintaining residential, commercial, and industrial electrical systems, ensuring safety and compliance.</p></div>
+            <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2"><h4 class="text-xl font-semibold mb-2 text-cyan-400">🏭 Industrial Electrician Work</h4><p class="text-gray-400">Hands-on experience with motors, relays, and control panels. Capable of reading and interpreting complex wiring diagrams.</p></div>
+            <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2"><h4 class="text-xl font-semibold mb-2 text-cyan-400">🧰 Service Engineering</h4><p class="text-gray-400">Proficient in diagnosing, troubleshooting, and repairing faults in electrical systems and machinery to ensure peak efficiency.</p></div>
+            <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2"><h4 class="text-xl font-semibold mb-2 text-cyan-400">🖊 AutoCAD & MATLAB</h4><p class="text-gray-400">Skilled in creating schematics with AutoCAD and using MATLAB for simulations, data analysis, and modeling of electrical systems.</p></div>
+            <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2"><h4 class="text-xl font-semibold mb-2 text-cyan-400">💻 Advanced Computer Knowledge</h4><p class="text-gray-400">Proficient in various software tools, including MS Office, email systems, and troubleshooting basic IT issues.</p></div>
+            <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2"><h4 class="text-xl font-semibold mb-2 text-cyan-400">🤝 Teamwork & Communication</h4><p class="text-gray-400">Strong interpersonal skills developed through fieldwork and collaboration with engineers, technicians, and clients.</p></div>
+        </div>
+    </section>
+
+    <section id="adventures" class="scroll-section px-4 py-16">
+        <h3 class="text-4xl font-bold text-center mb-6">Beyond the <span class="text-cyan-400">Circuits</span></h3>
+        <p class="max-w-4xl mx-auto text-gray-300 text-lg leading-relaxed text-center mb-12">While my professional world revolves around electrical systems, my heart belongs to the trails, temples, and towns of Nepal. Exploring my homeland's raw nature and rich culture doesn't just recharge my spirit—it inspires my work, reminding me of the human and natural worlds we build for.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="bg-white/5 border border-white/10 rounded-xl p-0 overflow-hidden backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2 group"><img src="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?q=80&w=2070" alt="Himalayan mountain landscape" class="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"><div class="p-6"><h4 class="text-xl font-semibold mb-2 text-cyan-400">🏔️ Himalayan Treks</h4><p class="text-gray-400">From the Annapurnas to the Langtang valley, trekking teaches resilience and perspective. It's engineering on a personal scale: managing energy, navigating complex terrain, and appreciating the power of a simple, efficient system.</p></div></div>
+            <div class="bg-white/5 border border-white/10 rounded-xl p-0 overflow-hidden backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2 group"><img src="https://images.unsplash.com/photo-1544439329-1c9293335bba?q=80&w=1974" alt="Ancient Nepalese temple architecture" class="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"><div class="p-6"><h4 class="text-xl font-semibold mb-2 text-cyan-400">🏛️ Cultural Immersion</h4><p class="text-gray-400">Exploring ancient cities like Bhaktapur and Patan is like studying a living schematic of history and belief. The intricate designs and enduring structures inspire a deep respect for heritage and craftsmanship.</p></div></div>
+            <div class="bg-white/5 border border-white/10 rounded-xl p-0 overflow-hidden backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2 group"><img src="https://images.unsplash.com/photo-1617464294404-377759178f21?q=80&w=2070" alt="Lush green valley with a river in Nepal" class="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"><div class="p-6"><h4 class="text-xl font-semibold mb-2 text-cyan-400">🌿 Natural Wonders</h4><p class="text-gray-400">From the serene flow of the Trishuli River to the wild ecosystems of Chitwan, I'm fascinated by nature's powerful systems. It's a constant reminder of the sustainable energy solutions we must strive to create.</p></div></div>
+        </div>
+    </section>
 
     <footer class="text-center py-8 text-gray-500 text-sm mt-16 border-t border-white/10">
         © 2025 Sujan Rimal | All rights reserved.
     </footer>
 
+    <!-- FIX: ADDED THIS SCRIPT FOR MOBILE MENU FUNCTIONALITY -->
     <script>
-        // Mouse Glow Effect
+        // Your original mouse glow script
         const glow = document.getElementById('mouse-glow');
         window.addEventListener('mousemove', (e) => {
+            // Check for touch devices that might not have pageX/Y
             if (e.pageX && e.pageY) {
                 glow.style.left = e.pageX + 'px';
                 glow.style.top = e.pageY + 'px';
             }
         });
 
-        // --- NEW: MOBILE NAVIGATION SCRIPT ---
+        // --- NEW SCRIPT FOR MOBILE NAVIGATION ---
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileMenuLinks = document.querySelectorAll('.mobile-link');
         const body = document.body;
 
         const toggleMenu = () => {
+            const isMenuOpen = !mobileMenu.classList.contains('hidden');
+            
+            // Toggle menu visibility and body scroll
             mobileMenu.classList.toggle('hidden');
-            body.classList.toggle('no-scroll');
-            // Change hamburger icon to an "X" when menu is open
-            if (!mobileMenu.classList.contains('hidden')) {
+            body.classList.toggle('no-scroll', !isMenuOpen);
+
+            // Change hamburger icon to an "X" or back
+            if (!isMenuOpen) {
                 hamburgerBtn.innerHTML = `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>`;
             } else {
                 hamburgerBtn.innerHTML = `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16" /></svg>`;
             }
         };
 
-        hamburgerBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            toggleMenu();
-        });
+        // Open/close menu on button click
+        hamburgerBtn.addEventListener('click', toggleMenu);
 
-        // Close menu when a link is clicked
+        // Close the menu when any of its links are clicked
         mobileMenuLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (!mobileMenu.classList.contains('hidden')) {
