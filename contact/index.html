@@ -1,163 +1,165 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- FIX: Replaced head with the one from your main page for consistent styling -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Sujan Rimal | Electrical Engineer</title>
+    <meta name="description" content="Get in touch with Sujan Rimal for collaborations or inquiries." />
+    <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Smart Grid, Renewable Energy, syko, syko dada, SYKO, Syko, Sujan , Rimal , सुजन , सुजन रिमाल , रिमाल, Contact, Email, Phone" />
 
-  <!-- SEO Meta Tags -->
-  <title>Contact - Sujan Rimal | Electrical Engineer</title>
-  <meta name="description" content=" Get in touch with Sujan Rimal for collaborations or inquiries." />
-  <meta name="keywords" content="Sujan Rimal, Sujan, Electrical Engineer, Smart Grid, Renewable Energy, syko, syko dada, SYKO, Syko, Sujan , Rimal , सुजन , सुजन रिमाल , रिमाल, Contact, Email, Phone" />
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Outfit Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet" />
-
-  <!-- Custom Styles -->
-  <style>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+    
+    <!-- Custom Styles -->
+    <style>
+    /* Styles from your main page for theme consistency */
     body {
-      font-family: 'Outfit', sans-serif;
-      scroll-behavior: smooth;
+        font-family: 'Outfit', sans-serif;
+        scroll-behavior: smooth;
+        background-color: #00000a;
+        overflow-x: hidden;
     }
-    .glow {
-      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
-    }
-    .transition-glow {
-      transition: text-shadow 0.3s ease;
-    }
-    .transition-glow:hover {
-      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    .animate-float {
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-in-up {
-      animation: fadeIn 1.2s ease forwards;
-    }
-    .scroll-section {
-      padding: 4rem 1rem;
-    }
-
-    /* Flip card styles */
-    .perspective {
-      perspective: 1000px;
-    }
-    .transform-style-preserve-3d {
-      transform-style: preserve-3d;
-      transition: transform 0.5s;
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-    .backface-hidden {
-      backface-visibility: hidden;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 0.75rem; /* rounded-xl */
-    }
-    #cardInner {
-      transform: rotateY(0deg);
-    }
-    #cardInner.flipped {
-      transform: rotateY(180deg);
-    }
-  </style>
-
-  <!-- PAGE SPECIFIC SCRIPTS (None in head for Contact page) -->
-
+    .aurora-background { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -20; filter: blur(100px); -webkit-filter: blur(100px); }
+    .aurora-blob { position: absolute; border-radius: 50%; mix-blend-mode: screen; }
+    .aurora-blob:nth-child(1) { width: 500px; height: 500px; background: rgba(0, 229, 255, 0.4); animation: moveBlob1 20s infinite alternate ease-in-out; }
+    .aurora-blob:nth-child(2) { width: 600px; height: 600px; background: rgba(0, 85, 255, 0.3); animation: moveBlob2 25s infinite alternate ease-in-out; }
+    .aurora-blob:nth-child(3) { width: 450px; height: 450px; background: rgba(192, 0, 255, 0.35); animation: moveBlob3 18s infinite alternate ease-in-out; }
+    @keyframes moveBlob1 { from { transform: translate(10vw, -10vh) rotate(-90deg); } to { transform: translate(70vw, 50vh) rotate(90deg); } }
+    @keyframes moveBlob2 { from { transform: translate(80vw, 10vh) rotate(45deg); } to { transform: translate(10vw, 80vh) rotate(-45deg); } }
+    @keyframes moveBlob3 { from { transform: translate(50vw, 80vh) rotate(0deg); } to { transform: translate(-10vw, -20vh) rotate(180deg); } }
+    #mouse-glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 60%); border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.1s ease-out; z-index: -10; }
+    
+    /* Styles specific to this Contact page (preserved) */
+    .perspective { perspective: 1000px; }
+    .transform-style-preserve-3d { transform-style: preserve-3d; transition: transform 0.6s; position: relative; width: 100%; height: 100%; }
+    .backface-hidden { backface-visibility: hidden; position: absolute; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; border-radius: 0.75rem; }
+    #cardInner { transform: rotateY(0deg); }
+    #cardInner.flipped { transform: rotateY(180deg); }
+    
+    /* Helper styles */
+    section { scroll-margin-top: 4rem; }
+    .no-scroll { overflow: hidden; }
+    </style>
 </head>
-<body>
-<body class="bg-gray-950 text-white">
+<body class="text-gray-200">
 
-  <!-- Background Animation -->
-  <div class="absolute inset-0 -z-10 bg-black bg-opacity-60">
+<!-- FIX: Added theme elements from your main page -->
+<div class="aurora-background">
+    <div class="aurora-blob"></div><div class="aurora-blob"></div><div class="aurora-blob"></div>
+</div>
+<div id="mouse-glow"></div>
+
+<!-- FIX: Integrated your background video with the new theme -->
+<div class="fixed inset-0 -z-30">
     <video autoplay muted loop class="w-full h-full object-cover opacity-20">
       <source src="https://assets.mixkit.co/videos/preview/mixkit-thunderstorm-with-lightning-strikes-1546-large.mp4" type="video/mp4" />
     </video>
-  </div>
+</div>
 
-<!-- Fixed Navbar -->
-<nav class="p-4 flex justify-between items-center border-b border-gray-800 backdrop-blur-md bg-opacity-10 sticky top-0 z-50">
-  <h1 class="text-2xl font-extrabold text-cyan-400 transition-glow cursor-pointer" onclick="location.href='/'">⚡ Sujan Rimal</h1>
-  <ul class="flex gap-6 text-sm">
-    <li><a href="/" class="hover:text-cyan-400 transition">Home</a></li>
-    <li><a href="/about/" class="hover:text-cyan-400 transition">About</a></li>
-    <li><a href="/about/#skills" class="hover:text-cyan-400 transition">Skills</a></li>
-    <li><a href="/project/" class="hover:text-cyan-400 transition">Projects</a></li>
-    <li><a href="/survey/" class="hover:text-cyan-400 transition">Survey</a></li>
-    <li><a href="/blog/" class="hover:text-cyan-400 transition">Blog</a></li>
-    <li><a href="/contact/" class="hover:text-cyan-400 transition">Contact</a></li>
-  </ul>
+<!-- FIX: Replaced Nav with the one from your main page, and updated links -->
+<nav class="p-4 flex justify-between items-center border-b border-white/10 bg-gray-950/50 backdrop-blur-lg sticky top-0 z-50 h-16">
+    <a href="/" class="text-2xl font-extrabold text-cyan-400 glow cursor-pointer">⚡ Sujan Rimal</a>
+    <div class="md:hidden">
+        <button id="hamburger-btn" class="text-white focus:outline-none z-50 relative">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
+    </div>
+    <ul class="hidden md:flex gap-6 text-sm">
+        <li><a href="/" class="hover:text-cyan-300 transition-colors duration-300">Home</a></li>
+        <li><a href="/about/" class="hover:text-cyan-300 transition-colors duration-300">About</a></li>
+        <li><a href="/#skills" class="hover:text-cyan-300 transition-colors duration-300">Skills</a></li>
+        <li><a href="/project/" class="hover:text-cyan-300 transition-colors duration-300">Projects</a></li>
+        <li><a href="/survey/" class="hover:text-cyan-300 transition-colors duration-300">Survey</a></li>
+        <li><a href="/blog/" class="hover:text-cyan-300 transition-colors duration-300">Blog</a></li>
+        <li><a href="/contact/" class="text-cyan-400 font-bold">Contact</a></li> <!-- Current page is highlighted -->
+    </ul>
 </nav>
 
+<!-- FIX: Added Mobile Menu from your main page, and updated links -->
+<div id="mobile-menu" class="hidden fixed inset-0 bg-black/90 backdrop-blur-md z-40 md:hidden">
+    <ul class="flex flex-col items-center justify-center h-full gap-8 text-xl">
+        <li><a href="/" class="mobile-link hover:text-cyan-300">Home</a></li>
+        <li><a href="/about/" class="mobile-link hover:text-cyan-300">About</a></li>
+        <li><a href="/#skills" class="mobile-link hover:text-cyan-300">Skills</a></li>
+        <li><a href="/project/" class="mobile-link hover:text-cyan-300">Projects</a></li>
+        <li><a href="/survey/" class="mobile-link hover:text-cyan-300">Survey</a></li>
+        <li><a href="/blog/" class="mobile-link hover:text-cyan-300">Blog</a></li>
+        <li><a href="/contact/" class="mobile-link text-cyan-400 font-bold">Contact</a></li>
+    </ul>
+</div>
 
-
-
-  <!-- PAGE SPECIFIC CONTENT SECTIONS GO HERE -->
-
-  <!-- Contact Section -->
-  <section id="contact" class="scroll-section text-center py-16">
-    <h3 class="text-4xl font-bold text-cyan-400 mb-6">Let's Connect</h3>
-    <p class="text-gray-400 mb-8">Interested in collaborating or learning more? Reach out anytime!</p>
-
-   
-
-    <!-- Google Form Embed -->
-    <div class="max-w-xl mx-auto mb-12"> <!-- Added mb-12 for spacing below embed -->
-      <h4 class="text-2xl font-semibold text-cyan-400 mb-4">Or fill out the form directly</h4>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfUGcJ2CjIvppK2bI-zIq1rzSsWt2hg2sMQdTOY_sUXrfisUg/viewform?embedded=true"
-        width="100%" height="821" frameborder="0" marginheight="0" marginwidth="0">
-        Loading…
-      </iframe>
-    </div>
-
-
-    <!-- Flip Card -->
-    <div class="w-72 mx-auto mt-8">
-      <div id="flipCard" class="relative w-full h-32 cursor-pointer perspective" onclick="flipContactCard()">
-        <div id="cardInner" class="absolute w-full h-full transform-style-preserve-3d">
-          <!-- Front (Email) -->
-          <div class="absolute w-full h-full bg-cyan-500 text-black rounded-xl flex items-center justify-center text-lg font-semibold backface-hidden">
-            📧 rimalsujan5@gmail.com
+<!-- YOUR ORIGINAL CONTENT IS PRESERVED BELOW -->
+<main class="px-4 py-16">
+    <section id="contact" class="text-center">
+        <h3 class="text-4xl font-bold text-cyan-400 mb-6">Let's Connect</h3>
+        <p class="text-gray-400 mb-8">Interested in collaborating or learning more? Reach out anytime!</p>
+    
+        <!-- Flip Card -->
+        <div class="w-80 mx-auto">
+          <div id="flipCard" class="relative w-full h-32 cursor-pointer perspective" onclick="flipContactCard()">
+            <div id="cardInner" class="absolute w-full h-full transform-style-preserve-3d">
+              <!-- Front (Email) -->
+              <div class="absolute w-full h-full bg-cyan-600 text-white rounded-xl flex flex-col items-center justify-center text-lg font-semibold backface-hidden">
+                <span class="text-2xl">📧</span>
+                <span>rimalsujan5@gmail.com</span>
+              </div>
+              <!-- Back (Phone) -->
+              <div class="absolute w-full h-full bg-slate-800 text-white rounded-xl flex flex-col items-center justify-center backface-hidden" style="transform: rotateY(180deg);">
+                <span class="text-2xl">📞</span>
+                <span>+977-9845645446</span>
+              </div>
+            </div>
           </div>
-          <!-- Back (Phone) -->
-          <div class="absolute w-full h-full bg-gray-800 text-white rounded-xl flex items-center justify-center backface-hidden" style="transform: rotateY(180deg);">
-            📞 +977-9845645446
+          <p class="text-sm text-gray-400 mt-2">Click the card to reveal phone number</p>
+        </div>
+
+        <!-- Google Form Embed -->
+        <div class="max-w-2xl mx-auto mt-16">
+          <h4 class="text-2xl font-semibold text-cyan-400 mb-4">Or fill out the form directly</h4>
+          <div class="rounded-lg overflow-hidden border border-white/10">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfUGcJ2CjIvppK2bI-zIq1rzSsWt2hg2sMQdTOY_sUXrfisUg/viewform?embedded=true"
+              width="100%" height="821" frameborder="0" marginheight="0" marginwidth="0">
+              Loading…
+            </iframe>
           </div>
         </div>
-      </div>
-      <p class="text-sm text-gray-400 mt-2">Click the card to reveal phone number</p>
-    </div>
-  </section>
+    </section>
+</main>
 
+<footer class="text-center py-8 text-gray-500 text-sm mt-16 border-t border-white/10">
+    © 2025 Sujan Rimal | All rights reserved.
+</footer>
 
-  <!-- Footer -->
-  <footer class="text-center py-6 text-gray-500 text-sm">© 2025 Sujan Rimal | All rights reserved.</footer>
+<!-- FIX: Combined all necessary scripts into one block -->
+<script>
+    // Mouse Glow script
+    const glow = document.getElementById('mouse-glow');
+    window.addEventListener('mousemove', (e) => { if (e.pageX && e.pageY) { glow.style.left = e.pageX + 'px'; glow.style.top = e.pageY + 'px'; } });
 
-  <!-- PAGE SPECIFIC JAVASCRIPT GOES HERE -->
-  <script>
+    // Mobile Menu script
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
+    hamburgerBtn.addEventListener('click', () => {
+        const isMenuOpen = mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden');
+        body.classList.toggle('no-scroll', isMenuOpen);
+        if (isMenuOpen) {
+            hamburgerBtn.innerHTML = `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>`;
+        } else {
+            hamburgerBtn.innerHTML = `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16" /></svg>`;
+        }
+    });
+
+    // Your original flip card script
     function flipContactCard() {
       document.getElementById("cardInner").classList.toggle("flipped");
     }
-
-    // Note: Your HTML form submission logic needs to be implemented separately (e.g., using a backend script, a service like Formspree, or linking to the Google Form).
-    // The current form tag doesn't have an 'action' attribute. Submitting it as is might just refresh the page.
-  </script>
+</script>
 
 </body>
 </html>
-
-</body>
