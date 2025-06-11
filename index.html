@@ -107,16 +107,19 @@
         </ul>
     </nav>
     
-    <section id="home" class="min-h-screen flex items-center justify-center px-4 -mt-16 overflow-hidden">
+    <!-- CHANGE: Removed 'overflow-hidden' class to prevent content from being cut off on mobile -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-4 -mt-16">
         <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div class="text-center md:text-left">
-                <h1 class="hero-title text-5xl md:text-6xl lg:text-7xl font-black mb-4 leading-tight">
+                <!-- CHANGE: Adjusted font sizes and line-height for better mobile readability -->
+                <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 leading-snug md:leading-tight">
                     <span style="animation-delay: 0.1s;">Hi,</span>
                     <span style="animation-delay: 0.2s;">I'm</span>
                     <span style="animation-delay: 0.3s;" class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 glow">Sujan</span>
                     <span style="animation-delay: 0.4s;" class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 glow">Rimal</span>
                 </h1>
-                <p class="text-xl text-gray-300 mb-8 opacity-0" style="animation: fadeInUp 0.8s ease-out forwards; animation-delay: 0.6s;">
+                <!-- CHANGE: Adjusted font size for better mobile balance -->
+                <p class="text-lg md:text-xl text-gray-300 mb-8 opacity-0" style="animation: fadeInUp 0.8s ease-out forwards; animation-delay: 0.6s;">
                     An Electrical Engineer crafting the future of smart grids, renewable energy, and intuitive web experiences.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start opacity-0" style="animation: fadeInUp 0.8s ease-out forwards; animation-delay: 0.8s;">
@@ -216,8 +219,11 @@
     <script>
         const glow = document.getElementById('mouse-glow');
         window.addEventListener('mousemove', (e) => {
-            glow.style.left = e.pageX + 'px';
-            glow.style.top = e.pageY + 'px';
+            // Check to avoid errors on touch-only devices
+            if (e.pageX && e.pageY) {
+                glow.style.left = e.pageX + 'px';
+                glow.style.top = e.pageY + 'px';
+            }
         });
     </script>
 </body>
