@@ -521,3 +521,89 @@ section {
         font-size: 27px;
     }
 }
+/*
+=================================================
+  STYLES FOR SINGLE BLOG POST PAGES
+=================================================
+*/
+
+/* General body styling for a consistent background */
+body {
+    background-color: #f4f4f9; /* A light grey background */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 
+  The main container for the post.
+  This is what creates the centered look with space on the left and right.
+*/
+.post-container {
+    max-width: 800px;     /* Sets a max width for readability */
+    margin: 40px auto;    /* Adds space on top/bottom and centers it left/right */
+    padding: 30px 40px;   /* Adds internal spacing (padding) */
+    background-color: #ffffff; /* White background for the content area */
+    border-radius: 8px;   /* Soft, rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* A subtle shadow for depth */
+}
+
+/* Styling for the main post heading */
+.post-container h1 {
+    font-size: 2.5em; /* 2.5 times the normal font size */
+    color: #111;
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+}
+
+/* Styling for section headings */
+.post-container h2 {
+    font-size: 1.8em;
+    color: #222;
+    margin-top: 1.5em; /* Space above the heading */
+    margin-bottom: 0.8em;
+    border-bottom: 2px solid #eee; /* A light underline for separation */
+    padding-bottom: 0.3em;
+}
+
+/* Styling for the date/author metadata */
+.post-meta {
+    color: #777;
+    font-size: 0.9em;
+    margin-bottom: 2em; /* Extra space after the meta info */
+}
+
+/* General paragraph styling */
+.post-container p {
+    margin-bottom: 1.2em; /* Space between paragraphs */
+}
+
+/* Styling for the "Back to blog" link */
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Styling for images within the post */
+.post-image {
+    max-width: 100%;      /* Ensures the image is never wider than its container */
+    height: auto;         /* Maintains the aspect ratio */
+    border-radius: 8px;   /* Rounded corners for the image */
+    margin-top: 1em;
+    margin-bottom: 2em;   /* Space around the image */
+}
+
+/* Styling for blockquotes to make them stand out */
+.post-container blockquote {
+    margin: 2em 0;
+    padding-left: 1.5em;
+    border-left: 4px solid #007bff; /* A blue line on the left */
+    color: #555;
+    font-style: italic;
+}
