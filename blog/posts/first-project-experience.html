@@ -3,67 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Project Experience - Your Name's Blog</title>
-    <!-- IMPORTANT: Link to your Tailwind CSS file. Adjust the path as needed. -->
-    <link href="../path/to/your/tailwind.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="../../style.css">
+    <title>My First Project Experience - Your Blog</title>
     
-    <!-- Assuming your site has a dark background like your blog cards -->
-    <style>
-      body {
-        background-color: #0f172a; /* A dark slate color to match the theme */
-        color: #e2e8f0; /* Light gray text for readability */
-      }
-    </style>
+    <!-- 
+      THIS IS THE MOST IMPORTANT LINE!
+      It links this page to your stylesheet.
+      Adjust the path `../style.css` or `../../style.css` to match your folder structure.
+    -->
+    <link rel="stylesheet" href="../../style.css">
+
 </head>
 <body>
 
-  <!-- Main container for the single post -->
-  <div class="max-w-4xl mx-auto px-6 py-12">
-    
-    <!-- Back Button -->
-    <a href="../index.html" class="text-cyan-400 hover:text-cyan-300 transition-colors mb-8 inline-block">
-      ← Back to All Posts
-    </a>
+  <!-- This container will center our content and give it space from the edges -->
+  <div class="post-container">
 
-    <!-- Article Header -->
-    <header class="mb-8">
-      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-3">⚡ My First Project Experience</h1>
-      <p class="text-gray-400 text-lg">Published on May 2025</p>
-    </header>
+    <!-- A "Back to Blog" link for easy navigation -->
+    <a href="../index.html" class="back-link">← Back to All Posts</a>
 
-    <!-- Main Article Content -->
-    <article class="prose prose-invert lg:prose-xl max-w-none prose-h2:text-cyan-300 prose-a:text-cyan-400">
+    <article class="blog-post-full">
       
-      <!-- You can add a main image for your post -->
-      <img src="../images/smart-energy-monitor.jpg" alt="A photo of the smart energy monitoring system" class="rounded-lg mb-8">
+      <!-- Article Header -->
+      <header>
+        <h1>⚡ My First Project Experience</h1>
+        <p class="post-meta">Published on May 2025</p>
+      </header>
+      
+      <!-- Main Image -->
+      <img class="post-image" src="../images/smart-energy-monitor.jpg" alt="A photo of the smart energy monitoring system">
 
-      <p>I worked on a smart energy monitoring system using an Arduino and various sensors. The experience was incredibly valuable and helped me understand the real-world applications of embedded systems. It bridged the gap between theoretical knowledge from my classes and practical, hands-on engineering.</p>
-
-      <p>This is where you can write multiple paragraphs, going into full detail about the project, the challenges you faced, and what you learned. The page can be as long as you want!</p>
+      <!-- The Main Content -->
+      <p>I worked on a smart energy monitoring system using an Arduino and various sensors. The experience was incredibly valuable and helped me understand the real-world applications of embedded systems. It bridged the gap between theoretical knowledge and practical, hands-on engineering.</p>
       
       <h2>The Goal of the Project</h2>
-      <p>The main objective was to create a non-invasive device that could attach to a home's main power line to collect and interpret power usage data. This data could then be used to identify which appliances consume the most energy, helping homeowners make smarter decisions to reduce their electricity bills.</p>
-
-      <h2>Components and Technology Used</h2>
-      <p>Here you can list the components:</p>
-      <ul>
-        <li>Arduino Uno R3</li>
-        <li>SCT-013-000 Non-invasive Current Sensor</li>
-        <li>ESP8266 Wi-Fi Module for data transmission</li>
-        <li>A custom-built PCB to house the components cleanly.</li>
-      </ul>
-
-      <!-- You can add more images throughout your article -->
-      <img src="../images/arduino-setup.jpg" alt="The Arduino and sensor setup" class="rounded-lg my-8">
+      <p>The main objective was to create a non-invasive device that could attach to a home's main power line to collect and interpret power usage data. This data could then be used to identify which appliances consume the most energy, helping homeowners make smarter decisions.</p>
 
       <h2>Challenges and Solutions</h2>
-      <p>One of the biggest challenges was calibrating the sensor to get accurate current readings. This involved a lot of trial and error and diving deep into the sensor's datasheet. We eventually wrote a calibration sketch that compared our sensor's output to a known value from a commercial multimeter, which solved the problem.</p>
+      <p>One of the biggest challenges was calibrating the sensor to get accurate current readings. This involved a lot of trial and error and diving deep into the sensor's datasheet.</p>
+      
+      <!-- A blockquote for highlighting text -->
+      <blockquote>
+        This was a key learning moment: theoretical knowledge is useless without the patience for practical calibration and testing.
+      </blockquote>
 
       <h2>Conclusion</h2>
-      <p>In conclusion, this project was a fantastic learning experience. It taught me not only about embedded systems and data acquisition but also about project management and problem-solving under pressure. I'm excited to apply these skills to my next project!</p>
-    
+      <p>In conclusion, this project was a fantastic learning experience. It taught me not only about embedded systems but also about project management and problem-solving under pressure.</p>
+
     </article>
 
   </div>
