@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>↔️ How Devices Talk: An Intro to SPI and I2C</title>
+    
+    <link rel="stylesheet" href="../../style.css">
+
+</head>
+<body>
+
+
+  <div class="post-container">
+
+    <a href="../index.html" class="back-link">← Back to All Posts</a>
+
+    <article class="blog-post-full">
+      
+      <header>
+        <h1>↔️ How Devices Talk: An Intro to SPI and I2C</h1>
+        <p class="post-meta">Published on November 2025</p>
+      </header>
+      
+      <!-- CHANGE THIS IMAGE PATH -->
+      <img class="post-image" src="../images/communication-protocols.jpg" alt="A diagram showing wires for SPI and I2C protocols.">
+
+      <p>So you have a microcontroller like an Arduino, and a cool sensor you want to use. How do you get them to talk to each other? You need a common language, or a <strong>communication protocol</strong>. Two of the most popular protocols for connecting chips on the same circuit board are SPI and I²C.</p>
+      
+      <h2>I²C (Inter-Integrated Circuit)</h2>
+      <p>Think of I²C as a party-line telephone. Multiple devices can be on the same two wires (one for data, one for a clock signal). Each device has a unique "address." The main controller (the "master") calls out an address, and only the device with that address listens and responds. It's great for connecting many different sensors because it uses very few pins on your microcontroller.</p>
+
+      <h2>SPI (Serial Peripheral Interface)</h2>
+      <p>Think of SPI as a direct, private phone line. It's much faster than I²C but uses more wires (typically four). Because it's a dedicated connection, it's perfect for things that require high-speed data transfer, like SD card readers, display screens, or high-resolution sensors. It's a bit more complex to wire, but the speed is a huge advantage.</p>
+      
+      <blockquote>
+        The rule of thumb: Use I²C for simplicity and connecting multiple devices. Use SPI when you need speed.
+      </blockquote>
+
+      <h2>Which One Should You Use?</h2>
+      <p>The decision is usually made for you by the component you buy! When you look at the datasheet for a sensor or display, it will tell you which protocol(s) it supports. As you build more complex projects, you'll find yourself using both, often on the same microcontroller, to get the best of both worlds.</p>
+
+    </article>
+
+  </div>
+
+</body>
+</html>
