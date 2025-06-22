@@ -1,4 +1,4 @@
-# Turn on the Rewrite Engine
+# This is the CORRECT code for hiding .html extensions
 RewriteEngine On
 
 # Condition: The requested URL is not a directory
