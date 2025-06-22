@@ -523,35 +523,35 @@ section {
 }
 /*
 =================================================
-  STYLES FOR SINGLE BLOG POST PAGES
+  THE PREVIOUS (LIGHT THEME) STYLES FOR SINGLE POSTS
 =================================================
 */
 
-/* General body styling for a consistent background */
+/* General body styling for a consistent light background */
 body {
     background-color: #f4f4f9; /* A light grey background */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: #333;
+    color: #333; /* Dark grey text for high contrast and readability */
     line-height: 1.6;
 }
 
 /* 
   The main container for the post.
-  This is what creates the centered look with space on the left and right.
+  This creates the centered white card with space on the left and right.
 */
 .post-container {
-    max-width: 800px;     /* Sets a max width for readability */
+    max-width: 800px;     /* Sets a max width for easy reading */
     margin: 40px auto;    /* Adds space on top/bottom and centers it left/right */
     padding: 30px 40px;   /* Adds internal spacing (padding) */
-    background-color: #ffffff; /* White background for the content area */
+    background-color: #ffffff; /* The white background for the content area */
     border-radius: 8px;   /* Soft, rounded corners */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* A subtle shadow for depth */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* A subtle shadow to lift it off the page */
 }
 
 /* Styling for the main post heading */
 .post-container h1 {
-    font-size: 2.5em; /* 2.5 times the normal font size */
-    color: #111;
+    font-size: 2.5em;
+    color: #111; /* Nearly black for the main title */
     margin-bottom: 0.5em;
     line-height: 1.2;
 }
@@ -568,9 +568,9 @@ body {
 
 /* Styling for the date/author metadata */
 .post-meta {
-    color: #777;
+    color: #777; /* Grey for less important text */
     font-size: 0.9em;
-    margin-bottom: 2em; /* Extra space after the meta info */
+    margin-bottom: 2em;
 }
 
 /* General paragraph styling */
@@ -582,7 +582,7 @@ body {
 .back-link {
     display: inline-block;
     margin-bottom: 20px;
-    color: #007bff;
+    color: #007bff; /* A standard, clear blue for links */
     text-decoration: none;
     font-weight: bold;
 }
@@ -592,18 +592,21 @@ body {
 
 /* Styling for images within the post */
 .post-image {
-    max-width: 100%;      /* Ensures the image is never wider than its container */
-    height: auto;         /* Maintains the aspect ratio */
-    border-radius: 8px;   /* Rounded corners for the image */
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
     margin-top: 1em;
-    margin-bottom: 2em;   /* Space around the image */
+    margin-bottom: 2em;
 }
 
 /* Styling for blockquotes to make them stand out */
 .post-container blockquote {
     margin: 2em 0;
     padding-left: 1.5em;
-    border-left: 4px solid #007bff; /* A blue line on the left */
+    border-left: 4px solid #007bff; /* A blue line on the left to match the links */
     color: #555;
     font-style: italic;
+    background-color: #f9f9f9; /* A slightly different background for the quote */
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
