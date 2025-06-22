@@ -15,7 +15,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 
-    <link rel="stylesheet" href="../style.css">
+   
     
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
@@ -40,6 +40,7 @@
     #mouse-glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 60%); border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.1s ease-out; z-index: -10; }
     
 
+     section { scroll-margin-top: 4rem; }
     .no-scroll { overflow: hidden; }
     </style>
 </head>
@@ -50,6 +51,12 @@
 </div>
 <div id="mouse-glow"></div>
 
+<div class="fixed inset-0 -z-30">
+    <video autoplay muted loop class="w-full h-full object-cover opacity-20">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-thunderstorm-with-lightning-strikes-1546-large.mp4" type="video/mp4" />
+    </video>
+</div>
+ 
 <nav class="p-4 flex justify-between items-center border-b border-white/10 bg-gray-950/50 backdrop-blur-lg sticky top-0 z-50 h-16">
     <a href="/" class="text-2xl font-extrabold text-cyan-400 glow cursor-pointer">⚡ Sujan Rimal</a>
     <div class="md:hidden">
