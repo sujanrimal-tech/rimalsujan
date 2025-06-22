@@ -1,7 +1,7 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- FIX: Replaced head with the one from your main page for consistent styling -->
+ 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog | Sujan Rimal</title>
@@ -11,18 +11,18 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
     <link rel="manifest" href="/icon/site.webmanifest">
-    <!-- Tailwind CSS -->
+
     <script src="https://cdn.tailwindcss.com"></script>
 
 
     <link rel="stylesheet" href="../style.css">
     
-    <!-- Google Fonts -->
+
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
     
-    <!-- Custom Styles -->
+
     <style>
-    /* Styles from your main page for theme consistency */
+
     body {
         font-family: 'Outfit', sans-serif;
         scroll-behavior: smooth;
@@ -39,19 +39,17 @@
     @keyframes moveBlob3 { from { transform: translate(50vw, 80vh) rotate(0deg); } to { transform: translate(-10vw, -20vh) rotate(180deg); } }
     #mouse-glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 60%); border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.1s ease-out; z-index: -10; }
     
-    /* Helper styles */
+
     .no-scroll { overflow: hidden; }
     </style>
 </head>
 <body class="text-gray-200">
 
-<!-- FIX: Added theme elements from your main page -->
 <div class="aurora-background">
     <div class="aurora-blob"></div><div class="aurora-blob"></div><div class="aurora-blob"></div>
 </div>
 <div id="mouse-glow"></div>
 
-<!-- FIX: Replaced Nav with the one from your main page, and updated links -->
 <nav class="p-4 flex justify-between items-center border-b border-white/10 bg-gray-950/50 backdrop-blur-lg sticky top-0 z-50 h-16">
     <a href="/" class="text-2xl font-extrabold text-cyan-400 glow cursor-pointer">⚡ Sujan Rimal</a>
     <div class="md:hidden">
@@ -70,7 +68,7 @@
     </ul>
 </nav>
 
-<!-- FIX: Added Mobile Menu from your main page, and updated links -->
+
 <div id="mobile-menu" class="hidden fixed inset-0 bg-black/90 backdrop-blur-md z-40 md:hidden">
     <ul class="flex flex-col items-center justify-center h-full gap-8 text-xl">
         <li><a href="/" class="mobile-link hover:text-cyan-300">Home</a></li>
@@ -83,7 +81,6 @@
     </ul>
 </div>
 
-<!-- YOUR ORIGINAL CONTENT IS PRESERVED BELOW -->
 <main class="max-w-5xl mx-auto px-6 py-16">
   <h2 class="text-5xl font-extrabold text-cyan-400 mb-10 text-center">My Blog</h2>
   <section class="space-y-10">
@@ -92,8 +89,7 @@
       <h3 class="text-2xl font-bold text-cyan-300 mb-2">⚡ My First Project Experience</h3>
       <p class="text-gray-400 mb-4 text-sm">May 2025</p>
       <p class="text-gray-300">I worked on a smart energy monitoring system using Arduino and sensors. The experience helped me understand real-world applications of embedded systems and how to collect and interpret power usage data.</p>
-      
-      <!-- ADD THIS LINK -->
+
       <a href="posts/first-project-experience" class="inline-block mt-4 bg-cyan-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors">
         Read Full Story →
       </a>
@@ -106,7 +102,7 @@
       <p class="text-gray-400 mb-4 text-sm">April 2025</p>
       <p class="text-gray-300">I’ve been learning about SCADA systems and their role in industrial automation. SCADA allows real-time monitoring and control of electrical networks. It’s fascinating how data acquisition and remote control work together.</p>
 
-      <!-- ADD THIS LINK -->
+ 
       <a href="posts/understanding-scada" class="inline-block mt-4 bg-cyan-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors">
         Read Full Story →
       </a>
@@ -119,7 +115,7 @@
       <p class="text-gray-400 mb-4 text-sm">March 2025</p>
       <p class="text-gray-300">Renewable energy is crucial for a sustainable future. I’m exploring solar power systems and how net metering and smart inverters are revolutionizing household energy independence.</p>
 
-      <!-- ADD THIS LINK -->
+
       <a href="posts/renewable-energy-role" class="inline-block mt-4 bg-cyan-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors">
         Read Full Story →
       </a>
@@ -133,7 +129,6 @@
     © 2025 Sujan Rimal | All rights reserved.
 </footer>
 
-<!-- FIX: Combined all necessary scripts into one block -->
 <script>
     // Mouse Glow script
     const glow = document.getElementById('mouse-glow');
