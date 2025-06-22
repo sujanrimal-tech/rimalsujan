@@ -1,0 +1,11 @@
+# Turn on the Rewrite Engine
+RewriteEngine On
+
+# Condition: The requested URL is not a directory
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Condition: A file with .html added to the request exists
+RewriteCond %{REQUEST_FILENAME}\.html -f
+
+# Rule: Internally rewrite the URL to the .html file AND set the correct content type
+RewriteRule ^(.*)$ $1.html [T=text/html,L]
