@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔌 Understanding SCADA and Automation</title>
+    
+    <!-- This path assumes your post is in a folder like /blog/posts/ -->
+    <link rel="stylesheet" href="../../style.css">
+
+</head>
+<body>
+
+
+  <div class="post-container">
+
+    <!-- This link goes back to the main blog page -->
+    <a href="../index.html" class="back-link">← Back to All Posts</a>
+
+    <article class="blog-post-full">
+      
+      <!-- Article Header -->
+      <header>
+        <h1>🔌 Understanding SCADA and Automation</h1>
+        <p class="post-meta">Published on April 2025</p>
+      </header>
+      
+      <!-- Main Image - I've used a placeholder path. Change it to your actual image. -->
+      <img class="post-image" src="../images/scada-control-room.jpg" alt="A SCADA control room showing industrial automation displays">
+
+      <!-- The Main Content -->
+      <p>Have you ever flipped a light switch and wondered about the vast, invisible network that makes it possible? We often take for granted that when we need power, it’s just there. Recently, I’ve been learning about the incredible technology that works behind the scenes, and I wanted to share what I’ve found. It's called SCADA, and it's the heart of modern industrial automation.</p>
+      
+      <h2>What Exactly is SCADA?</h2>
+      <p>SCADA stands for <strong>Supervisory Control and Data Acquisition</strong>. It’s a mouthful, but the concept is straightforward. It allows for the real-time monitoring and control of massive systems, like an entire city's electrical network.</p>
+
+      <p>It's made of two key parts:</p>
+      <ul>
+        <li><strong>Data Acquisition (The Senses):</strong> All across the network, sensors measure everything from voltage and current to pressure and temperature. They are like nerve endings, constantly collecting information and sending it to a central brain.</li>
+        <li><strong>Supervisory Control (The Brain):</strong> In a control room, an operator sees a live map of the entire network. They can spot problems instantly and, more importantly, take action with just a few clicks, like rerouting power or shutting down a faulty valve.</li>
+      </ul>
+
+      <blockquote>
+        Think of SCADA as the central nervous system for an industrial plant or a power grid.
+      </blockquote>
+
+      <h2>How It Works in the Real World</h2>
+      <p>This is the part that I find most incredible—the constant, seamless loop between monitoring and control. Imagine a storm hits and a tree falls on a power line.</p>
+      <p>A sensor on that line immediately detects the fault and sends an alert. On the SCADA display, an alarm flashes and the line turns red. The operator knows the exact location without needing a single phone call. They can then remotely activate switches to isolate the broken section, keeping power on for everyone else while a repair crew is dispatched to the precise location.</p>
+      
+      <h2>From Control to Full Automation</h2>
+      <p>SCADA is the foundation for full automation. While an operator can make decisions, modern systems can be programmed to react automatically. For example, a system can be set up with a rule: "If the pressure in this water tank gets too high, automatically turn off the pump."</p>
+      <p>This principle isn't just for power grids. It’s used everywhere: in water treatment plants, traffic light systems, and manufacturing lines. It’s the invisible system that keeps our modern world running smoothly.</p>
+
+    </article>
+
+  </div>
+
+</body>
+</html>
